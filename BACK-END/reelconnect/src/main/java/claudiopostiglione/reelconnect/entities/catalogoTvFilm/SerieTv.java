@@ -26,15 +26,18 @@ public class SerieTv extends CatalogoTvFilm{
     private int numStagioni;
     @Column(name = "numEpisodi")
     private int numEpisodi;
+    @Column(name = "durataMediaEpisodio")
+    private int durataMediaEpisodio;
 
     @OneToMany(mappedBy = "serieTv")
     private List<RiconoscimentoSerieTv> listaRiconoscimenti = new ArrayList<>();
 
     //Costruttori
-    public SerieTv(String titolo, String descrizione, LocalDate annoDiUscita, int durata, GenereFilmSerieTv genere, int numStagioni, int numEpisodi, List<RiconoscimentoSerieTv> listaRiconoscimenti) {
-        super(titolo, descrizione, annoDiUscita, durata, genere);
+    public SerieTv(String titolo, String descrizione, LocalDate annoDiUscita, int durataMediaEpisodio, GenereFilmSerieTv genere, int numStagioni, int numEpisodi, List<RiconoscimentoSerieTv> listaRiconoscimenti) {
+        super(titolo, descrizione, annoDiUscita, genere);
         this.numStagioni = numStagioni;
         this.numEpisodi = numEpisodi;
+        this.durataMediaEpisodio = durataMediaEpisodio;
         this.listaRiconoscimenti = listaRiconoscimenti;
     }
 }

@@ -28,18 +28,15 @@ public abstract class CatalogoTvFilm {
     protected String descrizione;
     @Column(name = "anno_di_uscita")
     protected LocalDate annoDiUscita;
-    @Column(name = "durata")
-    protected int durata;
     @Column(name = "genere")
     protected GenereFilmSerieTv genere;
 
 
     //Costurttori
-    public CatalogoTvFilm(String titolo, String descrizione, LocalDate annoDiUscita, int durata, GenereFilmSerieTv genere) {
+    public CatalogoTvFilm(String titolo, String descrizione, LocalDate annoDiUscita, GenereFilmSerieTv genere) {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.annoDiUscita = annoDiUscita;
-        this.durata = durata;
         this.genere = genere;
     }
 
@@ -51,7 +48,6 @@ public abstract class CatalogoTvFilm {
                 " Titolo: " + titolo + "\n" +
                 " Descrizione: " + descrizione + "\n" +
                 " Anno di uscita: " + annoDiUscita + "\n" +
-                " Durata film: " + durata + "\n" +
                 " Genere: " + genere + "\n" +
                 " --|";
     }
