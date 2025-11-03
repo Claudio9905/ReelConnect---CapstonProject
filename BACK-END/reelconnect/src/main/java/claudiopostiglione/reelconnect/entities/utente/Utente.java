@@ -1,6 +1,7 @@
 package claudiopostiglione.reelconnect.entities.utente;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +26,7 @@ public class Utente implements UserDetails {
     //Attributi
     @Id
     @GeneratedValue
+    @Setter(AccessLevel.NONE)
     private UUID id;
     @Column(name = "nome")
     private String nome;
@@ -65,6 +67,7 @@ public class Utente implements UserDetails {
                 " ID: " + id + "\n" +
                 " Nome: " + nome + "\n" +
                 " Cognome: " + cognome + "\n" +
+                " Username: " + username + "\n" +
                 " Età: " + eta + "\n" +
                 " Sesso: " + sesso + "\n" +
                 " Password: " + password + "\n" +
