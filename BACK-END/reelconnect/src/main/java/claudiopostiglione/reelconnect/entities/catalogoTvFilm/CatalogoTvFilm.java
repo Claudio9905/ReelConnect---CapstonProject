@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -31,13 +33,24 @@ public abstract class CatalogoTvFilm {
     @Column(name = "genere")
     protected GenereFilmSerieTv genere;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "partecipazione",
+            joinColumns = @JoinColumn(name = "catalogo"),
+            inverseJoinColumns = @JoinColumn(name = "attore"))
+    private List<Attore> cast = new ArrayList<>();
 
-    //Costurttori
-    public CatalogoTvFilm(String titolo, String descrizione, LocalDate annoDiUscita, GenereFilmSerieTv genere) {
+    @ManyToOne
+    @JoinColumn(name = "regista")
+    private Regista regista;
+
+    //Costruttori
+    public CatalogoTvFilm(String titolo, String descrizione, LocalDate annoDiUscita, GenereFilmSerieTv genere, List<Attore> cast, Regista regista) {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.annoDiUscita = annoDiUscita;
         this.genere = genere;
+        this.cast = cast;
+        this.regista = regista;
     }
 
     //Metodi

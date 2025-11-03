@@ -33,8 +33,8 @@ public class SerieTv extends CatalogoTvFilm{
     private List<RiconoscimentoSerieTv> listaRiconoscimenti = new ArrayList<>();
 
     //Costruttori
-    public SerieTv(String titolo, String descrizione, LocalDate annoDiUscita, int durataMediaEpisodio, GenereFilmSerieTv genere, int numStagioni, int numEpisodi, List<RiconoscimentoSerieTv> listaRiconoscimenti) {
-        super(titolo, descrizione, annoDiUscita, genere);
+    public SerieTv(String titolo, String descrizione, LocalDate annoDiUscita, int durataMediaEpisodio, GenereFilmSerieTv genere, int numStagioni, int numEpisodi, List<RiconoscimentoSerieTv> listaRiconoscimenti, List<Attore> cast, Regista regista) {
+        super(titolo, descrizione, annoDiUscita, genere, cast, regista);
         this.numStagioni = numStagioni;
         this.numEpisodi = numEpisodi;
         this.durataMediaEpisodio = durataMediaEpisodio;
