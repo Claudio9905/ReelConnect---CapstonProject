@@ -21,17 +21,17 @@ public abstract class CatalogoTvFilm {
     @Id
     @GeneratedValue
     @Setter(AccessLevel.NONE)
-    private UUID id;
+    protected UUID id;
     @Column(name = "titolo")
-    private String titolo;
+    protected String titolo;
     @Column(name = "descrizione")
-    private String descrizione;
+    protected String descrizione;
     @Column(name = "anno_di_uscita")
-    private LocalDate annoDiUscita;
+    protected LocalDate annoDiUscita;
     @Column(name = "durata")
-    private int durata;
+    protected int durata;
     @Column(name = "genere")
-    private GenereFilmSerieTv genere;
+    protected GenereFilmSerieTv genere;
 
 
     //Costurttori
