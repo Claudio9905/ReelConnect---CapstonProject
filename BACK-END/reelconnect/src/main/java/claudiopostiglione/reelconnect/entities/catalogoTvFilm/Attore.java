@@ -29,13 +29,14 @@ public class Attore {
     private int eta;
     @Column(name = "dataDiNascita")
     private LocalDate dataDiNascita;
+    @Column(name = "immagineProfiloUrl")
+    private String immagineProfilo;
 
-    @OneToMany(mappedBy = "attore")
+    @OneToMany(mappedBy = "attore", cascade = CascadeType.ALL)
     @Column(name = "riconoscimenti")
     private List<RiconoscimentoAttore> listaRiconoscimenti = new ArrayList<>();
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "attore")
+    @OneToMany(mappedBy = "attore", cascade = CascadeType.ALL)
     private List<CatalogoTvFilm> carriera;
 
     //Costruttori

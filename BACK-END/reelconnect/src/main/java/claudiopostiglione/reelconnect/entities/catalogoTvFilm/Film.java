@@ -22,11 +22,11 @@ public class Film extends CatalogoTvFilm{
     @Column(name = "durataFilm")
     private int durataFilm;
 
-    @OneToMany(mappedBy = "film")
+    @OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
     private List<RiconoscimentoFilm> listaRiconoscimenti = new ArrayList<>();
 
     //Costruttori
-    public Film(String titolo, String descrizione, LocalDate annoDiUscita, int durataFilm, GenereFilmSerieTv genere, List<RiconoscimentoFilm> listaRiconoscimenti, List<Attore> cast, Regista regista) {
+    public Film(String titolo, String descrizione, LocalDate annoDiUscita, int durataFilm, List<GenereFilmSerieTv> genere, List<RiconoscimentoFilm> listaRiconoscimenti, List<Attore> cast, Regista regista) {
         super(titolo, descrizione, annoDiUscita, genere, cast, regista);
         this.durataFilm = durataFilm;
         this.listaRiconoscimenti = listaRiconoscimenti;

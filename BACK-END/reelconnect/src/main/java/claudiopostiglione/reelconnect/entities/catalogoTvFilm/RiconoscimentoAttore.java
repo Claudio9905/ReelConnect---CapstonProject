@@ -24,10 +24,10 @@ public class RiconoscimentoAttore {
     @Column(name = "nome")
     private String nome;
     @Column(name = "anno")
-    private LocalDate anno;
+    private int anno;
     @Column(name = "tipoRiconoscimento")
     @Enumerated(EnumType.STRING)
-    private RiconoscimentoAttore tipoRiconoscimento;
+    private TipoRiconoscimentoAttore tipoRiconoscimento;
 
     @JsonIgnore
     @ManyToOne
@@ -35,7 +35,7 @@ public class RiconoscimentoAttore {
     private Attore attore;
 
     //Construttori
-    public RiconoscimentoAttore(String nome, LocalDate anno, RiconoscimentoAttore tipoRiconoscimento, Attore attore) {
+    public RiconoscimentoAttore(String nome, int anno, TipoRiconoscimentoAttore tipoRiconoscimento, Attore attore) {
         this.nome = nome;
         this.anno = anno;
         this.tipoRiconoscimento = tipoRiconoscimento;
