@@ -37,19 +37,19 @@ public abstract class CatalogoTvFilm {
     @JoinTable(name = "partecipazione",
             joinColumns = @JoinColumn(name = "catalogo"),
             inverseJoinColumns = @JoinColumn(name = "attore"))
-    private List<Attore> cast = new ArrayList<>();
+    private List<Attore> attore = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "regista")
     private Regista regista;
 
     //Costruttori
-    public CatalogoTvFilm(String titolo, String descrizione, LocalDate annoDiUscita, List<GenereFilmSerieTv> genere, List<Attore> cast, Regista regista) {
+    public CatalogoTvFilm(String titolo, String descrizione, LocalDate annoDiUscita, List<GenereFilmSerieTv> genere, List<Attore> attore, Regista regista) {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.annoDiUscita = annoDiUscita;
         this.genere = genere;
-        this.cast = cast;
+        this.attore = attore;
         this.regista = regista;
     }
 
