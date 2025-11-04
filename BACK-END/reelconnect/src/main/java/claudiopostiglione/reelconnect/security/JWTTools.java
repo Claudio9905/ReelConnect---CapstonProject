@@ -1,6 +1,6 @@
 package claudiopostiglione.reelconnect.security;
 
-import claudiopostiglione.reelconnect.entities.Utente;
+import claudiopostiglione.reelconnect.entities.utente.Utente;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
