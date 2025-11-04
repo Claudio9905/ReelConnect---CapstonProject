@@ -31,7 +31,7 @@ public abstract class CatalogoTvFilm {
     @Column(name = "anno_di_uscita")
     protected LocalDate annoDiUscita;
     @Column(name = "genere")
-    protected GenereFilmSerieTv genere;
+    protected List<GenereFilmSerieTv> genere;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "partecipazione",
@@ -44,7 +44,7 @@ public abstract class CatalogoTvFilm {
     private Regista regista;
 
     //Costruttori
-    public CatalogoTvFilm(String titolo, String descrizione, LocalDate annoDiUscita, GenereFilmSerieTv genere, List<Attore> cast, Regista regista) {
+    public CatalogoTvFilm(String titolo, String descrizione, LocalDate annoDiUscita, List<GenereFilmSerieTv> genere, List<Attore> cast, Regista regista) {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.annoDiUscita = annoDiUscita;
