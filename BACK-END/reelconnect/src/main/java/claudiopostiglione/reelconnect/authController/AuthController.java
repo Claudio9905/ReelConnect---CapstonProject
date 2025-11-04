@@ -1,9 +1,14 @@
 package claudiopostiglione.reelconnect.authController;
 
-import claudiopostiglione.reelconnect.entities.Utente;
+
+import claudiopostiglione.reelconnect.entities.utente.Utente;
 import claudiopostiglione.reelconnect.payload.LoginDTO;
 import claudiopostiglione.reelconnect.payload.LoginResponseDTO;
+import claudiopostiglione.reelconnect.payload.UtenteDTO;
+import jakarta.validation.ValidationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,5 +26,9 @@ public class AuthController {
 //    2. Endpoint per la registrazione
     @PostMapping("/registerProfile")
     @ResponseStatus(HttpStatus.CREATED)
-    public Utente register(@RequestBody )
+    public Utente register(@RequestBody @Validated UtenteDTO body, BindingResult validationResult){
+        if(validationResult.hasErrors()){
+            throw new ValidationException()
+        }
+    }
 }
