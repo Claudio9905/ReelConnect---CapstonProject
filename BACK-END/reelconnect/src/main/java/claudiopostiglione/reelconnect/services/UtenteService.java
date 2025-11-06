@@ -53,6 +53,7 @@ public class UtenteService {
     // 2. Ricerca di tutti gli utenti
     public Page<Utente> getAllUtenteWithPagination(int numPage, int pageSize, String sortBY) {
         if (pageSize > 30) pageSize = 30;
+        sortBY = "nome";
         Pageable pageable = PageRequest.of(numPage, pageSize, Sort.by(sortBY).ascending());
         return this.utenteRepository.findAll(pageable);
     }
