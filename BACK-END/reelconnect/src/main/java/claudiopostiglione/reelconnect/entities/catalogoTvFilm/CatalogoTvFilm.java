@@ -56,7 +56,7 @@ public abstract class CatalogoTvFilm {
     //Metodi
     @Override
     public String toString() {
-        return "|-- Catalogo Tv/Film " + "\n" +
+        return "|-- Catalogo Tv/FilmRepository " + "\n" +
                 " ID: " + id + "\n" +
                 " Titolo: " + titolo + "\n" +
                 " Descrizione: " + descrizione + "\n" +
