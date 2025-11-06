@@ -32,6 +32,8 @@ public abstract class CatalogoTvFilm {
     protected LocalDate annoDiUscita;
     @Column(name = "genere")
     protected List<GenereFilmSerieTv> genere;
+    @Column(name = "cover_film/serieTv_url")
+    protected String coverUrl;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "partecipazione",
@@ -44,13 +46,14 @@ public abstract class CatalogoTvFilm {
     private Regista regista;
 
     //Costruttori
-    public CatalogoTvFilm(String titolo, String descrizione, LocalDate annoDiUscita, List<GenereFilmSerieTv> genere, List<Attore> attore, Regista regista) {
+    public CatalogoTvFilm(String titolo, String descrizione, LocalDate annoDiUscita, List<GenereFilmSerieTv> genere, List<Attore> attore, Regista regista, String coverUrl) {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.annoDiUscita = annoDiUscita;
         this.genere = genere;
         this.attore = attore;
         this.regista = regista;
+        this.coverUrl = coverUrl;
     }
 
     //Metodi

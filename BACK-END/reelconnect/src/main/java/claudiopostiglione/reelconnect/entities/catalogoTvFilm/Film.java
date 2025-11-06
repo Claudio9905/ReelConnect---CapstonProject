@@ -26,8 +26,8 @@ public class Film extends CatalogoTvFilm{
     private List<RiconoscimentoFilm> listaRiconoscimenti = new ArrayList<>();
 
     //Costruttori
-    public Film(String titolo, String descrizione, LocalDate annoDiUscita, int durataFilm, List<GenereFilmSerieTv> genere, List<RiconoscimentoFilm> listaRiconoscimenti, List<Attore> attore, Regista regista) {
-        super(titolo, descrizione, annoDiUscita, genere, attore, regista);
+    public Film(String titolo, String descrizione, LocalDate annoDiUscita, int durataFilm, List<GenereFilmSerieTv> genere, List<RiconoscimentoFilm> listaRiconoscimenti, List<Attore> attore, Regista regista, String coverUrl) {
+        super(titolo, descrizione, annoDiUscita, genere, attore, regista, coverUrl);
         this.durataFilm = durataFilm;
         this.listaRiconoscimenti = listaRiconoscimenti;
     }

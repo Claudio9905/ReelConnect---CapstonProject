@@ -39,6 +39,6 @@ public class AuthController {
         if(validationResult.hasErrors()){
             throw new ValidationException(validationResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
         }
-        return this.utenteService.createUtente(body);
+        return this.utenteService.saveUtente(body);
     }
 }

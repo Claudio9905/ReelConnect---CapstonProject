@@ -23,6 +23,8 @@ public record FilmDTO(
         @NotNull(message = "Il cast non può essere nullo")
         List<AttoreDTO> listaAttori,
         @NotNull(message = "Il regista non può essere nullo")
-        RegistaDTO regista
+        RegistaDTO regista,
+        @NotBlank(message = "L'URL dell'immagine di copertina è obbligatoria")
+        String coverUrl
 ) {
 }
