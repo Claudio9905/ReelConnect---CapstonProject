@@ -6,6 +6,8 @@ import claudiopostiglione.reelconnect.exceptions.IdUserNotFoundException;
 import claudiopostiglione.reelconnect.exceptions.UserNotFoundException;
 import claudiopostiglione.reelconnect.payload.UtenteDTO;
 import claudiopostiglione.reelconnect.repositories.UtenteRepository;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,7 +16,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Service
@@ -25,7 +30,11 @@ public class UtenteService {
     private UtenteRepository utenteRepository;
     @Autowired
     private PasswordEncoder bCrypt;
+    @Autowired
+    private Cloudinary imageUploader;
 
+    private static final long MAX_SIZE = 5 * 1024 * 1024; //5MB
+    private static final List<String> ALLOWED_FORMAT = List.of("image/jpeg", "image/png");
     // Verrà inserita la logica di business dove gestirà le operazioni CRUD con il DB e i metodi che verranno chiamati nel controller
 
     // 1. Salvataggio dell'Utente
@@ -100,6 +109,29 @@ public class UtenteService {
         Utente utenteFound = this.getUtenteById(idUtente);
         this.utenteRepository.delete(utenteFound);
     }
+
+    // 6. Upload dell'immagine profilo e per il banner
+    public Utente uploadImageProfile(MultipartFile file, UUID idUtente) {
+        if (file.getSize() > MAX_SIZE) throw new BadRequestException("Attenzione, il file super i 5MB di dimensione");
+        if (!ALLOWED_FORMAT.contains(file.getContentType()))
+            throw new BadRequestException("Attenzione, il formato deve essere: |.jpeg| - |.png|");
+
+        Utente utenteFound = this.getUtenteById(idUtente);
+
+        try {
+            //Catturo l'URL dell'immagine datomi da Cloudinary
+            Map result = imageUploader.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
+            String imageUrl = (String) result.get("url");
+
+            //Salvataggio dell'immagine catturata
+            utenteFound.setAvatarUrl(imageUrl);
+            this.utenteRepository.save(utenteFound);
+            return utenteFound;
+        } catch (Exception ex) {
+            throw new BadRequestException("Errore nel caricamento del file");
+        }
+    }
+
 
     public Utente getUtenteByEmailOrUsername(String email, String username) {
         return this.utenteRepository.findByEmailOrUsername(email, username).orElseThrow(() -> new UserNotFoundException("L'utente non è stato trovato"));
