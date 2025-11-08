@@ -6,6 +6,7 @@ import claudiopostiglione.reelconnect.entities.utente.Utente;
 import claudiopostiglione.reelconnect.exceptions.ValidationException;
 import claudiopostiglione.reelconnect.payload.LoginDTO;
 import claudiopostiglione.reelconnect.payload.LoginResponseDTO;
+import claudiopostiglione.reelconnect.payload.PasswordDTO;
 import claudiopostiglione.reelconnect.payload.UtenteDTO;
 import claudiopostiglione.reelconnect.services.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,21 +27,28 @@ public class AuthController {
 
 //    Ci saranno due endpoint, uno per il login, l'altro per la registrazione
 
-//    1. Endpoint per login
+    //    1. Endpoint per login
     @PostMapping("/loginProfile")
-    public LoginResponseDTO login(@RequestBody LoginDTO body){
+    public LoginResponseDTO login(@RequestBody LoginDTO body) {
         return new LoginResponseDTO(this.authService.checkAndCreateToken(body));
     }
 
-//    2. Endpoint per la registrazione
+    //    2. Endpoint per la registrazione
     @PostMapping("/registerProfile")
     @ResponseStatus(HttpStatus.CREATED)
-    public Utente register(@RequestBody @Validated UtenteDTO body, BindingResult validationResult){
-        if(validationResult.hasErrors()){
+    public Utente register(@RequestBody @Validated UtenteDTO body, BindingResult validationResult) {
+        if (validationResult.hasErrors()) {
             throw new ValidationException(validationResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
         }
         return this.utenteService.saveUtente(body);
     }
 
     // 3. Endpoint per il cambio password
+    @PostMapping("/changePassword")
+    public String changeMyPassword(@RequestBody @Validated PasswordDTO body, String emailUtente, BindingResult validationResult) {
+        if (validationResult.hasErrors()) {
+            throw new ValidationException(validationResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
+        }
+        return this.authService.changePassword(body,emailUtente);
+    }
 }

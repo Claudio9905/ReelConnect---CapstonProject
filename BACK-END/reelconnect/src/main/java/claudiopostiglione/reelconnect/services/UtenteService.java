@@ -134,11 +134,15 @@ public class UtenteService {
     }
 
 
-    public Utente getUtenteByEmailOrUsername(String email, String username) {
-        return this.utenteRepository.findByEmailOrUsername(email, username).orElseThrow(() -> new UserNotFoundException("L'utente non è stato trovato"));
+    public Utente getUtenteByEmailOrUsername(String emailUsername) {
+        return this.utenteRepository.findByEmailOrUsername(emailUsername).orElseThrow(() -> new UserNotFoundException("L'utente non è stato trovato"));
     }
 
     public Utente getUtenteByUsername(String username) {
         return this.utenteRepository.findByUsername(username).orElseThrow(() -> new UserNotFoundException("L'utente con username " + username + " non è stato trovato"));
+    }
+
+    public Utente getUtenteByEmail(String email) {
+        return this.utenteRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException("L'utente con e-mail " + email + " non è stato trovato"));
     }
 }
