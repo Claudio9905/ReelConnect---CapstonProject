@@ -41,4 +41,6 @@ public class AuthController {
         }
         return this.utenteService.saveUtente(body);
     }
+
+    // 3. Endpoint per il cambio password
 }

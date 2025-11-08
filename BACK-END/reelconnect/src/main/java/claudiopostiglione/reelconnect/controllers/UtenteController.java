@@ -12,6 +12,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
@@ -45,6 +46,22 @@ public class UtenteController {
         this.utenteService.getUtenteByIdAndDelete(currentUtente.getId());
     }
 
+    //PATCH per modificare la propria immagine profilo
+    @PatchMapping("/me/avatarUrl")
+    public Utente uploadAvatarProfile(@AuthenticationPrincipal Utente currentUtente, @RequestParam("avatarUrl") MultipartFile file) {
+        System.out.println("| Nome del file: " + file.getName());
+        System.out.println("| Dimensione del file: " + file.getSize());
+        return this.utenteService.uploadImageProfile(file, currentUtente.getId());
+    }
+
+    //PATCH per modificare la propria immagine di copertina
+    @PatchMapping("/me/bannerUrl")
+    public Utente uploadBannerProfile(@AuthenticationPrincipal Utente currentUtente, @RequestParam("bannerUrl") MultipartFile file) {
+        System.out.println("| Nome del file: " + file.getName());
+        System.out.println("| Dimensione del file: " + file.getSize());
+        return this.utenteService.uploadImageProfile(file, currentUtente.getId());
+    }
+
     //Qui verranno posizionati gli endpoint per la parte degli utenti
 
     // 1. GET per tutti gli utenti
@@ -55,24 +72,20 @@ public class UtenteController {
         return this.utenteService.getAllUtenteWithPagination(page, size, sortBy);
     }
 
-    // 2. POST per la creazione di un utente
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize(("hasAuthority('ADMIN')"))
-    public Utente createUtente(@RequestBody @Validated UtenteDTO body, BindingResult validationResult) {
-        if (validationResult.hasErrors()) {
-            throw new ValidationException(validationResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
-        }
-
-        return this.utenteService.saveUtente(body);
-    }
-
-    // 3. GET del singolo utente
+    // 2. GET del singolo utente tramite ID
     @GetMapping("/{idUtente}")
     @ResponseStatus(HttpStatus.FOUND)
-    @PreAuthorize(("hasAnyAuthority('ADMIN', 'USER')"))
+    @PreAuthorize(("hasAuthority('ADMIN')"))
     public Utente findUtenteById(@PathVariable UUID idUtente) {
         return this.utenteService.getUtenteById(idUtente);
+    }
+
+    // 3. GET del singolo utente tramite username
+    @GetMapping("/{username}")
+    @ResponseStatus(HttpStatus.FOUND)
+    @PreAuthorize(("hasAnyAuthority('ADMIN', 'USER')"))
+    public Utente findUtenteByUsername(@PathVariable String username) {
+        return this.utenteService.getUtenteByUsername(username);
     }
 
     // 4. PUT per la modifica dell'utente

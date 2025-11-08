@@ -49,8 +49,9 @@ public class UtenteService {
         });
 
         Utente newUtente = new Utente(bodyUtente.nome(), bodyUtente.cognome(), bodyUtente.username(), bodyUtente.eta(), bodyUtente.dataDiNascita(), bodyUtente.sesso(), bodyUtente.email(), bCrypt.encode(bodyUtente.password()));
-        newUtente.setAvatarUrl("https://ui-avatars.com/api/?name=" + bodyUtente.nome() + "+" + bodyUtente.cognome());
-
+        String imageUrl = "https://ui-avatars.com/api/?name=" + bodyUtente.nome() + "+" + bodyUtente.cognome();
+        newUtente.setAvatarUrl(imageUrl);
+        newUtente.setBannerUrl(imageUrl);
 
         Utente utenteSaved = this.utenteRepository.save(newUtente);
         log.info("L'utente " + utenteSaved.getNome() + " " + utenteSaved.getCognome() + " con username: " + utenteSaved.getUsername() + " è stato salvato correttamente");

@@ -49,6 +49,8 @@ public class Utente implements UserDetails {
     private String password;
     @Column(name = "avatar_url")
     private String avatarUrl;
+    @Column(name = "banner_url")
+    private String bannerUrl;
     @Column(name = "tipoUtente")
     private RuoloUtente role;
 
