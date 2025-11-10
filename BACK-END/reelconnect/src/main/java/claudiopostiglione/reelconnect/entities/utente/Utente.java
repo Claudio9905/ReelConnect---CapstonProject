@@ -42,6 +42,7 @@ public class Utente implements UserDetails {
     @Column(name = "data_di_nascita")
     private LocalDate dataDiNascita;
     @Column(name = "sesso")
+    @Enumerated(EnumType.STRING)
     private TipoSesso sesso;
     @Column(name = "e-mail")
     private String email;
@@ -52,6 +53,7 @@ public class Utente implements UserDetails {
     @Column(name = "banner_url")
     private String bannerUrl;
     @Column(name = "tipoUtente")
+    @Enumerated(EnumType.STRING)
     private RuoloUtente role;
 
     //Construttori
