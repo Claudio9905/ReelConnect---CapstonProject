@@ -27,8 +27,9 @@ const Intro: React.FC = () => {
           <Col xs={12} className="col-2">
             <Login />
           </Col>
+          <span className="divided-span"></span>
           <Col xs={12} className="col-3">
-            <h3 className="h3-register">
+            <h3 className="h3-register mt-2 mb-4">
               Non sei ancora connesso al Cineverse ? <br /> Cosa aspetti,
               registrati!
             </h3>
