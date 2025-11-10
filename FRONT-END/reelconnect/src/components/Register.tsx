@@ -20,6 +20,7 @@ const Register: React.FC = () => {
   const [dataDiNascita, setDataDiNascita] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [sesso, setSesso] = useState("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     const form = event.currentTarget;
@@ -31,11 +32,11 @@ const Register: React.FC = () => {
     setValidated(true);
   };
 
-  const endpointLogin = "http://localhost:3005/authProfile/registerProfile";
+  // const endpointLogin = "http://localhost:3005/authProfile/registerProfile";
 
   const submitRegister = (event: React.FormEvent) => {
     event.preventDefault();
-    fetch(endpointLogin, {
+    fetch("http://localhost:3005/authProfile/registerProfile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,6 +47,7 @@ const Register: React.FC = () => {
         username: username,
         eta: eta,
         dataDiNascita: dataDiNascita,
+        sesso: sesso,
         email: email,
         password: password,
       }),
@@ -165,6 +167,21 @@ const Register: React.FC = () => {
                 ></FormControl>
                 <Form.Control.Feedback type="invalid">
                   Inserire una data di nascita
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Sesso"
+                  className="input-form"
+                  required
+                  value={sesso}
+                  onChange={(e) => {
+                    setSesso(e.target.value);
+                  }}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire il proprio sesso (maschio o femmina)
                 </Form.Control.Feedback>
               </FormGroup>
               <FormGroup>
