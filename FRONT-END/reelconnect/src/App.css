@@ -104,7 +104,7 @@
 
 .div-title {
   position: relative;
-  bottom: 4.5em;
+  bottom: 4em;
 }
 
 .col-login {
@@ -118,7 +118,7 @@
 .div-img-login {
   width: 50%;
   position: relative;
-  left: 4.5em;
+  left: 4.2em;
 }
 
 /* CSS del componente Register */

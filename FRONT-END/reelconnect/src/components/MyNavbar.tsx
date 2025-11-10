@@ -12,7 +12,7 @@ const MyNavbar: React.FC = () => {
     <>
       {/* Navbar versione mobile */}
       <Navbar className=" d-sm-flex d-md-none d-lg-none ">
-        <Container className=" d-flex justify-content-center gap-2 container-nav">
+        <Container className=" d-flex flex-column justify-content-center gap-2 container-nav">
           <div className="div-logo d-flex">
             <Link to={"/"}>
               <img
