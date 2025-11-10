@@ -135,7 +135,7 @@ public class UtenteService {
 
 
     public Utente getUtenteByEmailOrUsername(String emailUsername) {
-        return this.utenteRepository.findByEmailOrUsername(emailUsername).orElseThrow(() -> new UserNotFoundException("L'utente non è stato trovato"));
+        return this.utenteRepository.findByEmailOrUsername(emailUsername, emailUsername).orElseThrow(() -> new UserNotFoundException("L'utente non è stato trovato"));
     }
 
     public Utente getUtenteByUsername(String username) {
