@@ -75,7 +75,7 @@ const Register: React.FC = () => {
   return (
     <>
       <Container>
-        <Row>
+        <Row className="bg-dark p-3">
           <Col xs={12} className="col-register p-5">
             <Form
               noValidate
@@ -218,13 +218,13 @@ const Register: React.FC = () => {
               <div className="p-1 d-flex justify-content-center">
                 <Button type="submit" className="button-register mt-4 ">
                   REGISTER
+                  {success ?? (
+                    <Alert variant="warning">
+                      Registrazione avvenuta con successo, vai al Login per
+                      accedere al Cineverse
+                    </Alert>
+                  )}
                 </Button>
-                {success ?? (
-                  <Alert variant="warning">
-                    Registrazione avvenuta con successo, vai al Login per
-                    accedere al Cineverse
-                  </Alert>
-                )}
               </div>
             </Form>
           </Col>
