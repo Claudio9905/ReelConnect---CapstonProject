@@ -13,6 +13,13 @@ import {
 const Register: React.FC = () => {
   const [validated, setValidated] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [nome, setNome] = useState("");
+  const [cognome, setCognome] = useState("");
+  const [username, setUsername] = useState("");
+  const [eta, setEta] = useState("");
+  const [dataDiNascita, setDataDiNascita] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     const form = event.currentTarget;
@@ -22,6 +29,41 @@ const Register: React.FC = () => {
     }
 
     setValidated(true);
+  };
+
+  const endpointLogin = "http://localhost:3005/authProfile/registerProfile";
+
+  const submitRegister = (event: React.FormEvent) => {
+    event.preventDefault();
+    fetch(endpointLogin, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nome: nome,
+        cognome: cognome,
+        username: username,
+        eta: eta,
+        dataDiNascita: dataDiNascita,
+        email: email,
+        password: password,
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((resData) => {
+        console.log(resData);
+        setSuccess(true);
+        // setIsLoading(false);
+      })
+      .catch((err) => {
+        // setIsLoading(false);
+        console.log("Error: " + err);
+      });
   };
 
   // const successRegister = () => {
@@ -37,7 +79,10 @@ const Register: React.FC = () => {
               noValidate
               validated={validated}
               className="d-flex flex-column p-3 gap-3"
-              onSubmit={handleSubmit}
+              onSubmit={(e) => {
+                handleSubmit(e);
+                submitRegister(e);
+              }}
             >
               <FormGroup>
                 <FormControl
@@ -45,6 +90,10 @@ const Register: React.FC = () => {
                   placeholder="Nome"
                   className="input-form"
                   required
+                  value={nome}
+                  onChange={(e) => {
+                    setNome(e.target.value);
+                  }}
                   minLength={2}
                   maxLength={20}
                 ></FormControl>
@@ -58,6 +107,10 @@ const Register: React.FC = () => {
                   placeholder="Cognome"
                   className="input-form"
                   required
+                  value={cognome}
+                  onChange={(e) => {
+                    setCognome(e.target.value);
+                  }}
                   minLength={2}
                   maxLength={20}
                 ></FormControl>
@@ -72,6 +125,10 @@ const Register: React.FC = () => {
                   placeholder="Username"
                   className="input-form"
                   required
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
                   minLength={2}
                   maxLength={20}
                 ></FormControl>
@@ -85,6 +142,10 @@ const Register: React.FC = () => {
                   placeholder="Età"
                   className="input-form"
                   required
+                  value={eta}
+                  onChange={(e) => {
+                    setEta(e.target.value);
+                  }}
                   min={13}
                 ></FormControl>
                 <Form.Control.Feedback type="invalid">
@@ -97,6 +158,10 @@ const Register: React.FC = () => {
                   placeholder="Data di nascità"
                   className="input-form"
                   required
+                  value={dataDiNascita}
+                  onChange={(e) => {
+                    setDataDiNascita(e.target.value);
+                  }}
                 ></FormControl>
                 <Form.Control.Feedback type="invalid">
                   Inserire una data di nascita
@@ -108,6 +173,10 @@ const Register: React.FC = () => {
                   placeholder="E-mail"
                   className="input-form"
                   required
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 ></FormControl>
                 <Form.Control.Feedback type="invalid">
                   Inserire un e-mail
@@ -119,6 +188,10 @@ const Register: React.FC = () => {
                   placeholder="Password"
                   className="input-form"
                   required
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                   minLength={8}
                 ></FormControl>
                 <Form.Control.Feedback type="invalid">
@@ -126,13 +199,7 @@ const Register: React.FC = () => {
                 </Form.Control.Feedback>
               </FormGroup>
               <div className="p-1 d-flex justify-content-center">
-                <Button
-                  type="submit"
-                  onClick={() => {
-                    setSuccess(true);
-                  }}
-                  className="button-register mt-4 "
-                >
+                <Button type="submit" className="button-register mt-4 ">
                   REGISTER
                 </Button>
                 {success ?? (

@@ -9,14 +9,14 @@ import {
 } from "react-bootstrap";
 
 import clapperboard from "../assets/img/Cinematic_clapperboa.png";
-import { use, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
   const [validated, setValidated] = useState(false);
   const [usernameEmail, setUsernameEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -29,11 +29,11 @@ const Login: React.FC = () => {
     setValidated(true);
   };
 
-  const endpointLogin = "http://localhost:3005/auth/login";
+  const endpointLogin = "http://localhost:3005/authProfile/loginProfile";
 
   const submitLogin = (event: React.FormEvent) => {
     event.preventDefault();
-    setIsLoading(true);
+    // setIsLoading(true);
     fetch(endpointLogin, {
       method: "POST",
       headers: {
@@ -52,11 +52,11 @@ const Login: React.FC = () => {
       .then((resData) => {
         console.log(resData);
         localStorage.setItem("token", resData.token);
-        setIsLoading(false);
+        // setIsLoading(false);
         navigate("/cineverse");
       })
       .catch((err) => {
-        setIsLoading(false);
+        // setIsLoading(false);
         console.log("Error: " + err);
       });
   };
