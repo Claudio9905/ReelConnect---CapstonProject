@@ -1,34 +1,59 @@
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+
+import { Link, useLocation } from "react-router-dom";
+import clapperboard from "../assets/img/Cinematic_clapperboa.png";
 
 const MyNavbar: React.FC = () => {
+  const location = useLocation();
+  // const navigate = useNavigate();
+
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="#home">ReelConnect</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
+      {/* Navbar versione mobile */}
+      <Navbar className=" d-sm-flex d-md-none d-lg-none ">
+        <Container className=" d-flex justify-content-center gap-2 container-nav">
+          <div className="div-logo d-flex">
+            <Link to={"/"}>
+              <img
+                src={clapperboard}
+                alt="logo del sito"
+                className="img-fluid"
+              />
+            </Link>
+          </div>
+          <div className="d-flex justify-content-around gap-2 fs-5">
+            <Link
+              to={"/"}
+              className={` text-decoration-none d-flex justify-content-around link  ${
+                location.pathname === "/" ? "current-link" : "current-link-off"
+              }`}
+            >
+              Home
+            </Link>
+            <span style={{ color: `bisque` }}>/</span>
+            <Link
+              to={"/service"}
+              className={` text-decoration-none d-flex justify-content-around link ${
+                location.pathname === "/service"
+                  ? "current-link"
+                  : "current-link-off"
+              }`}
+            >
+              Service
+            </Link>
+            <span style={{ color: `bisque` }}>/</span>
+            <Link
+              to={"/contact"}
+              className={` text-decoration-none d-flex justify-content-around link  ${
+                location.pathname === "/contact"
+                  ? "current-link"
+                  : "current-link-off"
+              }`}
+            >
+              Contact
+            </Link>
+          </div>
         </Container>
       </Navbar>
     </>

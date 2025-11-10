@@ -1,5 +1,68 @@
-.title-login {
+/* CSS del componente MyNavbar */
+
+.link:hover {
   color: bisque;
+  border-bottom: 1px solid bisque;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px 1px rgba(0, 0, 0, 0.488);
+  transition: all 0.2s linear 0s;
+}
+
+.current-link {
+  color: bisque;
+  padding: 0.2em;
+  border-bottom: 1px solid bisque;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px 1px rgba(0, 0, 0, 0.488);
+}
+
+.current-link-off {
+  color: bisque;
+  transition: all 0.2s linear 0s;
+}
+
+.div-logo {
+  width: 10%;
+}
+
+.container-nav {
+  border: 1px solid #706315;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border-top: none;
+  box-shadow: 0px 6px 10px 1px #00000087;
+  padding: 1em;
+}
+
+/* CSS del componente Intro */
+#titolo-home {
+  color: bisque;
+  margin-top: 1em;
+  font-size: 2.5em;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.sinossi {
+  color: bisque;
+}
+
+.col-1 {
+  border-bottom: 1px solid bisque;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 1em;
+}
+
+.h3-register {
+  color: bisque;
+  font-size: 1.3em;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+/* CSS del componente Login */
+
+.title-login {
+  color: rgb(255, 236, 212);
   font-size: 1.8em;
 }
 
@@ -25,14 +88,24 @@
 
 .forgot-password {
   font-size: 0.9em;
-  color: rgba(255, 228, 196, 0.397);
+  color: rgb(24, 22, 20);
 }
 
 .div-title {
   position: relative;
-  bottom: 5em;
+  bottom: 4.5em;
 }
 
-.img-clapperboard {
+.col-login {
+  background-image: url("./assets/img/pellicolaAnimata.gif.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.541);
+}
+
+.div-img-login {
   width: 50%;
+  position: relative;
+  left: 4.5em;
 }

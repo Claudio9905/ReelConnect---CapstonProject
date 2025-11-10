@@ -15,19 +15,20 @@ const Login: React.FC = () => {
     <>
       <Container>
         <Row className="bg-dark p-3 ">
-          <Col xs={12} md={12} lg={12}>
-            <div className="d-flex justify-content-center">
-              <img
-                src={clapperboard}
-                alt="logo-login"
-                className="img-clapperboard"
-              />
+          <Col
+            xs={12}
+            md={12}
+            lg={12}
+            className=" d-flex flex-column col-login mt-4"
+          >
+            <div className="d-flex justify-content-center div-img-login">
+              <img src={clapperboard} alt="logo-login" className="img-fluid" />
             </div>
 
             <div className="div-title">
               <div className=" d-flex justify-content-center ">
                 <h1 className="title-login text-center">
-                  LOGIN TO <br /> THE MOVIES
+                  LOGIN TO <br /> THE CINEVERSE
                 </h1>
               </div>
 
