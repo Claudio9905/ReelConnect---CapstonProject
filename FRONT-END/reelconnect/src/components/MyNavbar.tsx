@@ -23,7 +23,7 @@ const MyNavbar: React.FC = () => {
               />
             </Link>
           </div>
-          <div className="d-flex justify-content-around gap-2 fs-5 div-link">
+          <div className="d-flex justify-content-around gap-2 fs-6 div-link">
             <Link
               to={"/"}
               className={` text-decoration-none d-flex justify-content-around link  ${
@@ -71,7 +71,7 @@ const MyNavbar: React.FC = () => {
               />
             </Link>
           </div>
-          <div className="d-flex justify-content-around gap-3 fs-3 div-link-md">
+          <div className="d-flex justify-content-around gap-3 fs-4 div-link-md">
             <Link
               to={"/"}
               className={` text-decoration-none d-flex justify-content-around link  ${
@@ -119,7 +119,7 @@ const MyNavbar: React.FC = () => {
               />
             </Link>
           </div>
-          <div className="d-flex justify-content-around gap-3 fs-5 div-link-lg">
+          <div className="d-flex justify-content-around gap-3 fs-6 div-link-lg">
             <Link
               to={"/"}
               className={` text-decoration-none d-flex justify-content-around link  ${
