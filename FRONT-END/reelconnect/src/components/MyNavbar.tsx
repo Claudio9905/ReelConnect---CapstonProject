@@ -71,7 +71,7 @@ const MyNavbar: React.FC = () => {
               />
             </Link>
           </div>
-          <div className="d-flex justify-content-around gap-3 fs-4 div-link-md">
+          <div className="d-flex justify-content-around gap-3 fs-5 div-link-md">
             <Link
               to={"/"}
               className={` text-decoration-none d-flex justify-content-around link  ${

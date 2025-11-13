@@ -144,10 +144,10 @@ const Login: React.FC = () => {
 
       {/* Versione tablet */}
       <Container className="d-none d-md-flex d-lg-none">
-        <Row className="p-3 ">
+        <Row className="p-3 justify-content-center">
           <Col
             md={12}
-            className=" d-flex align-items-center  flex-column col-login mt-4"
+            className=" d-flex align-items-center  flex-column col-login-md mt-4"
           >
             <div className="d-flex justify-content-center div-img-login-md">
               <img src={clapperboard} alt="logo-login" className="img-fluid" />

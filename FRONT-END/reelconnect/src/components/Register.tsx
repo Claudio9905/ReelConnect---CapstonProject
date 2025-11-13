@@ -234,12 +234,12 @@ const Register: React.FC = () => {
 
       {/* Versione tablet */}
       <Container className="d-none d-md-flex d-lg-none justify-content-center">
-        <Row className="p-3">
-          <Col md={12} className="col-register-md p-5">
+        <Row className="p-3 d-flex justify-content-center">
+          <Col md={12} className="col-register-md ">
             <Form
               noValidate
               validated={validated}
-              className="d-flex flex-column align-items-center p-3 gap-3"
+              className="d-flex flex-column align-items-center p-1 mt-3 gap-3"
               onSubmit={(e) => {
                 handleSubmit(e);
                 submitRegister(e);
