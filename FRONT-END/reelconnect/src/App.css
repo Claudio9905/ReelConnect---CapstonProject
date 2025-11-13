@@ -90,6 +90,8 @@ body {
 }
 
 #img-logo-sm {
+  position: relative;
+  top: 0.2em;
   border: 2px solid bisque;
   border-bottom: none;
   border-left: none;
