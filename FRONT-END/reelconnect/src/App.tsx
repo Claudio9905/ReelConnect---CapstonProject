@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Service from "./components/Service";
 import Contact from "./components/Contact";
 import Cineverse from "./components/Cineverse";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/cineverse" element={<Cineverse />}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
