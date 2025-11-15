@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 public record FilmDTO(
         @NotBlank(message = "Il titolo del film è obbligatorio")
@@ -19,7 +18,7 @@ public record FilmDTO(
         int durataFilm,
         @NotNull(message = "Il genere del film non può essere nullo")
         List<GenereFilmSerieTv> genere,
-        List<RiconoscimentoFilmDTO> listaFilm,
+        List<RiconoscimentoFilmDTO> listaRiconoscimentiFilm,
         @NotNull(message = "Il cast non può essere nullo")
         List<AttoreDTO> listaAttori,
         @NotNull(message = "Il regista non può essere nullo")

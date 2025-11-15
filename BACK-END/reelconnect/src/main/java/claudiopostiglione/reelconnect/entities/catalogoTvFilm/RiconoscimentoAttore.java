@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -35,10 +34,9 @@ public class RiconoscimentoAttore {
     private Attore attore;
 
     //Construttori
-    public RiconoscimentoAttore(String nome, int anno, TipoRiconoscimentoAttore tipoRiconoscimento, Attore attore) {
+    public RiconoscimentoAttore(String nome, int anno, TipoRiconoscimentoAttore tipoRiconoscimento) {
         this.nome = nome;
         this.anno = anno;
         this.tipoRiconoscimento = tipoRiconoscimento;
-        this.attore = attore;
     }
 }
