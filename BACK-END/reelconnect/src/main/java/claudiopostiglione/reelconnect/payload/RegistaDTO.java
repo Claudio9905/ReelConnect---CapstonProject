@@ -20,6 +20,7 @@ public record RegistaDTO(
         @NotNull(message = "L'età del regista non può essere nulla")
         int eta,
         @NotNull(message = "La data di nascita del regista non può essere nulla")
-        LocalDate dataDiNascita
+        LocalDate dataDiNascita,
+        String immagineProfilo
 ) {
 }
