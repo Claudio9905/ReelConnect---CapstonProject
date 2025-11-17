@@ -405,3 +405,32 @@ body {
 .col-footer2-md {
   border-right: 1px solid bisque;
 }
+
+/* CSS del componente MyProfile */
+#container-my-profile #row-1 {
+  border-bottom: 1px solid bisque;
+}
+
+#container-my-profile .banner-div-sm {
+  border: 1px solid bisque;
+}
+
+#container-my-profile .img-profile-div-sm {
+  border: 1px solid bisque;
+}
+
+#container-my-profile .banner-div-md {
+  border: 1px solid bisque;
+}
+
+#container-my-profile .img-profile-div-md {
+  border: 1px solid bisque;
+}
+
+#container-my-profile .banner-div-lg {
+  border: 1px solid bisque;
+}
+
+#container-my-profile .img-profile-div-lg {
+  border: 1px solid bisque;
+}
