@@ -1,5 +1,7 @@
 package claudiopostiglione.reelconnect.entities.utente;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,8 +26,10 @@ public class Commento {
     @Column(name = "data_creazione_commento")
     private LocalDate dataCreazioneCommento;
 
+
     @ManyToOne
     @JoinColumn(name = "post")
+    @JsonBackReference
     private Post post;
 
     @ManyToOne

@@ -1,5 +1,6 @@
 package claudiopostiglione.reelconnect.entities.utente;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -59,9 +60,11 @@ public class Utente implements UserDetails {
 
 
     @OneToMany(mappedBy = "utente")
+    @JsonIgnore
     private List<Commento> listaCommenti = new ArrayList<>();
 
     @OneToMany(mappedBy = "utente")
+    @JsonIgnore
     private List<Post> listaPost = new ArrayList<>();
 
     //Construttori

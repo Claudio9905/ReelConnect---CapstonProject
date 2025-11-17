@@ -1,6 +1,7 @@
 package claudiopostiglione.reelconnect.entities.utente;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,8 +33,8 @@ public class Post {
     @JoinColumn(name = "utente")
     private Utente utente;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "post")
+    @JsonManagedReference
     private List<Commento> listaCommenti = new ArrayList<>();
 
     //Costruttori
