@@ -1,0 +1,43 @@
+package claudiopostiglione.reelconnect.entities.utente;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.time.LocalDate;
+import java.util.UUID;
+
+@Entity
+@Table(name = "commento")
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+public class Commento {
+
+    //Attributi
+    @Id
+    @GeneratedValue
+    @Setter(AccessLevel.NONE)
+    private UUID id;
+    @Column(name = "descrizione")
+    private String descrizione;
+    @Column(name = "data_creazione_commento")
+    private LocalDate dataCreazioneCommento;
+
+    @ManyToOne
+    @JoinColumn(name = "post")
+    private Post post;
+
+    @ManyToOne
+    @JoinColumn(name = "utente")
+    private Utente utente;
+
+    //Costruttori
+    public Commento(String descrizione, LocalDate dataCreazioneCommento, Post post, Utente utente){
+        this.descrizione = descrizione;
+        this.dataCreazioneCommento = dataCreazioneCommento;
+        this.post = post;
+        this.utente = utente;
+    }
+
+}
