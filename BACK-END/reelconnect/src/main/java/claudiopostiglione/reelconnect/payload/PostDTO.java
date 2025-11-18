@@ -8,7 +8,6 @@ import java.util.UUID;
 public record PostDTO(
         @NotBlank(message = "La descrizione è obbligatoria")
         String descrizione,
-        String imageUrl,
         UUID utenteId
 ) {
 }

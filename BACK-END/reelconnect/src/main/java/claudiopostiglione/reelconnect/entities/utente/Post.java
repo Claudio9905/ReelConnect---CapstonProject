@@ -1,6 +1,5 @@
 package claudiopostiglione.reelconnect.entities.utente;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -28,6 +27,8 @@ public class Post {
     private String imageUrl;
     @Column(name = "data_creazione_post")
     private LocalDate dataCreazionePost;
+    @Column(name = "num_ciak")
+    private long numCiak;
 
     @ManyToOne
     @JoinColumn(name = "utente")
@@ -38,9 +39,8 @@ public class Post {
     private List<Commento> listaCommenti = new ArrayList<>();
 
     //Costruttori
-    public Post(String descrizione, String imageUrl, Utente utente){
+    public Post(String descrizione, Utente utente) {
         this.descrizione = descrizione;
-        this.imageUrl = imageUrl;
         this.dataCreazionePost = LocalDate.now();
         this.utente = utente;
     }
