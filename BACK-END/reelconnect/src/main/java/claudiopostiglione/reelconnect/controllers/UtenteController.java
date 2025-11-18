@@ -59,7 +59,7 @@ public class UtenteController {
     public Utente uploadBannerProfile(@AuthenticationPrincipal Utente currentUtente, @RequestParam("bannerUrl") MultipartFile file) {
         System.out.println("| Nome del file: " + file.getName());
         System.out.println("| Dimensione del file: " + file.getSize());
-        return this.utenteService.uploadImageProfile(file, currentUtente.getId());
+        return this.utenteService.uploadBannerProfile(file, currentUtente.getId());
     }
 
     //Qui verranno posizionati gli endpoint per la parte degli utenti

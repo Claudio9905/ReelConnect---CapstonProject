@@ -2,6 +2,7 @@ package claudiopostiglione.reelconnect.services;
 
 import claudiopostiglione.reelconnect.entities.utente.Post;
 import claudiopostiglione.reelconnect.entities.utente.Utente;
+import claudiopostiglione.reelconnect.exceptions.AccessDeniedException;
 import claudiopostiglione.reelconnect.exceptions.BadRequestException;
 import claudiopostiglione.reelconnect.payload.PostDTO;
 import claudiopostiglione.reelconnect.repositories.PostRepository;
@@ -76,28 +77,6 @@ public class PostService {
     }
 
     //    6. Aggiunta di un immagine tramite file
-    public Post uploadImagePost(MultipartFile file, UUID postId) {
-        if (file.getSize() > MAX_SIZE)
-            throw new BadRequestException("Il file super la dimensione di 5MB, caricare un file di dimensione minore");
-        if (!ALLOWED_FORMAT.contains(file.getContentType()))
-            throw new BadRequestException("Attenzione, il file non corrisponde ai vari formati ( .jpeg / .png / .gif");
-
-        Post postFound = this.findPostById(postId);
-
-        try {
-            //Catturo l'URL dell'immagine datomi da CLoudinary
-            Map result = imageUploader.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
-            String imagePostUrl = (String) result.get("url");
-
-            //Salvataggio dell'immagine catturata
-            postFound.setImageUrl(imagePostUrl);
-            this.postRepository.save(postFound);
-            return postFound;
-        } catch (Exception ex) {
-            throw new BadRequestException("Errore nel caricamento dell'immagine");
-        }
-
-    }
 
     //    7. Modifica dell'attributo numPost ( cioè MyCiak sui post ricevuti dagli utenti)
     public Post getPostByIdAndIncrementNumCiak(UUID postId) {
@@ -115,5 +94,63 @@ public class PostService {
         Post postUpdateCiak = this.postRepository.save(postFound);
         log.info("Il numero di ciak del post con ID: " + postUpdateCiak.getId() + " è stato modificato correttamente");
         return postUpdateCiak;
+    }
+
+//    Metodi per il proprio profilo
+
+//    Metodo privato per verificare l'appartenenza del post all'utente
+
+    private Post verifyPost(UUID utenteId, UUID postId) {
+        Post post = this.findPostById(postId);
+        if (!post.getUtente().getId().equals(postId))
+            throw new AccessDeniedException("Non hai i permessi per modificare questo post");
+        return post;
+    }
+
+    //    9. Ricerca di tutti i propri post
+    public Page<Post> findAllPostByUtente(UUID utenteId, int numPage, int sizePage, String sortBy) {
+        if (sizePage > 20) sizePage = 20;
+        sortBy = "dataCreazionePost";
+        Pageable pageable = PageRequest.of(numPage, sizePage, Sort.by(sortBy).descending());
+        return this.postRepository.findByUtenteId(utenteId, pageable);
+    }
+
+    //    10. Modifica del proprio post
+    public Post updateMyPost(UUID utenteId, UUID postId, PostDTO bodyUpdate) {
+        Post postFound = verifyPost(utenteId, postId);
+        postFound.setDescrizione(bodyUpdate.descrizione());
+        Post postSaved = this.postRepository.save(postFound);
+        log.info("Il post con ID: " + postSaved.getId() + " è stato modificato");
+        return postSaved;
+    }
+
+    //    11. Modifica dell'immagine Url all'interno del post
+    public Post uploadImagePost(MultipartFile file, UUID utenteId, UUID postId) {
+        if (file.getSize() > MAX_SIZE)
+            throw new BadRequestException("Il file super la dimensione di 5MB, caricare un file di dimensione minore");
+        if (!ALLOWED_FORMAT.contains(file.getContentType()))
+            throw new BadRequestException("Attenzione, il file non corrisponde ai vari formati ( .jpeg / .png / .gif");
+
+        Post postFound = verifyPost(utenteId, postId);
+
+        try {
+            //Catturo l'URL dell'immagine datomi da CLoudinary
+            Map result = imageUploader.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
+            String imagePostUrl = (String) result.get("url");
+
+            //Salvataggio dell'immagine catturata
+            postFound.setImageUrl(imagePostUrl);
+            this.postRepository.save(postFound);
+            return postFound;
+        } catch (Exception ex) {
+            throw new BadRequestException("Errore nel caricamento dell'immagine");
+        }
+
+    }
+
+    //    12. Eliminare il proprio post
+    public void deleteMyPost(UUID utenteId, UUID postId) {
+        Post postFound = verifyPost(utenteId, postId);
+        this.postRepository.delete(postFound);
     }
 }
