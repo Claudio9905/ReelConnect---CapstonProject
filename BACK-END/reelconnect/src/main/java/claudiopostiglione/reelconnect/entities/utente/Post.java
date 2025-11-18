@@ -38,10 +38,10 @@ public class Post {
     private List<Commento> listaCommenti = new ArrayList<>();
 
     //Costruttori
-    public Post(String descrizione, String imageUrl, LocalDate dataCreazionePost, Utente utente){
+    public Post(String descrizione, String imageUrl, Utente utente){
         this.descrizione = descrizione;
         this.imageUrl = imageUrl;
-        this.dataCreazionePost = dataCreazionePost;
+        this.dataCreazionePost = LocalDate.now();
         this.utente = utente;
     }
 }

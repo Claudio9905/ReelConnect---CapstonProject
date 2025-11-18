@@ -37,9 +37,9 @@ public class Commento {
     private Utente utente;
 
     //Costruttori
-    public Commento(String descrizione, LocalDate dataCreazioneCommento, Post post, Utente utente){
+    public Commento(String descrizione, Post post, Utente utente){
         this.descrizione = descrizione;
-        this.dataCreazioneCommento = dataCreazioneCommento;
+        this.dataCreazioneCommento = LocalDate.now();
         this.post = post;
         this.utente = utente;
     }
