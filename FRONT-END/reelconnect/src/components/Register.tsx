@@ -74,8 +74,9 @@ const Register: React.FC = () => {
 
   return (
     <>
-      <Container>
-        <Row>
+      {/* Versione mobile */}
+      <Container className="d-md-none d-lg-none">
+        <Row className="p-3">
           <Col xs={12} className="col-register p-5">
             <Form
               noValidate
@@ -204,6 +205,322 @@ const Register: React.FC = () => {
                   type="password"
                   placeholder="Password"
                   className="input-form"
+                  required
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  minLength={8}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  La password deve avere un minimo di 8 caratteri
+                </Form.Control.Feedback>
+              </FormGroup>
+              <div className="p-1 d-flex justify-content-center">
+                <Button type="submit" className="button-register mt-4 ">
+                  REGISTER
+                </Button>
+                {success ?? (
+                  <Alert variant="warning">
+                    Registrazione avvenuta con successo, vai al Login per
+                    accedere al Cineverse
+                  </Alert>
+                )}
+              </div>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+
+      {/* Versione tablet */}
+      <Container className="d-none d-md-flex d-lg-none justify-content-center">
+        <Row className="p-3 d-flex justify-content-center">
+          <Col md={12} className="col-register-md ">
+            <Form
+              noValidate
+              validated={validated}
+              className="d-flex flex-column align-items-center p-1 mt-3 gap-3"
+              onSubmit={(e) => {
+                handleSubmit(e);
+                submitRegister(e);
+              }}
+            >
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Nome"
+                  className="input-form-register-md"
+                  required
+                  value={nome}
+                  onChange={(e) => {
+                    setNome(e.target.value);
+                  }}
+                  minLength={2}
+                  maxLength={20}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire un nome con minimo di 2 caratteri e un massimo di 20
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Cognome"
+                  className="input-form-register-md"
+                  required
+                  value={cognome}
+                  onChange={(e) => {
+                    setCognome(e.target.value);
+                  }}
+                  minLength={2}
+                  maxLength={20}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire un cognome con un minimo di 2 caratteri ed un massimo
+                  di 20
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Username"
+                  className="input-form-register-md"
+                  required
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                  minLength={2}
+                  maxLength={20}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire uno username
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="number"
+                  placeholder="Età"
+                  className="input-form-register-md"
+                  required
+                  value={eta}
+                  onChange={(e) => {
+                    setEta(e.target.value);
+                  }}
+                  min={13}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire un età che sia dai 13 anni in su
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="date"
+                  placeholder="Data di nascità"
+                  className="input-form-register-md"
+                  required
+                  value={dataDiNascita}
+                  onChange={(e) => {
+                    setDataDiNascita(e.target.value);
+                  }}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire una data di nascita
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Sesso"
+                  className="input-form-register-md"
+                  required
+                  value={sesso}
+                  onChange={(e) => {
+                    setSesso(e.target.value);
+                  }}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire il proprio sesso (maschio o femmina)
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="email"
+                  placeholder="E-mail"
+                  className="input-form-register-md"
+                  required
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire un e-mail
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="password"
+                  placeholder="Password"
+                  className="input-form-register-md"
+                  required
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  minLength={8}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  La password deve avere un minimo di 8 caratteri
+                </Form.Control.Feedback>
+              </FormGroup>
+              <div className="p-1 d-flex justify-content-center">
+                <Button type="submit" className="button-register mt-4 ">
+                  REGISTER
+                </Button>
+                {success ?? (
+                  <Alert variant="warning">
+                    Registrazione avvenuta con successo, vai al Login per
+                    accedere al Cineverse
+                  </Alert>
+                )}
+              </div>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+
+      {/* Versione desktop */}
+      <Container className="d-none d-lg-flex justify-content-center">
+        <Row className="p-3">
+          <Col lg={12} className="col-register-lg p-5">
+            <Form
+              noValidate
+              validated={validated}
+              className="d-flex flex-column align-items-center p-3 gap-3"
+              onSubmit={(e) => {
+                handleSubmit(e);
+                submitRegister(e);
+              }}
+            >
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Nome"
+                  className="input-form-register-lg"
+                  required
+                  value={nome}
+                  onChange={(e) => {
+                    setNome(e.target.value);
+                  }}
+                  minLength={2}
+                  maxLength={20}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire un nome con minimo di 2 caratteri e un massimo di 20
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Cognome"
+                  className="input-form-register-lg"
+                  required
+                  value={cognome}
+                  onChange={(e) => {
+                    setCognome(e.target.value);
+                  }}
+                  minLength={2}
+                  maxLength={20}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire un cognome con un minimo di 2 caratteri ed un massimo
+                  di 20
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Username"
+                  className="input-form-register-lg"
+                  required
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                  minLength={2}
+                  maxLength={20}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire uno username
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="number"
+                  placeholder="Età"
+                  className="input-form-register-lg"
+                  required
+                  value={eta}
+                  onChange={(e) => {
+                    setEta(e.target.value);
+                  }}
+                  min={13}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire un età che sia dai 13 anni in su
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="date"
+                  placeholder="Data di nascità"
+                  className="input-form-register-lg"
+                  required
+                  value={dataDiNascita}
+                  onChange={(e) => {
+                    setDataDiNascita(e.target.value);
+                  }}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire una data di nascita
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Sesso"
+                  className="input-form-register-lg"
+                  required
+                  value={sesso}
+                  onChange={(e) => {
+                    setSesso(e.target.value);
+                  }}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire il proprio sesso (maschio o femmina)
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="email"
+                  placeholder="E-mail"
+                  className="input-form-register-lg"
+                  required
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                ></FormControl>
+                <Form.Control.Feedback type="invalid">
+                  Inserire un e-mail
+                </Form.Control.Feedback>
+              </FormGroup>
+              <FormGroup>
+                <FormControl
+                  type="password"
+                  placeholder="Password"
+                  className="input-form-register-lg"
                   required
                   value={password}
                   onChange={(e) => {

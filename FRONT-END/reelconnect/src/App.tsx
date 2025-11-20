@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Service from "./components/Service";
 import Contact from "./components/Contact";
 import Cineverse from "./components/Cineverse";
+import Footer from "./components/Footer";
+import MyProfile from "./components/MyProfile";
 
 const App: React.FC = () => {
   return (
@@ -15,8 +17,10 @@ const App: React.FC = () => {
           <Route path="/" element={<Intro />}></Route>
           <Route path="/service" element={<Service />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/myprofile" element={<MyProfile />}></Route>
           <Route path="/cineverse" element={<Cineverse />}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );

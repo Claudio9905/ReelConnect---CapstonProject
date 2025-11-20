@@ -63,16 +63,19 @@ const Login: React.FC = () => {
 
   return (
     <>
-      <Container>
-        <Row className="bg-dark p-3 ">
+      {/* Versione mobile */}
+      <Container className="d-md-none d-lg-none">
+        <Row className="p-3 ">
           <Col
             xs={12}
-            md={12}
-            lg={12}
-            className=" d-flex flex-column col-login mt-4"
+            className=" d-flex align-items-center  flex-column col-login mt-4"
           >
             <div className="d-flex justify-content-center div-img-login">
-              <img src={clapperboard} alt="logo-login" className="img-fluid" />
+              <img
+                src={clapperboard}
+                alt="logo-login"
+                className="img-fluid mb-2"
+              />
             </div>
 
             <div className="div-title">
@@ -130,6 +133,156 @@ const Login: React.FC = () => {
                 <a
                   href="/#"
                   className=" forgot-password text-decoration-none mt-2"
+                >
+                  Forgot password?
+                </a>
+              </Form>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+
+      {/* Versione tablet */}
+      <Container className="d-none d-md-flex d-lg-none">
+        <Row className="p-3 justify-content-center">
+          <Col
+            md={12}
+            className=" d-flex align-items-center  flex-column col-login-md mt-4"
+          >
+            <div className="d-flex justify-content-center div-img-login-md">
+              <img src={clapperboard} alt="logo-login" className="img-fluid" />
+            </div>
+
+            <div className="div-title-md">
+              <div className=" d-flex justify-content-center ">
+                <h1 className="title-login-md text-center">
+                  LOGIN TO <br /> THE CINEVERSE
+                </h1>
+              </div>
+
+              <Form
+                noValidate
+                validated={validated}
+                className="d-flex flex-column align-items-center p-1 mt-3 gap-3"
+                onSubmit={(e) => {
+                  handleSubmit(e);
+                  submitLogin(e);
+                }}
+              >
+                <FormGroup>
+                  <FormControl
+                    type="text"
+                    placeholder="USERNAME/EMAIL"
+                    className="input-form-md"
+                    value={usernameEmail}
+                    onChange={(e) => {
+                      setUsernameEmail(e.target.value);
+                    }}
+                    required
+                  ></FormControl>
+                  <Form.Control.Feedback type="invalid">
+                    Inserire lo username o l'e-mail corretto
+                  </Form.Control.Feedback>
+                </FormGroup>
+                <FormGroup>
+                  <FormControl
+                    type="password"
+                    placeholder="PASSWORD"
+                    className="input-form-md"
+                    minLength={8}
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                    required
+                  ></FormControl>
+                  <Form.Control.Feedback type="invalid">
+                    La password deve avere un minimo di 8 caratteri
+                  </Form.Control.Feedback>
+                </FormGroup>
+                <div className="p-1">
+                  <Button type="submit" className="button-login-md mt-4 ">
+                    LOGIN
+                  </Button>
+                </div>
+                <a
+                  href="/#"
+                  className=" forgot-password-md text-decoration-none mt-2"
+                >
+                  Forgot password?
+                </a>
+              </Form>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+
+      {/* Versione Desktop */}
+      <Container className="d-none d-lg-flex">
+        <Row className="p-3 ">
+          <Col
+            lg={12}
+            className=" d-flex align-items-center  flex-column col-login mt-4"
+          >
+            <div className="d-flex justify-content-center div-img-login-lg mt-4">
+              <img src={clapperboard} alt="logo-login" className="img-fluid" />
+            </div>
+
+            <div className="div-title-lg">
+              <div className=" d-flex justify-content-center ">
+                <h1 className="title-login-lg text-center">
+                  LOGIN TO <br /> THE CINEVERSE
+                </h1>
+              </div>
+
+              <Form
+                noValidate
+                validated={validated}
+                className="d-flex flex-column align-items-center p-1 mt-3 gap-3"
+                onSubmit={(e) => {
+                  handleSubmit(e);
+                  submitLogin(e);
+                }}
+              >
+                <FormGroup>
+                  <FormControl
+                    type="text"
+                    placeholder="USERNAME/EMAIL"
+                    className="input-form-lg"
+                    value={usernameEmail}
+                    onChange={(e) => {
+                      setUsernameEmail(e.target.value);
+                    }}
+                    required
+                  ></FormControl>
+                  <Form.Control.Feedback type="invalid">
+                    Inserire lo username o l'e-mail corretto
+                  </Form.Control.Feedback>
+                </FormGroup>
+                <FormGroup>
+                  <FormControl
+                    type="password"
+                    placeholder="PASSWORD"
+                    className="input-form-lg"
+                    minLength={8}
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                    required
+                  ></FormControl>
+                  <Form.Control.Feedback type="invalid">
+                    La password deve avere un minimo di 8 caratteri
+                  </Form.Control.Feedback>
+                </FormGroup>
+                <div className="p-1">
+                  <Button type="submit" className="button-login-lg mt-4 ">
+                    LOGIN
+                  </Button>
+                </div>
+                <a
+                  href="/#"
+                  className=" forgot-password-lg text-decoration-none mt-2"
                 >
                   Forgot password?
                 </a>
