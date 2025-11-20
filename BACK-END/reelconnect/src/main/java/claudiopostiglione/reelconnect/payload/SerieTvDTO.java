@@ -14,7 +14,13 @@ public record SerieTvDTO(
         String descrizione,
         @NotNull(message = "La data di uscita non può essere nulla")
         LocalDate annoDiUscita,
-        @NotNull(message = "Il genere della serie Tv non può essere nullo")
+        @NotNull(message = "Il numero di stagioni non può essere nullo")
+        int numStagioni,
+        @NotNull(message = "Il numero di episodi non può essere nullo")
+        int numEpisodi,
+        @NotNull(message = "La durata media di un episodio non può essere nullo")
+        int durataMediaEpisodio,
+        @NotBlank(message = "Il genere della serie Tv è obbligatorio")
         List<GenereFilmSerieTv> genere,
         List<RiconoscimentoSerieTvDTO> listaSerieTv,
         @NotNull(message = "Il cast non può essere nullo")

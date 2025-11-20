@@ -111,7 +111,7 @@ public class UtenteService {
         this.utenteRepository.delete(utenteFound);
     }
 
-    // 6. Upload dell'immagine profilo e per il banner
+    // 6. Upload dell'immagine profilo
     public Utente uploadImageProfile(MultipartFile file, UUID idUtente) {
         if (file.getSize() > MAX_SIZE) throw new BadRequestException("Attenzione, il file super i 5MB di dimensione");
         if (!ALLOWED_FORMAT.contains(file.getContentType()))
@@ -133,6 +133,27 @@ public class UtenteService {
         }
     }
 
+    //    7. Upload dell'immagine di copertina
+    public Utente uploadBannerProfile(MultipartFile file, UUID idUtente) {
+        if (file.getSize() > MAX_SIZE) throw new BadRequestException("Attenzione, il file super i 5MB di dimensione");
+        if (!ALLOWED_FORMAT.contains(file.getContentType()))
+            throw new BadRequestException("Attenzione, il formato deve essere: |.jpeg| - |.png|");
+
+        Utente utenteFound = this.getUtenteById(idUtente);
+
+        try {
+            //Catturo l'URL dell'immagine datomi da Cloudinary
+            Map result = imageUploader.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
+            String imageUrl = (String) result.get("url");
+
+            //Salvataggio dell'immagine catturata
+            utenteFound.setBannerUrl(imageUrl);
+            this.utenteRepository.save(utenteFound);
+            return utenteFound;
+        } catch (Exception ex) {
+            throw new BadRequestException("Errore nel caricamento del file");
+        }
+    }
 
     public Utente getUtenteByEmailOrUsername(String emailUsername) {
         return this.utenteRepository.findByEmailOrUsername(emailUsername, emailUsername).orElseThrow(() -> new UserNotFoundException("L'utente non è stato trovato"));

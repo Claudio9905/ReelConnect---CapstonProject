@@ -40,11 +40,10 @@ public class Attore {
     private List<CatalogoTvFilm> carriera;
 
     //Costruttori
-    public Attore(String nome, String cognome, int eta, LocalDate dataDiNascita, List<RiconoscimentoAttore> listaRiconoscimenti) {
+    public Attore(String nome, String cognome, int eta, LocalDate dataDiNascita) {
         this.nome = nome;
         this.cognome = cognome;
         this.eta = eta;
         this.dataDiNascita = dataDiNascita;
-        this.listaRiconoscimenti = listaRiconoscimenti;
     }
 }

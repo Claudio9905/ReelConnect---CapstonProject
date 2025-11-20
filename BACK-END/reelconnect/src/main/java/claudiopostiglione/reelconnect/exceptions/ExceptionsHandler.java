@@ -55,4 +55,10 @@ public class ExceptionsHandler {
     public ErrorDTO handleCloudinaryException(CloudinaryException ex){
         return new ErrorDTO(ex.getMessage(), LocalDateTime.now());
     }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorDTO handleAcccesDeniedExcpetion(AccessDeniedException ex){
+        return new ErrorDTO(ex.getMessage(),LocalDateTime.now());
+    }
 }

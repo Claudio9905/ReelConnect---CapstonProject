@@ -1,5 +1,6 @@
 package claudiopostiglione.reelconnect.entities.utente;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -11,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -23,7 +25,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-@JsonIgnoreProperties({"password", "authorities", "enabled", "accountNonLocked", "accountNonExpired", "credentialsNonExpired"})
+@JsonIgnoreProperties({"listaCommenti", "listaPost", "password", "authorities", "enabled", "accountNonLocked", "accountNonExpired", "credentialsNonExpired"})
 public class Utente implements UserDetails {
 
     //Attributi
@@ -55,6 +57,15 @@ public class Utente implements UserDetails {
     @Column(name = "tipoUtente")
     @Enumerated(EnumType.STRING)
     private RuoloUtente role;
+
+
+    @OneToMany(mappedBy = "utente")
+    @JsonIgnore
+    private List<Commento> listaCommenti = new ArrayList<>();
+
+    @OneToMany(mappedBy = "utente")
+    @JsonIgnore
+    private List<Post> listaPost = new ArrayList<>();
 
     //Construttori
     public Utente(String nome, String cognome, String username, int eta, LocalDate dataDiNascita, TipoSesso sesso, String email, String password) {
