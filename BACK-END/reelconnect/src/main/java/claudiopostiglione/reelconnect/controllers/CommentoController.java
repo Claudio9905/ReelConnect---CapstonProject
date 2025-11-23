@@ -25,7 +25,7 @@ public class CommentoController {
 
     //    Endpoint "/me"
 //    1. PUT per la modifica del proprio commento
-    @PutMapping("/{commentoId}")
+    @PutMapping("/me/{commentoId}")
     public Commento getMyCommentoAndUpdate(@AuthenticationPrincipal Utente currentUtente, @PathVariable UUID commentoId, @RequestBody @Validated CommentoDTO body, BindingResult validationResult) {
         if (validationResult.hasErrors()) {
             throw new ValidationException(validationResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
@@ -34,7 +34,7 @@ public class CommentoController {
     }
 
     //    2. DELETE per la cancellazione del proprio commento
-    @DeleteMapping("/{commentoId}")
+    @DeleteMapping("/me/{commentoId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void getMyCommentoAndDelete(@AuthenticationPrincipal Utente currentUtente, @PathVariable UUID commentoId) {
         this.commentoService.deleteMyCommento(currentUtente.getId(), commentoId);

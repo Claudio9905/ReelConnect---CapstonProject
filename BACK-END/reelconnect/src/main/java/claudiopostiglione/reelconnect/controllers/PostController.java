@@ -31,14 +31,15 @@ public class PostController {
         return this.postService.findAllPostByUtente(currentUtente.getId(), page, size, sortBy);
     }
 
+
     //     2. PUT per la modifica del proprio post
-    @PutMapping("/me")
+    @PutMapping("/me/{postId}")
     @ResponseStatus(HttpStatus.OK)
-    public Post getMyPostAndUpdate(@AuthenticationPrincipal Utente currentUtente, @RequestBody @Validated PostDTO body, BindingResult validationResult) {
+    public Post getMyPostAndUpdate(@AuthenticationPrincipal Utente currentUtente, @RequestBody @Validated PostDTO body, @PathVariable UUID postId, BindingResult validationResult) {
         if (validationResult.hasErrors()) {
             throw new ValidationException(validationResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
         }
-        return this.postService.getPostAndUpdate(currentUtente.getId(), body);
+        return this.postService.updateMyPost(currentUtente.getId(), postId, body);
     }
 
     //    3. PATCH per l'aggiunta di un immagine
@@ -66,7 +67,17 @@ public class PostController {
         return this.postService.findAllPost(page, size, sortBy);
     }
 
-    // 2. DELETE per l'eliminazione di un post
+    //    2. POST per la creazione del post
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Post createMyPost(@RequestBody @Validated PostDTO body, BindingResult validationResult) {
+        if (validationResult.hasErrors()) {
+            throw new ValidationException(validationResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
+        }
+        return this.postService.createPost(body);
+    }
+
+    // 3. DELETE per l'eliminazione di un post
     @DeleteMapping("/{postId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PreAuthorize(("hasAuthority('ADMIN')"))

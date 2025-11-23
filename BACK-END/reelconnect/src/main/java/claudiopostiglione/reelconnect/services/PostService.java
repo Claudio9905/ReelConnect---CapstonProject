@@ -40,11 +40,22 @@ public class PostService {
     public Post createPost(PostDTO bodyPost) {
         Utente utenteFound = this.utenteService.getUtenteById(bodyPost.utenteId());
 
-        Post newPost = new Post(bodyPost.descrizione(), utenteFound);
-        Post postSaved = this.postRepository.save(newPost);
-        log.info("Il post con ID: " + postSaved.getId() + " è stato salvato correttamente");
-        return postSaved;
+        if (bodyPost.imageFile().getSize() > MAX_SIZE)
+            throw new BadRequestException("Il file super la dimensione di 5MB, caricare un file di dimensione minore");
+        if (!ALLOWED_FORMAT.contains(bodyPost.imageFile().getContentType()))
+            throw new BadRequestException("Attenzione, il file non corrisponde ai vari formati ( .jpeg / .png / .gif");
 
+        try {
+            //Catturo l'URL dell'immagine datomi da Cloudinary
+            Map result = imageUploader.uploader().upload(bodyPost.imageFile().getBytes(), ObjectUtils.emptyMap());
+            String imagePostUrl = (String) result.get("url");
+            Post newPost = new Post(bodyPost.descrizione(), utenteFound, imagePostUrl);
+            Post postSaved = this.postRepository.save(newPost);
+            log.info("Il post con ID: " + postSaved.getId() + " è stato salvato correttamente");
+            return postSaved;
+        } catch (Exception ex) {
+            throw new BadRequestException("Errore nel caricamento dell'immagine");
+        }
     }
 
     //   2. Ricerca di tutti i post

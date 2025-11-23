@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -26,7 +27,7 @@ public class Post {
     @Column(name = "image_url")
     private String imageUrl;
     @Column(name = "data_creazione_post")
-    private LocalDate dataCreazionePost;
+    private LocalDateTime dataCreazionePost;
     @Column(name = "num_ciak")
     private long numCiak;
 
@@ -39,9 +40,10 @@ public class Post {
     private List<Commento> listaCommenti = new ArrayList<>();
 
     //Costruttori
-    public Post(String descrizione, Utente utente) {
+    public Post(String descrizione, Utente utente, String imageUrl) {
         this.descrizione = descrizione;
-        this.dataCreazionePost = LocalDate.now();
+        this.dataCreazionePost = LocalDateTime.now();
         this.utente = utente;
+        this.imageUrl = imageUrl;
     }
 }
