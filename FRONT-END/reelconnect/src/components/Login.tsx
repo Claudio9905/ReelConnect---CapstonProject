@@ -53,7 +53,7 @@ const Login: React.FC = () => {
         console.log(resData);
         localStorage.setItem("token", resData.token);
         // setIsLoading(false);
-        navigate("/cineverse");
+        navigate("/myprofile");
       })
       .catch((err) => {
         // setIsLoading(false);

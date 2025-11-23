@@ -1,7 +1,22 @@
 import { Col, Container, Row } from "react-bootstrap";
 import NavSettings from "./NavSettings";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getMyProfile } from "../redux/actions/actions";
+import type { AppDispatch, RootState } from "../redux/store";
+import type BodyUser from "../types/bodyUser";
 
 const MyProfile: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const profile = useSelector((state: RootState) => {
+    return state.myProfile.myProfile as BodyUser;
+  });
+
+  useEffect(() => {
+    dispatch(getMyProfile());
+  }, []);
+
+  console.log("Profile: ", profile);
   return (
     <>
       {/* Versione mobile */}
@@ -21,7 +36,7 @@ const MyProfile: React.FC = () => {
           </Col>
           <Col xs={12} id="col-profile-2-sm" className="d-flex flex-column">
             {/* le informazione dell'utente */}
-            <h1>Nome profilo - username</h1>
+            <h1>{profile.username}</h1>
             <h3>Nome completo - nome/cognome</h3>
             <h3>Info:</h3>
             <p>

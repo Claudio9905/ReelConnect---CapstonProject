@@ -1,4 +1,5 @@
 import type ActionTypes from "../../types/ActionTypes";
+import type BodyUser from "../../types/bodyUser";
 import {
   DELETE_MY_PROFILE,
   EDIT_MY_AVATAR_PROFILE,
@@ -9,12 +10,24 @@ import {
 } from "../actions/actions";
 
 type stateType = {
-  myProfile: [];
+  myProfile: BodyUser;
   isLoading: boolean;
 };
 
 const initialState: stateType = {
-  myProfile: [],
+  myProfile: {
+    id: "",
+    nome: "",
+    cognome: "",
+    username: "",
+    eta: 0,
+    dataDiNascita: "",
+    sesso: "",
+    email: "",
+    avatarUrl: "",
+    bannerUrl: "",
+    role: "",
+  },
   isLoading: false,
 };
 
