@@ -1,20 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../redux/store";
 import { useEffect } from "react";
-import { getAllPost } from "../redux/actions/actions";
+import { getAllMyPost, getAllPost } from "../redux/actions/actions";
 
-const Post: React.FC = () => {
+const MyPost: React.FC = () => {
   const post = useSelector((state: RootState) => {
-    return state.allPost.post;
+    return state.myPost;
   });
 
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(getAllPost());
+    dispatch(getAllMyPost());
   });
 
   return <></>;
 };
 
-export default Post;
+export default MyPost;

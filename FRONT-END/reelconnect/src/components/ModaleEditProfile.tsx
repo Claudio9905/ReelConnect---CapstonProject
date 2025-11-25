@@ -14,7 +14,7 @@ const ModaleEditProfile: React.FC<ModalEditProfileProps> = ({
   onClose,
   onShow,
 }) => {
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [editForm, setEditform] = useState({
     nome: "",
     cognome: "",
