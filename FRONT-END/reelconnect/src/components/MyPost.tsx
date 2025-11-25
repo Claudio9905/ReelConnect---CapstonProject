@@ -39,7 +39,11 @@ const MyPost: React.FC = () => {
               return ( */}
           <Col xs={12} className=" d-flex flex-column ">
             <Card className="p-2" id="card-post">
-              <Card.Img variant="top" src={imagePost} className="img-fluid" />
+              <Card.Img
+                variant="top"
+                src={imagePost}
+                className="img-fluid image-post"
+              />
               <Card.Body>
                 <Card.Title className="d-flex align-items-center">
                   <img
@@ -50,7 +54,7 @@ const MyPost: React.FC = () => {
                   <h3 className="fs-6 ms-2">Nome utente</h3>
                 </Card.Title>
                 <Card.Text>descrizione post</Card.Text>
-                <div className="d-flex justify-content-between align-items-center ">
+                <div className="d-flex justify-content-around align-items-center ">
                   <img
                     src={myCiakIcon}
                     alt="icona-myCiak"

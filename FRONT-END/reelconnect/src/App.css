@@ -565,6 +565,12 @@ body {
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.522);
 }
 
+#container-my-profile .image-post {
+  border-bottom: 1px solid rgb(104, 36, 36);
+  box-shadow: 0px -5px 10px 1px rgb(0, 0, 0);
+  border-width: 5px;
+}
+
 #container-my-profile .icona-commento-post {
   width: 2em;
 }
@@ -606,6 +612,11 @@ body {
   box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.455);
 }
 
+#container-my-profile #row-commenti {
+  overflow-y: scroll;
+  height: 20em;
+}
+
 #container-my-profile .icona-profilo-commento {
   border-radius: 100px;
   object-fit: cover;
@@ -613,6 +624,7 @@ body {
   height: 2em;
   margin-right: 1em;
   border: 1px solid bisque;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.44);
 }
 
 #container-my-profile .descrizione-commento {
@@ -626,6 +638,75 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 70%;
+}
+
+@keyframes settingsCommento {
+  0% {
+    transform: translate(2px, -90px);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0.3;
+    transform: translate(2px, -75px);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translate(2px, -60px);
+  }
+
+  75% {
+    opacity: 0.7;
+    transform: translate(2px, -40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(2px, -10px);
+  }
+}
+
+.div-settings-commento {
+  position: absolute;
+  width: 6em;
+  height: 7em;
+  right: 1em;
+  bottom: 15em;
+  padding: 0.2em;
+  border: 1px solid bisque;
+  backdrop-filter: blur(10px);
+  background-color: rgba(26, 25, 25, 0.997);
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 1px black;
+  animation: settingsCommento 0.2s linear 0s 1 forwards;
+}
+
+.edit-commento {
+  text-decoration: none;
+  color: rgb(226, 157, 73);
+  margin-left: 0.5em;
+}
+
+.delete-commento {
+  text-decoration: none;
+  color: rgb(211, 9, 9);
+  margin-left: 0.5em;
+}
+
+.close-settings-button {
+  position: relative;
+  bottom: 7em;
+  left: 4.5em;
+  background-color: rgba(35, 21, 21, 0.947);
+  border: 1px solid bisque;
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border-radius: 100px;
 }
 
 #container-my-profile .button-close {
