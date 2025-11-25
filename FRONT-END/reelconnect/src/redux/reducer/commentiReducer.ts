@@ -1,12 +1,12 @@
 import type ActionTypes from "../../types/ActionTypes";
-import type BodyCommento from "../../types/BodyCommento";
+import type BodyCommentoGet from "../../types/BodyCommentoGet";
 import {
   GET_COMMENTI_BY_POST,
   LOADING_COMMENTO_POST,
 } from "../actions/actions";
 
 type stateType = {
-  commento: BodyCommento[];
+  commento: BodyCommentoGet[];
   isLoading: boolean;
 };
 

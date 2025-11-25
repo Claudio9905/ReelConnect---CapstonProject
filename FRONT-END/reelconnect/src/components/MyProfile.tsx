@@ -6,6 +6,7 @@ import { getMyProfile } from "../redux/actions/actions";
 import type { AppDispatch, RootState } from "../redux/store";
 import type BodyUser from "../types/bodyUser";
 import ModaleEditProfile from "./ModaleEditProfile";
+import MyPost from "./MyPost";
 
 const MyProfile: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -88,6 +89,7 @@ const MyProfile: React.FC = () => {
         </Row>
         <Row id="row-2" className="d-flex flex-column align-items-center">
           {/* Qui ci sarà la sezione dei post */}
+          <MyPost />
         </Row>
       </Container>
 
@@ -121,7 +123,7 @@ const MyProfile: React.FC = () => {
           </Col>
         </Row>
         <Row id="row-2" className="d-flex flex-column align-items-center">
-          {/* Qui ci sarà la sezione dei post */}
+          <MyPost />
         </Row>
       </Container>
 
@@ -153,6 +155,7 @@ const MyProfile: React.FC = () => {
         </Row>
         <Row id="row-2" className="d-flex flex-column align-items-center">
           {/* Qui ci sarà la sezione dei post */}
+          <MyPost />
         </Row>
         <NavSettings />
       </Container>

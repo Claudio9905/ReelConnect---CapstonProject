@@ -1,9 +1,9 @@
 import type ActionTypes from "../../types/ActionTypes";
-import type BodyPost from "../../types/BodyPost";
+import type BodyPostGet from "../../types/BodyPostGet";
 import { GET_MY_POST, LOADING_COMMENTO_POST } from "../actions/actions";
 
 type stateType = {
-  post: BodyPost[];
+  post: BodyPostGet[];
   isLoading: boolean;
 };
 
