@@ -1,10 +1,16 @@
 import { Col, Container, Row } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 
 const Footer: React.FC = () => {
+  const location = useLocation();
+
   return (
     <>
       {/* Versione mobile */}
-      <Container className=" d-sm-flex d-md-none d-lg-none flex-column container-footer">
+      <Container
+        className={` d-sm-flex d-md-none d-lg-none flex-column container-footer
+          ${location.pathname === "/myprofile" ? "d-none" : ""}`}
+      >
         <Row className="d-flex justify-content-between g-2">
           <Col xs={12} className=" text-center">
             <a
@@ -25,7 +31,7 @@ const Footer: React.FC = () => {
             </a>
           </Col>
           <span className="col-footer1-sm"></span>
-          <Col xs={12} className=" text-center col-footer2-sm">
+          <Col xs={12} className=" text-center ">
             <h3 className="fs-5"> ReelConnect - 2025</h3>
           </Col>
           <span className="col-footer1-sm"></span>

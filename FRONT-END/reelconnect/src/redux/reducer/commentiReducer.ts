@@ -27,6 +27,8 @@ const commentiReducer = (state = initialState, action: ActionTypes<string>) => {
         ...state,
         commento: action.payload,
       };
+    default:
+      return state;
   }
 };
 

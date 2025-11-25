@@ -412,11 +412,22 @@ body {
 }
 
 #container-my-profile .banner-div-sm {
-  border: 1px solid bisque;
+  border-top: 1px solid bisque;
+  border-right: 1px solid bisque;
+  border-left: 1px solid bisque;
+}
+
+#container-my-profile #banner-profile {
 }
 
 #container-my-profile .img-profile-div-sm {
-  border: 1px solid bisque;
+  display: flex;
+  justify-content: center;
+}
+
+#container-my-profile #avatar-profile {
+  border-radius: 100px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.586);
 }
 
 #container-my-profile .banner-div-md {
@@ -433,4 +444,107 @@ body {
 
 #container-my-profile .img-profile-div-lg {
   border: 1px solid bisque;
+}
+
+#container-my-profile #col-profile-2-sm {
+  border: 1px solid bisque;
+  margin-top: 2em;
+  padding: 0.5em;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.512);
+}
+
+#container-my-profile .div-name-profile-sm {
+  border-left: 1px solid bisque;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.318);
+  backdrop-filter: blur(10px);
+}
+
+#container-my-profile .span-divided-sm {
+  border-bottom: 1px solid bisque;
+  width: 70%;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+#container-my-profile .catalogo-filmSerieTv {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(10px);
+  padding: 0.5em;
+}
+
+#container-my-profile #button-number-fan {
+  background-color: rgba(0, 0, 0, 0.24);
+  border: none;
+}
+
+#container-my-profile #button-follow {
+  background-color: rgba(0, 0, 0, 0.24);
+  border: none;
+}
+
+@keyframes buttonHover {
+  0% {
+    border: 0px solid bisque;
+    border-radius: 5px;
+  }
+
+  25% {
+    border: 0.3px solid bisque;
+    border-radius: 10px;
+  }
+
+  50% {
+    border: 0.5px solid bisque;
+    border-radius: 15px;
+  }
+
+  75% {
+    border: 0.7px solid bisque;
+    border-radius: 20px;
+  }
+
+  100% {
+    border: 1px solid bisque;
+    border-radius: 25px;
+  }
+}
+
+#container-my-profile #button-follow:hover {
+  animation: buttonHover 0.5s linear 0s 1 forwards;
+}
+
+#container-my-profile #button-number-fan:hover {
+  animation: buttonHover 0.5s linear 0s 1 forwards;
+}
+
+#container-my-profile .div-fan-follow {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+
+#container-my-profile .button-edit-info {
+  background: none;
+  border: none;
+  border: 1px solid bisque;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.501);
+}
+
+#container-my-profile .button-edit-info:hover {
+  background-color: rgba(255, 228, 196, 0.301);
+  transition: all 0.2s linear 0s;
+}
+
+#modal-edit-profile {
+  background-color: rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(10px);
+  display: flex;
 }
