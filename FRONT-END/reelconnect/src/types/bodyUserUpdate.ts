@@ -6,6 +6,4 @@ export default interface BodyUserUpdate {
   dataDiNascita: string;
   sesso: string;
   email: string;
-  avatarImage: FormData;
-  bannerImage: FormData;
 }

@@ -23,11 +23,11 @@ const ModaleEditProfile: React.FC<ModalEditProfileProps> = ({
   const [dataDiNascita, setDataDiNascita] = useState("");
   const [sesso, setSesso] = useState("");
   const [email, setEmail] = useState("");
-  const [avatarImage, setAvatarImage] = useState(new FormData());
-  const [bannerImage, setBannerImage] = useState(new FormData());
+  // const [avatarImage, setAvatarImage] = useState(new FormData());
+  // const [bannerImage, setBannerImage] = useState(new FormData());
 
-  const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
-  const [bannerPreview, setBannerPreview] = useState<string | null>(null);
+  // const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
+  // const [bannerPreview, setBannerPreview] = useState<string | null>(null);
 
   const myProfile = useSelector((state: RootState) => {
     return state.myProfile.myProfile as BodyUser;
@@ -42,8 +42,6 @@ const ModaleEditProfile: React.FC<ModalEditProfileProps> = ({
     dataDiNascita: dataDiNascita,
     sesso: sesso,
     email: email,
-    avatarImage: avatarImage,
-    bannerImage: bannerImage,
   };
 
   const editSubmit = (e: React.FormEvent) => {
@@ -162,10 +160,10 @@ const ModaleEditProfile: React.FC<ModalEditProfileProps> = ({
                   setEmail(e.target.value);
                 }}
                 minLength={2}
-                maxLength={20}
+                maxLength={50}
               ></FormControl>
             </FormGroup>
-            <FormGroup>
+            {/* <FormGroup>
               <h3>Immagine profilo :</h3>
               <FormControl
                 type="file"
@@ -218,7 +216,7 @@ const ModaleEditProfile: React.FC<ModalEditProfileProps> = ({
                   />
                 </div>
               )}
-            </FormGroup>
+            </FormGroup> */}
             <Modal.Footer className="modal-footer-profile">
               {/* <Button variant="secondary" onClick={onClose}>
             Close

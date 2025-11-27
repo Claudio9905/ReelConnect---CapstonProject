@@ -47,7 +47,9 @@ const NavSettings: React.FC = () => {
               onClick={() => {
                 navigate(`/cineverse`);
               }}
-              className="w-25"
+              className={`w-25 ${
+                location.pathname === "/cineverse" ? "d-none" : ""
+              }`}
             >
               {/* Per accedere al Cineverse */}
               <img
