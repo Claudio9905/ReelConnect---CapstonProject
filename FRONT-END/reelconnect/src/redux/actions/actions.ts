@@ -1,5 +1,5 @@
 import type BodyCommento from "../../types/BodyCommento";
-import type BodyFilm from "../../types/BodyFilm";
+import type BodyFilm from "../../types/bodyFilm";
 import type BodyPost from "../../types/BodyPost";
 import type BodySerieTv from "../../types/BodySerieTv";
 import type BodyUserUpdate from "../../types/bodyUserUpdate";
@@ -718,7 +718,7 @@ export const loadingCommentoPost = () => {
 };
 
 const endpointPost = "http://localhost:3005/post";
-const endpointCommento = "http://loaclhost:3005/commenti";
+const endpointCommento = "http://localhost:3005/commenti";
 
 export const GET_MY_POST = "GET_MY_POST";
 export const EDIT_MY_POST = "EDIT_MY_POST";
@@ -752,7 +752,7 @@ export const getAllMyPost = () => {
         console.log("I miei post: ", resData);
         dispatch({
           type: GET_MY_POST,
-          payload: resData,
+          payload: resData.content,
         });
       })
       .catch((err) => {
@@ -877,15 +877,14 @@ export const getAllPost = () => {
   };
 };
 
-export const createAPost = (post: BodyPost) => {
+export const createAPost = (post: FormData) => {
   return (dispatch: AppDispatch) => {
     fetch(endpointPost, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
       },
-      body: JSON.stringify(post),
+      body: post,
     })
       .then((response) => {
         if (response.ok) {
@@ -955,7 +954,7 @@ export const getCommentiByPost = (postId: string) => {
         console.log("Commenti del post: ", resData);
         dispatch({
           type: GET_COMMENTI_BY_POST,
-          payload: resData,
+          payload: resData.content,
         });
       })
       .catch((err) => {

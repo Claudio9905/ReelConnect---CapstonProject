@@ -17,10 +17,10 @@ const Intro: React.FC = () => {
             </div>
             <div className="mt-5">
               <p className="sinossi">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                libero unde quisquam repellendus corporis aspernatur impedit,
-                inventore corrupti laborum, commodi officia odit vero ut itaque
-                dicta laudantium tempora sapiente obcaecati!
+                ReelConnect, "Reel" come bobina cinematografica + "Connect" come
+                connessione sociale. Una piattaforma social dedicata alla
+                condivisione dei propri pensieri, critiche e valutazioni sui
+                contenuti cinematografici (tra film e serie TV).
               </p>
             </div>
           </Col>
@@ -52,10 +52,10 @@ const Intro: React.FC = () => {
             </div>
             <div className="mt-5">
               <p className="sinossi">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                libero unde quisquam repellendus corporis aspernatur impedit,
-                inventore corrupti laborum, commodi officia odit vero ut itaque
-                dicta laudantium tempora sapiente obcaecati!
+                ReelConnect, "Reel" come bobina cinematografica + "Connect" come
+                connessione sociale. Una piattaforma social dedicata alla
+                condivisione dei propri pensieri, critiche e valutazioni sui
+                contenuti cinematografici (tra film e serie TV).
               </p>
             </div>
           </Col>
@@ -88,10 +88,10 @@ const Intro: React.FC = () => {
             </div>
             <div className="mt-5">
               <p className="sinossi">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                libero unde quisquam repellendus corporis aspernatur impedit,
-                inventore corrupti laborum, commodi officia odit vero ut itaque
-                dicta laudantium tempora sapiente obcaecati!
+                ReelConnect, "Reel" come bobina cinematografica + "Connect" come
+                connessione sociale. Una piattaforma social dedicata alla
+                condivisione dei propri pensieri, critiche e valutazioni sui
+                contenuti cinematografici (tra film e serie TV).
               </p>
             </div>
           </Col>

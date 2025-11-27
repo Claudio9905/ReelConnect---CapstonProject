@@ -34,7 +34,7 @@ public class UtenteService {
     @Autowired
     private Cloudinary imageUploader;
 
-    private static final long MAX_SIZE = 5 * 1024 * 1024; //5MB
+    private static final long MAX_SIZE = 10 * 1024 * 1024; //5MB
     private static final List<String> ALLOWED_FORMAT = List.of("image/jpeg", "image/png");
     // Verrà inserita la logica di business dove gestirà le operazioni CRUD con il DB e i metodi che verranno chiamati nel controller
 

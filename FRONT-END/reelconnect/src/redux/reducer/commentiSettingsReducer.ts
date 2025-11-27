@@ -8,18 +8,12 @@ import {
 } from "../actions/actions";
 
 type stateType = {
-  commento: BodyCommentoGet;
+  commento: BodyCommentoGet[];
   isLoading: boolean;
 };
 
 const initialState: stateType = {
-  commento: {
-    id: "",
-    descrizione: "",
-    postId: "",
-    utenteId: "",
-    dataCreazioneCommento: "",
-  },
+  commento: [],
   isLoading: false,
 };
 
@@ -36,7 +30,7 @@ const commentiSettingsReducer = (
     case CREATE_COMMENTO:
       return {
         ...state,
-        commento: action.payload,
+        commento: [...state.commento, action.payload],
       };
     case EDIT_MY_COMMENTO:
       return {
@@ -46,7 +40,7 @@ const commentiSettingsReducer = (
     case DELETE_MY_COMMENTO:
       return {
         ...state,
-        commento: action.payload,
+        commento: state.commento.filter((c) => c.id != action.payload),
       };
     default:
       return state;

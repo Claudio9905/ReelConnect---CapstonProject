@@ -65,7 +65,7 @@ const ModaleEditProfile: React.FC<ModalEditProfileProps> = ({
     <>
       <Modal id="modal-main-profile" show={onShow} onHide={onClose}>
         <Modal.Header id="modal-header-profile">
-          <Modal.Title>Modifica il tu profilo</Modal.Title>
+          <Modal.Title>Modifica il tuo profilo</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-body-profile">
           <Form
@@ -221,11 +221,17 @@ const ModaleEditProfile: React.FC<ModalEditProfileProps> = ({
               {/* <Button variant="secondary" onClick={onClose}>
             Close
           </Button> */}
-              <Button type="submit" variant="primary">
-                Save Changes
+              <Button
+                type="submit"
+                className=" bg-dark border border-1 border-light"
+              >
+                Salva le modifiche
               </Button>
-              <Button variant="primary" onClick={onClose}>
-                Close
+              <Button
+                className=" bg-dark border border-1 border-light"
+                onClick={onClose}
+              >
+                X
               </Button>
             </Modal.Footer>
           </Form>

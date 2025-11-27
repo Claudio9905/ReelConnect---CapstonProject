@@ -32,7 +32,7 @@ public class PostService {
     @Autowired
     private Cloudinary imageUploader;
 
-    private static final long MAX_SIZE = 5 * 1024 * 1024; //5MB
+    private static final long MAX_SIZE = 10 * 1024 * 1024; //10MB
     private static final List<String> ALLOWED_FORMAT = List.of("image/jpeg", "image/png", "image/gif");
 
 

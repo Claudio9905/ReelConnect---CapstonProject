@@ -70,7 +70,7 @@ public class PostController {
     //    2. POST per la creazione del post
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Post createMyPost(@RequestBody @Validated PostDTO body, BindingResult validationResult) {
+    public Post createMyPost(@ModelAttribute @Validated PostDTO body, BindingResult validationResult) {
         if (validationResult.hasErrors()) {
             throw new ValidationException(validationResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
         }

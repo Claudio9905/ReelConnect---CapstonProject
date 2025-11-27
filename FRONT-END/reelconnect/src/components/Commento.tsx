@@ -10,23 +10,47 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../redux/store";
 import type BodyCommentoGet from "../types/BodyCommentoGet";
-import iconaProfiloCommento from "../assets/img/pellicola-sfondo-login.png";
-import { useState } from "react";
+// import iconaProfiloCommento from "../assets/img/pellicola-sfondo-login.png";
+import { useEffect, useState } from "react";
+import {
+  createCommento,
+  deleteMyCommento,
+  getCommentiByPost,
+} from "../redux/actions/actions";
+import type BodyUser from "../types/bodyUser";
 
 type showCommenti = {
   onClose: () => void;
+  idPost: string;
 };
 
-const Commento: React.FC<showCommenti> = ({ onClose }) => {
+const Commento: React.FC<showCommenti> = ({ onClose, idPost }) => {
   const commento = useSelector((state: RootState) => {
     return state.allCommenti.commento as BodyCommentoGet[];
   });
+  const myProfile = useSelector((state: RootState) => {
+    return state.myProfile.myProfile as BodyUser;
+  });
   const dispatch = useDispatch<AppDispatch>();
   const [showSettingsComment, setshowSettingsComment] = useState(false);
+  const [inputCommento, setInputCommento] = useState({
+    descrizione: "",
+    postId: idPost,
+    utenteId: myProfile.id,
+  });
 
-  // useEffect(()=>{
-  //   dispatch(getCommentiByPost())
-  // },[])
+  const handleDeleteComment = (commentoId: string) => {
+    dispatch(deleteMyCommento(commentoId));
+  };
+
+  const commentoSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    dispatch(createCommento(inputCommento));
+  };
+
+  useEffect(() => {
+    dispatch(getCommentiByPost(idPost));
+  }, [commentoSubmit, handleDeleteComment]);
 
   return (
     <>
@@ -34,13 +58,25 @@ const Commento: React.FC<showCommenti> = ({ onClose }) => {
         <Row className="mb-3">
           <Col xs={12}>
             <div>
-              <Form className="form-commento d-flex align-items-center justify-content-center">
+              <Form
+                className="form-commento d-flex align-items-center justify-content-center"
+                onSubmit={(e) => {
+                  commentoSubmit(e);
+                }}
+              >
                 <FormGroup>
                   <FormControl
                     type="text"
                     placeholder="inserisci un commento"
                     className="input-form-commento mt-3"
                     required
+                    value={inputCommento.descrizione}
+                    onChange={(e) => {
+                      setInputCommento({
+                        ...inputCommento,
+                        descrizione: e.target.value,
+                      });
+                    }}
                     minLength={1}
                   ></FormControl>
                 </FormGroup>
@@ -61,65 +97,73 @@ const Commento: React.FC<showCommenti> = ({ onClose }) => {
           </Col>
         </Row>
         <Row id="row-commenti" className="d-flex flex-column g-3 flex-nowrap">
-          <Col
-            xs={12}
-            className="d-flex flex-column justify-content-between align-items-start gap-3 "
-          >
-            <div className="me-3 d-flex align-items-center justify-content-between w-100">
-              <img
-                src={iconaProfiloCommento}
-                alt="icona profilo"
-                className="img-fluid icona-profilo-commento"
-              />
-              <h6 className="d-flex w-75">Nome profile</h6>
-              <Button
-                className="button-icon"
-                onClick={() => {
-                  setshowSettingsComment(true);
-                }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-three-dots"
-                  viewBox="0 0 16 16"
+          {Array.isArray(commento) &&
+            commento.map((commento) => {
+              return (
+                <Col
+                  key={commento.id}
+                  xs={12}
+                  className="d-flex flex-column justify-content-between align-items-start gap-3 "
                 >
-                  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                </svg>
-              </Button>
-              {showSettingsComment && (
-                <div className="div-settings-commento d-flex flex-column">
-                  <a href="/modaleEditCommento" className="edit-commento">
-                    Modifica commento
-                  </a>
-                  <span className="separated-comment m-0"></span>
-                  <a href="" onClick={() => {}} className="delete-commento">
-                    Elimina commento
-                  </a>
-                  <Button
-                    className="close-settings-button"
-                    onClick={() => {
-                      setshowSettingsComment(false);
-                    }}
-                  >
-                    X
-                  </Button>
-                </div>
-              )}
-            </div>
-            <p className="descrizione-commento">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum,
-              ea ipsam a non quos eveniet maiores ex, nisi, adipisci earum
-              molestiae similique fuga. Enim sint itaque quisquam aut neque
-              recusandae.
-            </p>
-            <div className="text-end w-100">
-              <h6 className="fs-6">YYYY/MM/DD</h6>
-            </div>
-            <span className="separated-comment"></span>
-          </Col>
+                  <div className="me-3 d-flex align-items-center justify-content-between w-100">
+                    <img
+                      src={commento.utente.avatarUrl}
+                      alt="icona profilo"
+                      className="img-fluid icona-profilo-commento"
+                    />
+                    <h6 className="d-flex w-75">{commento.utente.username}</h6>
+                    <Button
+                      className="button-icon"
+                      onClick={() => {
+                        setshowSettingsComment(true);
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-three-dots"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+                      </svg>
+                    </Button>
+                    {showSettingsComment && (
+                      <div className="div-settings-commento d-flex flex-column">
+                        <a href="/modaleEditCommento" className="edit-commento">
+                          Modifica commento
+                        </a>
+                        <span className="separated-comment m-0"></span>
+                        <a
+                          onClick={() => {
+                            if (myProfile.id === commento.utente.id) {
+                              handleDeleteComment(commento.id);
+                            }
+                          }}
+                          className="delete-commento"
+                        >
+                          Elimina commento
+                        </a>
+                        <Button
+                          className="close-settings-button"
+                          onClick={() => {
+                            setshowSettingsComment(false);
+                          }}
+                        >
+                          X
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                  <p className="descrizione-commento">{commento.descrizione}</p>
+                  <div className="text-end w-100">
+                    <h6 className="fs-6">{commento.dataCreazioneCommento}</h6>
+                  </div>
+                  <span className="separated-comment"></span>
+                </Col>
+              );
+            })}
         </Row>
         <Button onClick={onClose} className="button-close">
           <svg
