@@ -1,5 +1,5 @@
 import type ActionTypes from "../../types/ActionTypes";
-import type BodyPost from "../../types/BodyPost";
+import type BodyPostGet from "../../types/BodyPostGet";
 import {
   CREATE_POST,
   DELETE_A_POST,
@@ -10,15 +10,19 @@ import {
 } from "../actions/actions";
 
 type stateType = {
-  post: BodyPost;
+  post: BodyPostGet;
   isLoading: boolean;
 };
 
 const initialState: stateType = {
   post: {
+    id: "",
     descrizione: "",
     utenteId: "",
-    imagePost: new FormData(),
+    imagePost: "string",
+    dataCreazionePost: "",
+    numCiak: 0,
+    listaCommenti: [],
   },
   isLoading: false,
 };

@@ -1,9 +1,9 @@
 import type ActionTypes from "../../types/ActionTypes";
-import type BodySerieTv from "../../types/BodySerieTv";
+import type BodySerieTvGet from "../../types/BodySerieTvGet";
 import { GET_ALL_SERIES_TV, LOADING_FILM_SERIETV } from "../actions/actions";
 
 type stateType = {
-  seriesTV: BodySerieTv[];
+  seriesTV: BodySerieTvGet[];
   isLoading: boolean;
 };
 

@@ -5,6 +5,7 @@ import claudiopostiglione.reelconnect.exceptions.BadRequestException;
 import claudiopostiglione.reelconnect.exceptions.IdUserNotFoundException;
 import claudiopostiglione.reelconnect.exceptions.UserNotFoundException;
 import claudiopostiglione.reelconnect.payload.UtenteDTO;
+import claudiopostiglione.reelconnect.payload.UtenteNoPasswordDTO;
 import claudiopostiglione.reelconnect.repositories.UtenteRepository;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
@@ -74,7 +75,7 @@ public class UtenteService {
     }
 
     // 4. Modifica dell'utente tramite ID
-    public Utente getUtenteByIdAndUpdate(UUID idUtente, UtenteDTO bodyUtente) {
+    public Utente getUtenteByIdAndUpdate(UUID idUtente, UtenteNoPasswordDTO bodyUtente) {
         Utente utenteFound = this.getUtenteById(idUtente);
 
         if (!utenteFound.getEmail().equals(bodyUtente.email())) {

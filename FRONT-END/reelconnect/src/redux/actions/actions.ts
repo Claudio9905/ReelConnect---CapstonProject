@@ -1,5 +1,5 @@
 import type BodyCommento from "../../types/BodyCommento";
-import type BodyFilm from "../../types/bodyFilm";
+import type BodyFilm from "../../types/BodyFilm";
 import type BodyPost from "../../types/BodyPost";
 import type BodySerieTv from "../../types/BodySerieTv";
 import type BodyUserUpdate from "../../types/bodyUserUpdate";

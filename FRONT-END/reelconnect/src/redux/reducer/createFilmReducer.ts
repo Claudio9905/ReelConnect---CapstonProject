@@ -1,14 +1,15 @@
 import type ActionTypes from "../../types/ActionTypes";
-import type BodyFilm from "../../types/bodyFilm";
+import type BodyFilmGet from "../../types/bodyFilmGet";
 import { CREATE_A_FILM, LOADING_FILM_SERIETV } from "../actions/actions";
 
 type stateType = {
-  films: BodyFilm;
+  films: BodyFilmGet;
   isLoading: boolean;
 };
 
 const initialState: stateType = {
   films: {
+    id: "",
     titolo: "",
     descrizione: "",
     annoDiUscita: "",

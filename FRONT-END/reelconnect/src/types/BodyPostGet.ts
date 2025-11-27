@@ -6,6 +6,6 @@ export default interface BodyPostGet {
   utenteId: string;
   imagePost: string;
   dataCreazionePost: string;
-  numCiak: 0;
+  numCiak: number;
   listaCommenti: BodyCommentoGet[];
 }

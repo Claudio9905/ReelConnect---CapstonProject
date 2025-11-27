@@ -1,8 +1,9 @@
 import type ActionTypes from "../../types/ActionTypes";
+import type BodyUser from "../../types/bodyUser";
 import { GET_ALL_USERS, LOADING_USER } from "../actions/actions";
 
 type stateType = {
-  listUser: [];
+  listUser: BodyUser[];
   isLoading: boolean;
 };
 

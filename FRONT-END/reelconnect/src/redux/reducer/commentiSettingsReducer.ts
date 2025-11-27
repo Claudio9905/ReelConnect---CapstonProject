@@ -1,5 +1,5 @@
 import type ActionTypes from "../../types/ActionTypes";
-import type BodyCommento from "../../types/BodyCommento";
+import type BodyCommentoGet from "../../types/BodyCommentoGet";
 import {
   CREATE_COMMENTO,
   DELETE_MY_COMMENTO,
@@ -8,15 +8,17 @@ import {
 } from "../actions/actions";
 
 type stateType = {
-  commento: BodyCommento;
+  commento: BodyCommentoGet;
   isLoading: boolean;
 };
 
 const initialState: stateType = {
   commento: {
+    id: "",
     descrizione: "",
     postId: "",
     utenteId: "",
+    dataCreazioneCommento: "",
   },
   isLoading: false,
 };

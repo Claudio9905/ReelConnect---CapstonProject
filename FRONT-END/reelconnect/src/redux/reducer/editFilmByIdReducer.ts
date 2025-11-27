@@ -1,5 +1,5 @@
 import type ActionTypes from "../../types/ActionTypes";
-import type BodyFilm from "../../types/bodyFilm";
+import type BodyFilm from "../../types/BodyFilm";
 import { EDIT_FILM_BY_ID, LOADING_FILM_SERIETV } from "../actions/actions";
 
 type stateType = {

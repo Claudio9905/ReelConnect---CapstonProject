@@ -9,7 +9,12 @@ const Footer: React.FC = () => {
       {/* Versione mobile */}
       <Container
         className={` d-sm-flex d-md-none d-lg-none flex-column container-footer
-          ${location.pathname === "/myprofile" ? "d-none" : ""}`}
+          ${
+            location.pathname === "/myprofile" ||
+            location.pathname === "/cineverse"
+              ? "d-none"
+              : ""
+          }`}
       >
         <Row className="d-flex justify-content-between g-2">
           <Col xs={12} className=" text-center">

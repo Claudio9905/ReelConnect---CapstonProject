@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Cineverse from "./components/Cineverse";
 import Footer from "./components/Footer";
 import MyProfile from "./components/MyProfile";
+import NavSettings from "./components/NavSettings";
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route path="/myprofile" element={<MyProfile />}></Route>
           <Route path="/cineverse" element={<Cineverse />}></Route>
         </Routes>
+        <NavSettings />
         <Footer />
       </BrowserRouter>
     </>

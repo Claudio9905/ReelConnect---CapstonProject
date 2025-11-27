@@ -1,14 +1,15 @@
 import type ActionTypes from "../../types/ActionTypes";
-import type BodyUserUpdate from "../../types/bodyUserUpdate";
+import type BodyUser from "../../types/bodyUser";
 import { EDIT_USER_BY_ID, LOADING_USER } from "../actions/actions";
 
 type stateType = {
-  singleUser: BodyUserUpdate;
+  singleUser: BodyUser;
   isLoading: boolean;
 };
 
 const initialState: stateType = {
   singleUser: {
+    id: "",
     nome: "",
     cognome: "",
     username: "",
@@ -16,6 +17,9 @@ const initialState: stateType = {
     dataDiNascita: "",
     sesso: "",
     email: "",
+    avatarUrl: "",
+    bannerUrl: "",
+    role: "",
   },
   isLoading: false,
 };

@@ -3,6 +3,7 @@ package claudiopostiglione.reelconnect.controllers;
 import claudiopostiglione.reelconnect.entities.utente.Utente;
 import claudiopostiglione.reelconnect.exceptions.ValidationException;
 import claudiopostiglione.reelconnect.payload.UtenteDTO;
+import claudiopostiglione.reelconnect.payload.UtenteNoPasswordDTO;
 import claudiopostiglione.reelconnect.services.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,7 +33,7 @@ public class UtenteController {
 
     //PUT per modifiche al mio profilo
     @PutMapping("/me")
-    public Utente getMyProfileAndUpdate(@AuthenticationPrincipal Utente currentUtente, @RequestBody @Validated UtenteDTO bodyUtente, BindingResult validationResult) {
+    public Utente getMyProfileAndUpdate(@AuthenticationPrincipal Utente currentUtente, @RequestBody @Validated UtenteNoPasswordDTO bodyUtente, BindingResult validationResult) {
         if (validationResult.hasErrors()) {
             throw new ValidationException(validationResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
         }
@@ -91,7 +92,7 @@ public class UtenteController {
     // 4. PUT per la modifica dell'utente
     @PutMapping("/{idUtente}")
     @PreAuthorize(("hasAuthority('ADMIN')"))
-    public Utente findUtenteByIdAndUpdate(@PathVariable UUID idUtente, @RequestBody @Validated UtenteDTO body, BindingResult validationResult) {
+    public Utente findUtenteByIdAndUpdate(@PathVariable UUID idUtente, @RequestBody @Validated UtenteNoPasswordDTO body, BindingResult validationResult) {
         if (validationResult.hasErrors()) {
             throw new ValidationException(validationResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
         }
