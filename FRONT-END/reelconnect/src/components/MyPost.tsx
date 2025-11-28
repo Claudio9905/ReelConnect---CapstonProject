@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../redux/store";
 import { useEffect, useState } from "react";
-import { getAllMyPost } from "../redux/actions/actions";
+import { createNoSuccessPost, getAllMyPost } from "../redux/actions/actions";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import type BodyPostGet from "../types/BodyPostGet";
@@ -16,6 +16,14 @@ const MyPost: React.FC = () => {
   });
   const [showCommenti, setShowCommenti] = useState(false);
   const [actualPostId, setActualPostId] = useState<string | null>(null);
+  // const [showSettingsPost, setShowSettingsPost] = useState(false);
+  // const myProfile = useSelector((state: RootState) => {
+  //   return state.myProfile.myProfile as BodyUser;
+  // });
+
+  const postSuccess = useSelector((state: RootState) => {
+    return state.postSettings.status;
+  });
 
   const handleShowCommenti = () => {
     setShowCommenti(true);
@@ -29,13 +37,15 @@ const MyPost: React.FC = () => {
 
   useEffect(() => {
     dispatch(getAllMyPost());
-  }, []);
+    dispatch(createNoSuccessPost());
+  }, [postSuccess]);
 
   return (
     <>
       {/* versione mobile */}
       <Container className="d-flex flex-column align-items-center mt-3">
-        <Row className=" d-flex flex-column p-1 ">
+        <Row className=" d-flex flex-column p-4 ">
+          <h3 className="title-ciak">I miei Ciak</h3>
           {Array.isArray(post) &&
             post.map((post) => {
               return (
@@ -74,7 +84,12 @@ const MyPost: React.FC = () => {
                           }}
                         />
                         <span className="numero-commenti">N</span>
-                        <Button className="button-icon">
+                        <Button
+                          className="button-icon"
+                          onClick={() => {
+                            setShowSettingsPost(true);
+                          }}
+                        >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -86,6 +101,27 @@ const MyPost: React.FC = () => {
                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                           </svg>
                         </Button>
+                        {/* {showSettingsPost && (
+                      
+                          <div className=" d-flex flex-column">
+                            <a
+                              onClick={() => {
+                                dispatch(deleteMyPost(post.id));
+                              }}
+                              className="delete-commento"
+                            >
+                              Elimina commento
+                            </a>
+                            <Button
+                              className="close-settings-button"
+                              onClick={() => {
+                                setShowSettingsPost(false);
+                              }}
+                            >
+                              X
+                            </Button>
+                          </div>
+                        )} */}
                       </div>
                       {showCommenti && actualPostId === post.id && (
                         <Commento

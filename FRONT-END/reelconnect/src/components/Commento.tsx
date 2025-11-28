@@ -14,6 +14,8 @@ import type BodyCommentoGet from "../types/BodyCommentoGet";
 import { useEffect, useState } from "react";
 import {
   createCommento,
+  createNoSuccessComment,
+  createSuccessComment,
   deleteMyCommento,
   getCommentiByPost,
 } from "../redux/actions/actions";
@@ -39,6 +41,10 @@ const Commento: React.FC<showCommenti> = ({ onClose, idPost }) => {
     utenteId: myProfile.id,
   });
 
+  const commentoStatus = useSelector((state: RootState) => {
+    return state.commentiSettings.status;
+  });
+
   const handleDeleteComment = (commentoId: string) => {
     dispatch(deleteMyCommento(commentoId));
   };
@@ -46,11 +52,13 @@ const Commento: React.FC<showCommenti> = ({ onClose, idPost }) => {
   const commentoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(createCommento(inputCommento));
+    dispatch(createSuccessComment());
   };
 
   useEffect(() => {
     dispatch(getCommentiByPost(idPost));
-  }, [commentoSubmit, handleDeleteComment]);
+    dispatch(createNoSuccessComment());
+  }, [commentoStatus]);
 
   return (
     <>

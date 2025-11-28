@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../redux/store";
-import { useState } from "react";
-import { createAPost } from "../redux/actions/actions";
+import { useEffect, useState } from "react";
+import { createAPost, createSuccessPost } from "../redux/actions/actions";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import type BodyUser from "../types/bodyUser";
@@ -41,8 +41,10 @@ const ModaleCreatePost: React.FC<ModalCreatePostProps> = ({
       formData.append("imageFile", selectedFile);
     }
     dispatch(createAPost(formData));
+    dispatch(createSuccessPost());
   };
 
+  useEffect(() => {});
   return (
     <>
       <Modal id="modal-main-profile" show={onShow} onHide={onClose}>

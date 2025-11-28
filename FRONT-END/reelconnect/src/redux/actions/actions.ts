@@ -715,6 +715,35 @@ export const loadingCommentoPost = () => {
   };
 };
 
+export const SUCCESS = "SUCCESS";
+export const createSuccessComment = () => {
+  return {
+    type: SUCCESS,
+    payload: "success",
+  };
+};
+export const NOSUCCESS = "NOSUCCESS";
+export const createNoSuccessComment = () => {
+  return {
+    type: SUCCESS,
+    payload: "",
+  };
+};
+export const SUCCESSPOST = "SUCCESSPOST";
+export const createSuccessPost = () => {
+  return {
+    type: SUCCESSPOST,
+    payload: "success",
+  };
+};
+export const NOSUCCESSPOST = "NOSUCCESSPOST";
+export const createNoSuccessPost = () => {
+  return {
+    type: NOSUCCESSPOST,
+    payload: "",
+  };
+};
+
 const endpointPost = "http://localhost:3005/post";
 const endpointCommento = "http://localhost:3005/commenti";
 
@@ -791,7 +820,7 @@ export const editMyPost = (id: string, post: BodyPost) => {
 
 export const editImagePost = (id: string, file: FormData) => {
   return (dispatch: AppDispatch) => {
-    fetch(editMyPost + `/me/${id}/imageUrl`, {
+    fetch(endpointPost + `/me/${id}/imageUrl`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -821,7 +850,7 @@ export const editImagePost = (id: string, file: FormData) => {
 
 export const deleteMyPost = (id: string) => {
   return (dispatch: AppDispatch) => {
-    fetch(endpointCommento + `/me/${id}`, {
+    fetch(endpointPost + `/me/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -1031,7 +1060,9 @@ export const deleteMyCommento = (id: string) => {
     })
       .then((response) => {
         if (response.ok) {
-          return response.json();
+          if (response.status === 204) {
+            return null;
+          }
         } else {
           throw new Error("Errore nel caricamento dei dati");
         }
@@ -1039,8 +1070,8 @@ export const deleteMyCommento = (id: string) => {
       .then((resData) => {
         console.log("Commento cancellato: ", resData);
         dispatch({
-          type: DELETE_MY_POST,
-          payload: resData,
+          type: DELETE_MY_COMMENTO,
+          payload: id,
         });
       })
       .catch((err) => {

@@ -5,16 +5,20 @@ import {
   DELETE_MY_COMMENTO,
   EDIT_MY_COMMENTO,
   LOADING_COMMENTO_POST,
+  NOSUCCESS,
+  SUCCESS,
 } from "../actions/actions";
 
 type stateType = {
   commento: BodyCommentoGet[];
   isLoading: boolean;
+  status: string;
 };
 
 const initialState: stateType = {
   commento: [],
   isLoading: false,
+  status: "",
 };
 
 const commentiSettingsReducer = (
@@ -27,11 +31,22 @@ const commentiSettingsReducer = (
         ...state,
         isLoading: action.payload,
       };
+    case SUCCESS:
+      return {
+        ...state,
+        status: action.payload,
+      };
+    case NOSUCCESS:
+      return {
+        ...state,
+        status: action.payload,
+      };
     case CREATE_COMMENTO:
       return {
         ...state,
         commento: [...state.commento, action.payload],
       };
+
     case EDIT_MY_COMMENTO:
       return {
         ...state,

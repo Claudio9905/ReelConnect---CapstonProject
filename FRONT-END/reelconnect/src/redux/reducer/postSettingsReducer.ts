@@ -7,11 +7,14 @@ import {
   EDIT_IMAGE_POST,
   EDIT_MY_POST,
   LOADING_COMMENTO_POST,
+  NOSUCCESSPOST,
+  SUCCESSPOST,
 } from "../actions/actions";
 
 type stateType = {
   post: BodyPostGet;
   isLoading: boolean;
+  status: string;
 };
 
 const initialState: stateType = {
@@ -37,6 +40,7 @@ const initialState: stateType = {
     listaCommenti: [],
   },
   isLoading: false,
+  status: "",
 };
 
 const postSettingsReducer = (
@@ -48,6 +52,16 @@ const postSettingsReducer = (
       return {
         ...state,
         isLoading: action.payload,
+      };
+    case SUCCESSPOST:
+      return {
+        ...state,
+        status: action.payload,
+      };
+    case NOSUCCESSPOST:
+      return {
+        ...state,
+        status: action.payload,
       };
     case CREATE_POST:
       return {

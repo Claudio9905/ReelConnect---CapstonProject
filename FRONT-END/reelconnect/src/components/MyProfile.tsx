@@ -2,13 +2,13 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import NavSettings from "./NavSettings";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMyProfile } from "../redux/actions/actions";
 import type { AppDispatch, RootState } from "../redux/store";
 import type BodyUser from "../types/bodyUser";
 import ModaleEditProfile from "./ModaleEditProfile";
 import MyPost from "./MyPost";
 import ModaleEditAvatarProfile from "./ModaleEditAvatarProfile";
 import ModaleEditBannerProfile from "./ModaleEditBannerProfile";
+import { getMyProfile } from "../redux/actions/actions";
 
 const MyProfile: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
