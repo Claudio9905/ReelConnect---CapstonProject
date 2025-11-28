@@ -93,8 +93,7 @@ const MyProfile: React.FC = () => {
                 {profile.username}
               </h3>
               <div className="div-fan-follow">
-                <Button id="button-number-fan">FAN</Button>
-                <Button id="button-follow">FOLLOW</Button>
+                <Button id="button-number-fan">N. FAN</Button>
               </div>
             </div>
             <div className="d-flex flex-column justify-content-around p-2">
