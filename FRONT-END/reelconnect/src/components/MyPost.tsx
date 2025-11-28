@@ -77,7 +77,7 @@ const MyPost: React.FC = () => {
                           alt="icona-myCiak"
                           className="img-fluid icona-myCiak"
                         />
-                        <span className="numero-myCiak">N</span>
+                        <span className="numero-myCiak"> N</span>
                         <img
                           src={iconComment}
                           alt="icona-commento"

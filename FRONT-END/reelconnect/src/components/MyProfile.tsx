@@ -49,32 +49,26 @@ const MyProfile: React.FC = () => {
                 className="img-fluid "
                 id="banner-profile"
               />
-              <Button
-                onClick={handleShowModalBanner}
-                id="button-edit-banner"
-              ></Button>
+              <Button onClick={handleShowModalBanner} id="button-edit-banner">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  className="bi bi-pencil-square"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"
+                  />
+                </svg>
+              </Button>
               {showModalBanner && (
                 <ModaleEditBannerProfile
                   onClose={handleCloseModalBanner}
                   onShow={showModalBanner}
-                />
-              )}
-            </div>
-            <div className=" img-profile-div-sm">
-              <img
-                src={profile.avatarUrl}
-                alt="immagine di profilo"
-                className="img-fluid object-fit-cover"
-                id="avatar-profile"
-              />
-              <Button
-                onClick={handleShowModalAvatar}
-                id="button-edit-avatar"
-              ></Button>
-              {showModalAvatar && (
-                <ModaleEditAvatarProfile
-                  onClose={handleCloseModalAvatar}
-                  onShow={showModalAvatar}
                 />
               )}
             </div>
@@ -92,6 +86,36 @@ const MyProfile: React.FC = () => {
               <h3 className="fs-6" id="username-profile-sm">
                 {profile.username}
               </h3>
+              <div className=" img-profile-div-sm">
+                <img
+                  src={profile.avatarUrl}
+                  alt="immagine di profilo"
+                  className="img-fluid object-fit-cover"
+                  id="avatar-profile"
+                />
+                <Button onClick={handleShowModalAvatar} id="button-edit-avatar">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    className="bi bi-pencil-square"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path
+                      fill-rule="evenodd"
+                      d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"
+                    />
+                  </svg>
+                </Button>
+                {showModalAvatar && (
+                  <ModaleEditAvatarProfile
+                    onClose={handleCloseModalAvatar}
+                    onShow={showModalAvatar}
+                  />
+                )}
+              </div>
               <div className="div-fan-follow">
                 <Button id="button-number-fan">N. FAN</Button>
               </div>
@@ -112,7 +136,7 @@ const MyProfile: React.FC = () => {
             <span className="span-divided-sm"></span>
             {/* Componente dei film/serie Tv visti */}
             <div className="catalogo-filmSerieTv">
-              <h3> Film/SerieTv visionati </h3>
+              <h3> Film/SerieTv visti </h3>
             </div>
           </Col>
         </Row>

@@ -41,12 +41,22 @@ const Commento: React.FC<showCommenti> = ({ onClose, idPost }) => {
     utenteId: myProfile.id,
   });
 
+  const [selectCommentoToDelete, setSelectCommentoToDelete] = useState<
+    string | null
+  >(null);
+
+  const handleClick = (id: string) => {
+    setSelectCommentoToDelete(id);
+    handleDeleteComment();
+  };
   const commentoStatus = useSelector((state: RootState) => {
     return state.commentiSettings.status;
   });
 
-  const handleDeleteComment = (commentoId: string) => {
-    dispatch(deleteMyCommento(commentoId));
+  const handleDeleteComment = () => {
+    if (selectCommentoToDelete) {
+      dispatch(deleteMyCommento(selectCommentoToDelete));
+    }
   };
 
   const commentoSubmit = (e: React.FormEvent) => {
@@ -146,7 +156,7 @@ const Commento: React.FC<showCommenti> = ({ onClose, idPost }) => {
                         <a
                           onClick={() => {
                             if (myProfile.id === commento.utente.id) {
-                              handleDeleteComment(commento.id);
+                              handleClick(commento.id);
                             }
                           }}
                           className="delete-commento"

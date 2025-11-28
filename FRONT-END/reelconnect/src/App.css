@@ -412,13 +412,77 @@ body {
   background-image: linear-gradient(2deg, #1d161093, transparent);
   backdrop-filter: blur(10px);
   border: 1px solid #e9cc2b;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   border-bottom: none;
   box-shadow: 0px 6px 10px 1px #00000087;
-  padding: 1em;
+  padding: 0.5em;
   position: sticky;
   bottom: 0;
+}
+
+#button-search-user {
+  background: none;
+  border: none;
+  color: bisque;
+}
+
+#button-search-user:hover {
+  border-top: 2px solid bisque;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: all 0.2s linear 0s;
+}
+
+#button-navigate-cineverse {
+  background: none;
+  border: none;
+}
+
+#button-navigate-cineverse:hover {
+  border-top: 2px solid bisque;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: all 0.2s linear 0s;
+}
+
+#button-navigate-myprofile {
+  background: none;
+  border: none;
+  width: 25%;
+}
+
+#button-navigate-myprofile:hover {
+  border-top: 2px solid bisque;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: all 0.2s linear 0s;
+}
+
+#button-create-post {
+  background: none;
+  border: none;
+  color: bisque;
+}
+
+#button-create-post:hover {
+  border-top: 2px solid bisque;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: all 0.2s linear 0s;
+}
+
+#button-lista-film-serieTv {
+  background: none;
+  border: none;
+  color: bisque;
+}
+
+#button-lista-film-serieTv:hover {
+  border-top: 2px solid bisque;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: all 0.2s linear 0s;
 }
 
 /* CSS del componente MyProfile */
@@ -430,14 +494,39 @@ body {
   border-top: 1px solid bisque;
   border-right: 1px solid bisque;
   border-left: 1px solid bisque;
+  border-bottom: 5px solid rgba(139, 0, 0, 0.627);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  position: relative;
+  top: 1.8em;
 }
 
 #container-my-profile #banner-profile {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  object-fit: cover;
+}
+
+#button-edit-banner {
+  background: none;
+  border: none;
+  color: bisque;
+  position: absolute;
+  right: 0;
+}
+
+#button-edit-avatar {
+  background: none;
+  border: none;
+  position: absolute;
+  bottom: 0;
+  left: 6em;
 }
 
 #container-my-profile .img-profile-div-sm {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 #container-my-profile #avatar-profile {
@@ -465,6 +554,7 @@ body {
 
 #container-my-profile #col-profile-2-sm {
   border: 1px solid bisque;
+  border-top: none;
   margin-top: 2em;
   padding: 0.5em;
   backdrop-filter: blur(10px);
@@ -480,6 +570,10 @@ body {
   width: 70%;
   background-color: rgba(0, 0, 0, 0.318);
   backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #container-my-profile .span-divided-sm {
@@ -598,6 +692,8 @@ body {
   width: 50%;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
   background-color: rgba(255, 228, 196, 0.11);
   backdrop-filter: blur(10px);
   padding: 0.2em;
@@ -609,14 +705,15 @@ body {
 #container-my-profile .title-ciak {
   color: bisque;
   font-size: 1.5em;
+  margin: 0;
   font-family: "Times New Roman", Times, serif;
 }
 
 #container-my-profile #row-post {
-  border-left: 10px solid rgba(143, 100, 57, 0.139);
+  /* border-left: 10px solid rgb(79 63 6 / 47%); */
   /* border-right: 10px solid rgb(20, 14, 8); */
-  background-color: rgba(163, 111, 55, 0.197);
-  backdrop-filter: blur(10px);
+  /* background-color: rgb(66 50 4 / 49%);
+  backdrop-filter: blur(10px); */
   width: 22em;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -626,7 +723,7 @@ body {
 
 #container-my-profile .icona-utente-post {
   border-radius: 100px;
-  object-fit: contain;
+  object-fit: cover;
   width: 2em;
   height: 2em;
   border: 1px solid bisque;
@@ -672,12 +769,12 @@ body {
 
 #container-my-profile .numero-myCiak {
   position: relative;
-  right: 1.5em;
+  right: 1em;
 }
 
 #container-my-profile .numero-commenti {
   position: relative;
-  right: 1.5em;
+  right: 0.7em;
 }
 
 /* CSS del componente Commento */
@@ -697,7 +794,7 @@ body {
 #container-my-profile .icona-profilo-commento {
   border-radius: 100px;
   object-fit: cover;
-  width: 2em;
+  width: 2.4em;
   height: 2em;
   margin-right: 1em;
   border: 1px solid bisque;

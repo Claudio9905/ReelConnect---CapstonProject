@@ -32,8 +32,8 @@ const NavSettings: React.FC = () => {
               {/* Per la ricerca degli utenti dove si aprirà un modale apposito */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="22"
+                height="22"
                 fill="currentColor"
                 className="bi bi-person-bounding-box"
                 viewBox="0 0 16 16"
@@ -55,7 +55,7 @@ const NavSettings: React.FC = () => {
               <img
                 src={iconaCineverse}
                 alt="icona pagina cineverse"
-                className="img-fluid w-50"
+                className="img-fluid w-75"
               />
             </Button>
             <Button
@@ -68,14 +68,18 @@ const NavSettings: React.FC = () => {
               } `}
             >
               {/* Per accedere al proprio profilo */}
-              <img src={myProfile.avatarUrl} alt="icona-profilo" />
+              <img
+                src={myProfile.avatarUrl}
+                alt="icona-profilo"
+                className="img-fluid w-50 rounded-5 object-fit-contain "
+              />
             </Button>
             <Button id="button-create-post" onClick={handleshowModale}>
               {/* Per la creazione di un post */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="22"
+                height="22"
                 fill="currentColor"
                 className="bi bi-file-post"
                 viewBox="0 0 16 16"
@@ -90,12 +94,12 @@ const NavSettings: React.FC = () => {
                 onShow={showCreatePost}
               />
             )}
-            <Button id="button-lista-film/serieTv">
+            <Button id="button-lista-film-serieTv">
               {/* Per accedere alla lista dei propri film/serieTv viste */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="22"
+                height="22"
                 fill="currentColor"
                 className="bi bi-film"
                 viewBox="0 0 16 16"
