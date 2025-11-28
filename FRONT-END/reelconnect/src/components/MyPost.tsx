@@ -44,8 +44,10 @@ const MyPost: React.FC = () => {
     <>
       {/* versione mobile */}
       <Container className="d-flex flex-column align-items-center mt-3">
-        <Row className=" d-flex flex-column p-4 ">
-          <h3 className="title-ciak">I miei Ciak</h3>
+        <div className="div-title-ciak">
+          <h3 className="title-ciak">I MIEI CIAK</h3>
+        </div>
+        <Row id="row-post" className=" d-flex flex-column p-4 ">
           {Array.isArray(post) &&
             post.map((post) => {
               return (
@@ -57,13 +59,16 @@ const MyPost: React.FC = () => {
                       className="img-fluid image-post"
                     />
                     <Card.Body>
-                      <Card.Title className="d-flex align-items-center">
-                        <img
-                          src={post.utente.avatarUrl}
-                          alt="icona-avatar-utente"
-                          className="img-fluid icona-utente-post"
-                        />
-                        <h3 className="fs-6 ms-2">{post.utente.nome}</h3>
+                      <Card.Title className="d-flex align-items-center justify-content-between">
+                        <div className="d-flex align-items-center justify-content-center">
+                          <img
+                            src={post.utente.avatarUrl}
+                            alt="icona-avatar-utente"
+                            className="img-fluid icona-utente-post"
+                          />
+                          <h3 className="fs-6 ms-2">{post.utente.nome}</h3>
+                        </div>
+                        <h6>{post.dataCreazionePost.split("", 10)}</h6>
                       </Card.Title>
                       <Card.Text>{post.descrizione}</Card.Text>
                       <div className="d-flex justify-content-around align-items-center ">
@@ -86,9 +91,9 @@ const MyPost: React.FC = () => {
                         <span className="numero-commenti">N</span>
                         <Button
                           className="button-icon"
-                          onClick={() => {
-                            setShowSettingsPost(true);
-                          }}
+                          // onClick={() => {
+                          //   setShowSettingsPost(true);
+                          // }}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"

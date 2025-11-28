@@ -591,6 +591,39 @@ body {
   justify-content: space-around;
 }
 
+/* CSS del componente Post */
+
+#container-my-profile .div-title-ciak {
+  border-bottom: 1px solid bisque;
+  width: 30%;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background-color: rgba(255, 228, 196, 0.11);
+  backdrop-filter: blur(10px);
+  padding: 0.2em;
+  margin: 1em;
+  box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.29);
+  text-align: center;
+}
+
+#container-my-profile .title-ciak {
+  color: bisque;
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+}
+
+#container-my-profile #row-post {
+  border-left: 10px solid rgba(143, 100, 57, 0.139);
+  /* border-right: 10px solid rgb(20, 14, 8); */
+  background-color: rgba(163, 111, 55, 0.197);
+  backdrop-filter: blur(10px);
+  width: 22em;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
 #container-my-profile .icona-utente-post {
   border-radius: 100px;
   object-fit: contain;
@@ -600,7 +633,7 @@ body {
 }
 
 #container-my-profile #card-post {
-  background: none;
+  background-color: rgb(31, 29, 29);
   backdrop-filter: blur(10px);
   border: 1px solid bisque;
   color: bisque;
@@ -646,6 +679,8 @@ body {
   position: relative;
   right: 1.5em;
 }
+
+/* CSS del componente Commento */
 
 #container-my-profile #container-commento {
   border-top: 1px solid bisque;
