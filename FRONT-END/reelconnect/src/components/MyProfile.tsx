@@ -7,6 +7,8 @@ import type { AppDispatch, RootState } from "../redux/store";
 import type BodyUser from "../types/bodyUser";
 import ModaleEditProfile from "./ModaleEditProfile";
 import MyPost from "./MyPost";
+import ModaleEditAvatarProfile from "./ModaleEditAvatarProfile";
+import ModaleEditBannerProfile from "./ModaleEditBannerProfile";
 
 const MyProfile: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -16,6 +18,14 @@ const MyProfile: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
+
+  const [showModalAvatar, setShowModalAvatar] = useState(false);
+  const handleCloseModalAvatar = () => setShowModalAvatar(false);
+  const handleShowModalAvatar = () => setShowModalAvatar(true);
+
+  const [showModalBanner, setShowModalBanner] = useState(false);
+  const handleCloseModalBanner = () => setShowModalBanner(false);
+  const handleShowModalBanner = () => setShowModalBanner(true);
 
   useEffect(() => {
     dispatch(getMyProfile());
@@ -36,17 +46,37 @@ const MyProfile: React.FC = () => {
               <img
                 src={profile.bannerUrl}
                 alt="immagine di copertina"
-                className="img-fluid"
+                className="img-fluid "
                 id="banner-profile"
               />
+              <Button
+                onClick={handleShowModalBanner}
+                id="button-edit-banner"
+              ></Button>
+              {showModalBanner && (
+                <ModaleEditBannerProfile
+                  onClose={handleCloseModalBanner}
+                  onShow={showModalBanner}
+                />
+              )}
             </div>
             <div className=" img-profile-div-sm">
               <img
                 src={profile.avatarUrl}
                 alt="immagine di profilo"
-                className="img-fluid"
+                className="img-fluid object-fit-cover"
                 id="avatar-profile"
               />
+              <Button
+                onClick={handleShowModalAvatar}
+                id="button-edit-avatar"
+              ></Button>
+              {showModalAvatar && (
+                <ModaleEditAvatarProfile
+                  onClose={handleCloseModalAvatar}
+                  onShow={showModalAvatar}
+                />
+              )}
             </div>
           </Col>
           <Col

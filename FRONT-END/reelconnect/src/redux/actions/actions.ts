@@ -121,9 +121,8 @@ export const updateMyAvatarProfile = (file: FormData) => {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
       },
-      body: JSON.stringify(file),
+      body: file,
     })
       .then((response) => {
         if (response.ok) {
@@ -151,9 +150,8 @@ export const updateMyBannerProfile = (file: FormData) => {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
       },
-      body: JSON.stringify(file),
+      body: file,
     })
       .then((response) => {
         if (response.ok) {

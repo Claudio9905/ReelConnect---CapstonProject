@@ -1,6 +1,11 @@
 import type ActionTypes from "../../types/ActionTypes";
 import type BodyUser from "../../types/bodyUser";
-import { EDIT_USER_BY_ID, LOADING_USER } from "../actions/actions";
+import {
+  EDIT_MY_AVATAR_PROFILE,
+  EDIT_MY_BANNER_PROFILE,
+  EDIT_USER_BY_ID,
+  LOADING_USER,
+} from "../actions/actions";
 
 type stateType = {
   singleUser: BodyUser;
@@ -38,6 +43,16 @@ const editUserByIdReducer = (
       return {
         ...state,
         singleUser: action.payload,
+      };
+    case EDIT_MY_AVATAR_PROFILE:
+      return {
+        ...state,
+        singleUser: { ...state.singleUser, avatarUrl: action.payload },
+      };
+    case EDIT_MY_BANNER_PROFILE:
+      return {
+        ...state,
+        singleUser: { ...state.singleUser, bannerUrl: action.payload },
       };
     default:
       return state;
