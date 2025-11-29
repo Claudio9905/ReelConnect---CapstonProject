@@ -485,6 +485,14 @@ body {
   transition: all 0.2s linear 0s;
 }
 
+.icona-cineverse-sm {
+  width: 0.5em;
+}
+
+#icona-cineverse-lg {
+  width: 4em;
+}
+
 /* CSS del componente MyProfile */
 #container-my-profile #row-1 {
   border-bottom: 1px solid bisque;
