@@ -54,7 +54,7 @@ public class PostController {
     //     4. DELETE per l'eliminazione del proprio post
     @DeleteMapping("/me/{postId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void getMyPostAndDelete(@AuthenticationPrincipal Utente currentUtente, UUID postId) {
+    public void getMyPostAndDelete(@AuthenticationPrincipal Utente currentUtente, @PathVariable UUID postId) {
         this.postService.deleteMyPost(currentUtente.getId(), postId);
     }
 
