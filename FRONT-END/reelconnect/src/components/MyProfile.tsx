@@ -151,14 +151,14 @@ const MyProfile: React.FC = () => {
         className="d-none d-md-flex d-lg-none flex-column"
       >
         <Row id="row-1" className="d-flex flex-column align-items-center">
-          <Col xs={12} id="col-profile-1-sm" className="d-flex flex-column">
+          <Col xs={12} id="col-profile-1-md" className="d-flex flex-row">
             {/* Qui ci sarà la l'immagine di copertina, l'immagine di profilo */}
-            <div className="banner-div-sm">
+            <div className="banner-div-md">
               <img
                 src={profile.bannerUrl}
                 alt="immagine di copertina"
                 className="img-fluid "
-                id="banner-profile"
+                id="banner-profile-md"
               />
               <Button onClick={handleShowModalBanner} id="button-edit-banner">
                 <svg
@@ -187,7 +187,7 @@ const MyProfile: React.FC = () => {
           <Col
             xs={12}
             id="col-profile-2-sm"
-            className="d-flex flex-column align-items-center"
+            className="d-flex flex-row align-items-center"
           >
             {/* le informazione dell'utente */}
             <div className="div-name-profile-sm">
@@ -264,12 +264,12 @@ const MyProfile: React.FC = () => {
         <Row id="row-1" className="d-flex flex-column align-items-center">
           <Col xs={12} id="col-profile-1-sm" className="d-flex flex-row">
             {/* Qui ci sarà la l'immagine di copertina, l'immagine di profilo */}
-            <div className="banner-div-sm">
+            <div className="banner-div-md">
               <img
                 src={profile.bannerUrl}
                 alt="immagine di copertina"
                 className="img-fluid "
-                id="banner-profile"
+                id="banner-profile-lg"
               />
               <Button onClick={handleShowModalBanner} id="button-edit-banner">
                 <svg

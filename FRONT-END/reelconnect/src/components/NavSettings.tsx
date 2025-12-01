@@ -23,8 +23,12 @@ const NavSettings: React.FC = () => {
       {/* Versione mobile */}
       <Container
         id="container-NavSettings"
-        className={` d-sm-flex d-none flex-column container-nav-settings
-          ${location.pathname === "/" ? "d-none" : ""}`}
+        className={` 
+          ${
+            location.pathname === "/"
+              ? "d-none"
+              : "d-sm-flex d-md-none d-lg-none flex-column container-nav-settings"
+          }`}
       >
         <Row>
           <Col xs={12} className="d-flex justify-content-around">
@@ -113,8 +117,12 @@ const NavSettings: React.FC = () => {
       {/* Versione tablet */}
       <Container
         id="container-NavSettings"
-        className={` d-none d-md-flex d-lg-none flex-column container-nav-settings
-          ${location.pathname === "/" ? "d-none" : ""}`}
+        className={`
+          ${
+            location.pathname === "/"
+              ? "d-none"
+              : "d-none d-md-flex d-lg-none flex-column container-nav-settings"
+          }`}
       >
         <Row>
           <Col xs={12} className="d-flex justify-content-around">
@@ -203,8 +211,12 @@ const NavSettings: React.FC = () => {
       {/* Versione desktop */}
       <Container
         id="container-NavSettings"
-        className={`d-lg-flex flex-column container-nav-settings
-          ${location.pathname === "/" ? "d-none" : ""}`}
+        className={`
+          ${
+            location.pathname === "/"
+              ? "d-none"
+              : " d-none d-lg-flex flex-column container-nav-settings"
+          }`}
       >
         <Row>
           <Col xs={12} className="d-flex justify-content-around">

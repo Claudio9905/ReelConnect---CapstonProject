@@ -7,12 +7,12 @@ const Footer: React.FC = () => {
   return (
     <>
       <Container
-        className={` d-sm-flex d-md-none d-lg-none flex-column container-footer
+        className={`
           ${
             location.pathname === "/myprofile" ||
             location.pathname === "/cineverse"
               ? "d-none"
-              : ""
+              : "d-sm-flex flex-column container-footer"
           }`}
       >
         <Row className="d-flex justify-content-between g-2">
@@ -34,12 +34,12 @@ const Footer: React.FC = () => {
               claudio_postiglione99
             </a>
           </Col>
-          <span className="col-footer1-sm"></span>
-          <Col xs={12} className=" text-center ">
+          {/* <span className="col-footer1-sm"></span> */}
+          <Col xs={12} md={4} className=" text-center ">
             <h3 className="fs-5"> ReelConnect - 2025</h3>
           </Col>
-          <span className="col-footer1-sm"></span>
-          <Col xs={12} className=" text-center col-footer3">
+          {/* <span className="col-footer1-sm"></span> */}
+          <Col xs={12} md={4} className=" text-center col-footer3">
             <a
               href="mailto:cloudpost10@gmail.com"
               className="text-decoration-none text-light"

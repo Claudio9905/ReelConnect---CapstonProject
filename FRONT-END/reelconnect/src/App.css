@@ -416,7 +416,7 @@ body {
   border-top-right-radius: 30px;
   border-bottom: none;
   box-shadow: 0px 6px 10px 1px #00000087;
-  padding: 0.5em;
+  padding: 0;
   position: sticky;
   bottom: 0;
 }
@@ -431,6 +431,7 @@ body {
   border-top: 2px solid bisque;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  border-radius: 20px;
   transition: all 0.2s linear 0s;
 }
 
@@ -486,7 +487,7 @@ body {
 }
 
 .icona-cineverse-sm {
-  width: 0.5em;
+  width: 3em;
 }
 
 #icona-cineverse-lg {
@@ -508,11 +509,36 @@ body {
   position: relative;
   top: 1.8em;
 }
+#container-my-profile .banner-div-md {
+  border-top: 1px solid bisque;
+  border-right: 1px solid bisque;
+  border-left: 1px solid bisque;
+  border-bottom: 5px solid rgba(139, 0, 0, 0.627);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  position: relative;
+  top: 1.8em;
+  height: 12em;
+}
 
 #container-my-profile #banner-profile {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   object-fit: cover;
+}
+#container-my-profile #banner-profile-md {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  object-fit: cover;
+  height: 11.6em;
+  width: 42em;
+}
+#container-my-profile #banner-profile-lg {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  object-fit: cover;
+  height: 11.6em;
+  width: 68em;
 }
 
 #button-edit-banner {
@@ -542,10 +568,6 @@ body {
   width: 7em;
   height: 7em;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.586);
-}
-
-#container-my-profile .banner-div-md {
-  border: 1px solid bisque;
 }
 
 #container-my-profile .img-profile-div-md {
@@ -695,6 +717,12 @@ body {
 
 /* CSS del componente Post */
 
+.container-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #container-my-profile .div-title-ciak {
   border-bottom: 1px solid bisque;
   width: 50%;
@@ -729,6 +757,18 @@ body {
   border-bottom-right-radius: 30px;
 }
 
+#container-my-profile #row-post-md {
+  /* border-left: 10px solid rgb(79 63 6 / 47%); */
+  /* border-right: 10px solid rgb(20, 14, 8); */
+  /* background-color: rgb(66 50 4 / 49%);
+  backdrop-filter: blur(10px); */
+
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
 #container-my-profile .icona-utente-post {
   border-radius: 100px;
   object-fit: cover;
@@ -736,8 +776,29 @@ body {
   height: 2em;
   border: 1px solid bisque;
 }
+#container-my-profile .icona-utente-post-md {
+  border-radius: 100px;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+  border: 1px solid bisque;
+}
 
 #container-my-profile #card-post {
+  background-color: rgb(31, 29, 29);
+  backdrop-filter: blur(10px);
+  border: 1px solid bisque;
+  color: bisque;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.522);
+}
+#container-my-profile #card-post-md {
+  background-color: rgb(31, 29, 29);
+  backdrop-filter: blur(10px);
+  border: 1px solid bisque;
+  color: bisque;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.522);
+}
+#container-my-profile #card-post-lg {
   background-color: rgb(31, 29, 29);
   backdrop-filter: blur(10px);
   border: 1px solid bisque;
@@ -749,6 +810,20 @@ body {
   border-bottom: 1px solid rgb(104, 36, 36);
   box-shadow: 0px -5px 10px 1px rgb(0, 0, 0);
   border-width: 5px;
+}
+#container-my-profile .image-post-md {
+  border-bottom: 1px solid rgb(104, 36, 36);
+  box-shadow: 0px -5px 10px 1px rgb(0, 0, 0);
+  border-width: 5px;
+  height: 100%;
+  object-fit: cover;
+}
+#container-my-profile .image-post-md {
+  border-bottom: 1px solid rgb(104, 36, 36);
+  box-shadow: 0px -5px 10px 1px rgb(0, 0, 0);
+  border-width: 5px;
+  height: 100%;
+  object-fit: cover;
 }
 
 #container-my-profile .icona-commento-post {
