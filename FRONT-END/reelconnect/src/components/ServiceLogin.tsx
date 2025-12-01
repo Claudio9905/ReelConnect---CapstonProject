@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button,
   Col,
@@ -7,12 +8,10 @@ import {
   FormGroup,
   Row,
 } from "react-bootstrap";
-
-import clapperboard from "../assets/img/Cinematic_clapperboa.png";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import clapperboard from "../assets/img/Cinematic_clapperboa.png";
 
-const Login: React.FC = () => {
+const ServiceLogin: React.FC = () => {
   const [validated, setValidated] = useState(false);
   const [usernameEmail, setUsernameEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,14 +52,13 @@ const Login: React.FC = () => {
         console.log(resData);
         localStorage.setItem("token", resData.token);
         // setIsLoading(false);
-        navigate("/myprofile");
+        navigate("/service");
       })
       .catch((err) => {
         // setIsLoading(false);
         console.log("Error: " + err);
       });
   };
-
   return (
     <>
       {/* Versione mobile */}
@@ -81,7 +79,7 @@ const Login: React.FC = () => {
             <div className="div-title">
               <div className=" d-flex justify-content-center ">
                 <h1 className="title-login text-center">
-                  LOGIN TO <br /> THE CINEVERSE
+                  LOGIN TO <br /> THE SERVICE
                 </h1>
               </div>
 
@@ -171,7 +169,7 @@ const Login: React.FC = () => {
             <div className="div-title-md">
               <div className=" d-flex justify-content-center ">
                 <h1 className="title-login-md text-center">
-                  LOGIN TO <br /> THE CINEVERSE
+                  LOGIN TO <br /> THE SERVICE
                 </h1>
               </div>
 
@@ -252,7 +250,7 @@ const Login: React.FC = () => {
         <Row className="p-3 ">
           <Col
             lg={12}
-            className=" d-flex align-items-center  flex-column col-login mt-4"
+            className=" d-flex align-items-center flex-column col-login mt-4"
           >
             <div className="d-flex justify-content-center div-img-login-lg mt-4">
               <img src={clapperboard} alt="logo-login" className="img-fluid" />
@@ -261,7 +259,7 @@ const Login: React.FC = () => {
             <div className="div-title-lg">
               <div className=" d-flex justify-content-center ">
                 <h1 className="title-login-lg text-center">
-                  LOGIN TO <br /> THE CINEVERSE
+                  LOGIN TO <br /> THE SERVICE
                 </h1>
               </div>
 
@@ -340,4 +338,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default ServiceLogin;

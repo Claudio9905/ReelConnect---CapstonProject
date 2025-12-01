@@ -1,7 +1,7 @@
 import type BodyActor from "./bodyActor";
 import type BodyRegista from "./BodyRegista";
 
-export default interface BodySerieTv {
+export default interface BodySerieTvGet {
   id: "";
   titolo: string;
   descrizione: string;

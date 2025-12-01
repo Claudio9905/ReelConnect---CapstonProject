@@ -25,7 +25,9 @@ const NavSettings: React.FC = () => {
         id="container-NavSettings"
         className={` 
           ${
-            location.pathname === "/"
+            location.pathname === "/" ||
+            location.pathname === "/servicelogin" ||
+            location.pathname === "/service"
               ? "d-none"
               : "d-sm-flex d-md-none d-lg-none flex-column container-nav-settings"
           }`}
@@ -119,7 +121,9 @@ const NavSettings: React.FC = () => {
         id="container-NavSettings"
         className={`
           ${
-            location.pathname === "/"
+            location.pathname === "/" ||
+            location.pathname === "/servicelogin" ||
+            location.pathname === "/service"
               ? "d-none"
               : "d-none d-md-flex d-lg-none flex-column container-nav-settings"
           }`}
@@ -213,7 +217,9 @@ const NavSettings: React.FC = () => {
         id="container-NavSettings"
         className={`
           ${
-            location.pathname === "/"
+            location.pathname === "/" ||
+            location.pathname === "/servicelogin" ||
+            location.pathname === "/service"
               ? "d-none"
               : " d-none d-lg-flex flex-column container-nav-settings"
           }`}

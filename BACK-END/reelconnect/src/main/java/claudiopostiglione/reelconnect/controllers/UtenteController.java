@@ -67,7 +67,7 @@ public class UtenteController {
 
     // 1. GET per tutti gli utenti
     @GetMapping
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize(("hasAnyAuthority('ADMIN', 'USER')"))
     public Page<Utente> findAllUtenti(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size, @RequestParam(defaultValue = "id") String sortBy) {
         return this.utenteService.getAllUtenteWithPagination(page, size, sortBy);
@@ -75,7 +75,7 @@ public class UtenteController {
 
     // 2. GET del singolo utente tramite ID
     @GetMapping("/{idUtente}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize(("hasAuthority('ADMIN')"))
     public Utente findUtenteById(@PathVariable UUID idUtente) {
         return this.utenteService.getUtenteById(idUtente);
@@ -83,7 +83,7 @@ public class UtenteController {
 
     // 3. GET del singolo utente tramite username
     @GetMapping("/{username}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize(("hasAnyAuthority('ADMIN', 'USER')"))
     public Utente findUtenteByUsername(@PathVariable String username) {
         return this.utenteService.getUtenteByUsername(username);

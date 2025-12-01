@@ -24,7 +24,7 @@ public class SerieTvController {
 
     //    1. GET su tutte le serie TV
     @GetMapping
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public Page<SerieTv> getAllSerieTv(@RequestParam(defaultValue = "0") int page,
                                        @RequestParam(defaultValue = "10") int size,
@@ -44,7 +44,7 @@ public class SerieTvController {
 
     //    3. GET su una singola serie TV tramite ID
     @GetMapping("/{serieTvId}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public SerieTv getSerieTvById(@PathVariable UUID serieTvId) {
         return this.serieTvService.findSerieTvById(serieTvId);
@@ -52,7 +52,7 @@ public class SerieTvController {
 
     //    4. GET su una singola serie Tv tramite titolo
     @GetMapping("/{titolo}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public SerieTv getSerieTvByTitolo(@PathVariable String titolo) {
         return this.serieTvService.findSerieTvByTitolo(titolo);

@@ -23,7 +23,7 @@ public class FilmController {
 
     //    1. GET su tutti i film
     @GetMapping
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public Page<Film> getAllFilms(@RequestParam(defaultValue = "0") int page,
                                   @RequestParam(defaultValue = "10") int size,
@@ -43,7 +43,7 @@ public class FilmController {
 
     //    3. GET sul singolo film tramite ID
     @GetMapping("/{filmId}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public Film getFilmById(@PathVariable UUID filmId) {
         return this.filmService.findFilmById(filmId);
@@ -51,7 +51,7 @@ public class FilmController {
 
     //    4. GET sul singolo film tramite titolo
     @GetMapping("/{titolo}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public Film getFilmByTitolo(@PathVariable String titolo) {
         return this.filmService.findFilmByTitolo(titolo);

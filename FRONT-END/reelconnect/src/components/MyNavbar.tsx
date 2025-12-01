@@ -34,7 +34,7 @@ const MyNavbar: React.FC = () => {
             </Link>
             <span style={{ color: `bisque` }}>/</span>
             <Link
-              to={"/service"}
+              to={"/servicelogin"}
               className={` text-decoration-none d-flex justify-content-around link ${
                 location.pathname === "/service"
                   ? "current-link"
@@ -82,7 +82,7 @@ const MyNavbar: React.FC = () => {
             </Link>
             <span style={{ color: `bisque` }}>/</span>
             <Link
-              to={"/service"}
+              to={"/servicelogin"}
               className={` text-decoration-none d-flex justify-content-around link ${
                 location.pathname === "/service"
                   ? "current-link"
@@ -130,7 +130,7 @@ const MyNavbar: React.FC = () => {
             </Link>
             <span style={{ color: `bisque` }}>/</span>
             <Link
-              to={"/service"}
+              to={"/servicelogin"}
               className={` text-decoration-none d-flex justify-content-around link ${
                 location.pathname === "/service"
                   ? "current-link"
