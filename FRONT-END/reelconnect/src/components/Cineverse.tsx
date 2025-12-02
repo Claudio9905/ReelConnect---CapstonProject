@@ -13,6 +13,9 @@ const Cineverse: React.FC = () => {
   return (
     <>
       {/* Versione Mobile */}
+      <div className="div-title-ciak-cineverse d-flex justify-content-center w-100">
+        <h3 className="title-ciak fs-1">Welcome to the Cineverse</h3>
+      </div>
       <Container className="d-sm-flex d-md-none d-lg-none flex-column align-items-center mt-3">
         <Row className="row-cineverse">
           <Col xs={12}>
@@ -21,6 +24,9 @@ const Cineverse: React.FC = () => {
         </Row>
       </Container>
       {/* versione tablet */}
+      <div className="div-title-ciak-cineverse">
+        <h3 className="title-ciak fs-1">Welcome to the Cineverse</h3>
+      </div>
       <Container className="d-none d-md-flex d-lg-none mt-3">
         <Row className="d-flex flex-column w-50 ">
           <Col xs={8} id="col-profile-1-sm" className="d-flex flex-column">
@@ -67,9 +73,28 @@ const Cineverse: React.FC = () => {
               </p>
             </div>
             <span className="span-divided-sm"></span>
-            {/* Componente dei film/serie Tv visti */}
-            <div className="catalogo-filmSerieTv">
-              <h3> Film/SerieTv visti </h3>
+            <h3 className="title-news">News</h3>
+            <div
+              className="div-news
+            d-flex flex-column"
+            >
+              <div className="div-title-inArrivo">
+                <h5 className="m-0">IN ARRIVO!</h5>
+              </div>
+
+              <h6>BEHIND THE CHAT</h6>
+              <p>
+                Sta per arrivare la "Behind the Chat" !, una chat in tempo reale
+                con cui cui parlare con i propri fan
+              </p>
+              <span className=" border border-1 border-light m-2"></span>
+              <h6 className="mt-2">CIAK, SI RISPONDE</h6>
+              <p>
+                Per un tocco di sana competizione, non mancherà il "Ciak! Si
+                risponde!". un quiz a tema dove ogni utente potrà mettere alla
+                prova la propria conoscenza cinefila, scalando la classifica di
+                altri appassionati.
+              </p>
             </div>
           </Col>
         </Row>
@@ -85,7 +110,7 @@ const Cineverse: React.FC = () => {
       </div>
       <Container className="d-none d-lg-flex  mt-5">
         <Row className="d-flex flex-column w-50">
-          <Col xs={6} id="col-profile-1-sm" className="d-flex flex-column">
+          <Col xs={8} id="col-profile-1-sm" className="d-flex flex-column">
             {/* Qui ci sarà la l'immagine di copertina, l'immagine di profilo */}
             <div className="banner-div-sm">
               <img
@@ -97,7 +122,7 @@ const Cineverse: React.FC = () => {
             </div>
           </Col>
           <Col
-            xs={6}
+            xs={8}
             id="col-profile-2-sm"
             className="d-flex flex-column align-items-center"
           >
@@ -129,9 +154,29 @@ const Cineverse: React.FC = () => {
               </p>
             </div>
             <span className="span-divided-sm"></span>
-            {/* Componente dei film/serie Tv visti */}
-            <div className="catalogo-filmSerieTv">
-              <h3> Film/SerieTv visti </h3>
+
+            <h3 className="title-news">News</h3>
+            <div
+              className="div-news
+            d-flex flex-column"
+            >
+              <div className="div-title-inArrivo">
+                <h5 className="m-0">IN ARRIVO!</h5>
+              </div>
+
+              <h6>BEHIND THE CHAT</h6>
+              <p>
+                Sta per arrivare la "Behind the Chat" !, una chat in tempo reale
+                con cui cui parlare con i propri fan
+              </p>
+              <span className=" border border-1 border-light m-2"></span>
+              <h6 className="mt-2">CIAK, SI RISPONDE</h6>
+              <p>
+                Per un tocco di sana competizione, non mancherà il "Ciak! Si
+                risponde!". un quiz a tema dove ogni utente potrà mettere alla
+                prova la propria conoscenza cinefila, scalando la classifica di
+                altri appassionati.
+              </p>
             </div>
           </Col>
         </Row>

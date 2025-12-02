@@ -30,6 +30,32 @@ body {
   text-align: center;
 }
 
+.div-news {
+  background-color: rgba(0, 0, 0, 0.315);
+  backdrop-filter: blur(10px);
+  padding: 1.5em;
+  border: 1px solid bisque;
+  border-radius: 10px;
+}
+
+.div-title-inArrivo {
+  border-top: 1px solid bisque;
+  border-bottom: 1px solid bisque;
+  border-right: 1px solid bisque;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  background-color: rgba(128, 128, 128, 0.152);
+  position: relative;
+  right: 1.4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 9em;
+  padding: 0.5em;
+  margin-bottom: 2em;
+}
+
 /* CSS del componente MyNavbar */
 .div-link {
   position: relative;
@@ -1072,8 +1098,8 @@ body {
 .icona-utente-post-md {
   border-radius: 100px;
   object-fit: cover;
-  width: 1em;
-  height: 1em;
+  width: 2em;
+  height: 2em;
   border: 1px solid bisque;
 }
 
