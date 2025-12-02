@@ -100,7 +100,12 @@ const NavSettings: React.FC = () => {
                 onShow={showCreatePost}
               />
             )}
-            <Button id="button-lista-film-serieTv">
+            <Button
+              id="button-lista-film-serieTv"
+              onClick={() => {
+                navigate("/mycatalogo");
+              }}
+            >
               {/* Per accedere alla lista dei propri film/serieTv viste */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -196,7 +201,12 @@ const NavSettings: React.FC = () => {
                 onShow={showCreatePost}
               />
             )}
-            <Button id="button-lista-film-serieTv">
+            <Button
+              id="button-lista-film-serieTv"
+              onClick={() => {
+                navigate("/mycatalogo");
+              }}
+            >
               {/* Per accedere alla lista dei propri film/serieTv viste */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -293,7 +303,12 @@ const NavSettings: React.FC = () => {
                 onShow={showCreatePost}
               />
             )}
-            <Button id="button-lista-film-serieTv">
+            <Button
+              id="button-lista-film-serieTv"
+              onClick={() => {
+                navigate("/mycatalogo");
+              }}
+            >
               {/* Per accedere alla lista dei propri film/serieTv viste */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"

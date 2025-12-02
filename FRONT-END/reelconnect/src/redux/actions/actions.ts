@@ -895,7 +895,7 @@ export const getAllPost = () => {
         console.log("Tutti i post: ", resData);
         dispatch({
           type: GET_ALL_POST,
-          payload: resData,
+          payload: resData.content,
         });
       })
       .catch((err) => {

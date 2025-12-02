@@ -9,6 +9,7 @@ import MyProfile from "./components/MyProfile";
 import NavSettings from "./components/NavSettings";
 import ServiceLogin from "./components/ServiceLogin";
 import Service from "./components/Service";
+import MyCatologoFilmSerieTv from "./components/MyCatalogoFilmSerieTV";
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/myprofile" element={<MyProfile />}></Route>
           <Route path="/cineverse" element={<Cineverse />}></Route>
+          <Route path="/mycatalogo" element={<MyCatologoFilmSerieTv />}></Route>
         </Routes>
         <NavSettings />
         <Footer />

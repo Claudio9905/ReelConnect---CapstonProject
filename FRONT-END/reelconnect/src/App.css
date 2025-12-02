@@ -327,6 +327,7 @@ body {
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, 0.532);
+  text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.71);
 }
 
 .title-catalogo {
@@ -718,11 +719,18 @@ body {
 }
 
 /* CSS del componente MyProfile */
-#container-my-profile #row-1 {
+#row-1 {
   border-bottom: 1px solid bisque;
 }
 
-#container-my-profile .banner-div-sm {
+#avatar-profile-cineverse {
+  border-radius: 100px;
+  width: 3em;
+  height: 3em;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.586);
+}
+
+.banner-div-sm {
   border-top: 1px solid bisque;
   border-right: 1px solid bisque;
   border-left: 1px solid bisque;
@@ -732,7 +740,7 @@ body {
   position: relative;
   top: 1.8em;
 }
-#container-my-profile .banner-div-md {
+.banner-div-md {
   border-top: 1px solid bisque;
   border-right: 1px solid bisque;
   border-left: 1px solid bisque;
@@ -744,19 +752,19 @@ body {
   height: 12em;
 }
 
-#container-my-profile #banner-profile {
+#banner-profile {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   object-fit: cover;
 }
-#container-my-profile #banner-profile-md {
+#banner-profile-md {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   object-fit: cover;
   height: 11.6em;
   width: 42em;
 }
-#container-my-profile #banner-profile-lg {
+#banner-profile-lg {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   object-fit: cover;
@@ -780,32 +788,32 @@ body {
   left: 6em;
 }
 
-#container-my-profile .img-profile-div-sm {
+.img-profile-div-sm {
   display: flex;
   justify-content: center;
   position: relative;
 }
 
-#container-my-profile #avatar-profile {
+#avatar-profile {
   border-radius: 100px;
   width: 7em;
   height: 7em;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.586);
 }
 
-#container-my-profile .img-profile-div-md {
+.img-profile-div-md {
   border: 1px solid bisque;
 }
 
-#container-my-profile .banner-div-lg {
+.banner-div-lg {
   border: 1px solid bisque;
 }
 
-#container-my-profile .img-profile-div-lg {
+.img-profile-div-lg {
   border: 1px solid bisque;
 }
 
-#container-my-profile #col-profile-2-sm {
+#col-profile-2-sm {
   border: 1px solid bisque;
   border-top: none;
   margin-top: 2em;
@@ -815,7 +823,7 @@ body {
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.512);
 }
 
-#container-my-profile .div-name-profile-sm {
+.div-name-profile-sm {
   border-left: 1px solid bisque;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -829,14 +837,14 @@ body {
   align-items: center;
 }
 
-#container-my-profile .span-divided-sm {
+.span-divided-sm {
   border-bottom: 1px solid bisque;
   width: 70%;
   margin-bottom: 1em;
   margin-top: 1em;
 }
 
-#container-my-profile .catalogo-filmSerieTv {
+.catalogo-filmSerieTv {
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.24);
@@ -844,12 +852,12 @@ body {
   padding: 0.5em;
 }
 
-#container-my-profile #button-number-fan {
+#button-number-fan {
   background-color: rgba(0, 0, 0, 0.24);
   border: none;
 }
 
-#container-my-profile #button-follow {
+#button-follow {
   background-color: rgba(0, 0, 0, 0.24);
   border: none;
 }
@@ -881,28 +889,28 @@ body {
   }
 }
 
-#container-my-profile #button-follow:hover {
+#button-follow:hover {
   animation: buttonHover 0.5s linear 0s 1 forwards;
 }
 
-#container-my-profile #button-number-fan:hover {
+#button-number-fan:hover {
   animation: buttonHover 0.5s linear 0s 1 forwards;
 }
 
-#container-my-profile .div-fan-follow {
+.div-fan-follow {
   display: flex;
   justify-content: space-around;
   margin-top: 1em;
 }
 
-#container-my-profile .button-edit-info {
+.button-edit-info {
   background: none;
   border: none;
   border: 1px solid bisque;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.501);
 }
 
-#container-my-profile .button-edit-info:hover {
+.button-edit-info:hover {
   background-color: rgba(255, 228, 196, 0.301);
   transition: all 0.2s linear 0s;
 }
@@ -946,7 +954,7 @@ body {
   align-items: center;
 }
 
-#container-my-profile .div-title-ciak {
+.div-title-ciak {
   border-bottom: 1px solid bisque;
   width: 50%;
   border-bottom-right-radius: 30px;
@@ -961,14 +969,14 @@ body {
   text-align: center;
 }
 
-#container-my-profile .title-ciak {
+.title-ciak {
   color: bisque;
   font-size: 1.5em;
   margin: 0;
   font-family: "Times New Roman", Times, serif;
 }
 
-#container-my-profile #row-post {
+#row-post {
   /* border-left: 10px solid rgb(79 63 6 / 47%); */
   /* border-right: 10px solid rgb(20, 14, 8); */
   /* background-color: rgb(66 50 4 / 49%);
@@ -980,7 +988,7 @@ body {
   border-bottom-right-radius: 30px;
 }
 
-#container-my-profile #row-post-md {
+#row-post-md {
   /* border-left: 10px solid rgb(79 63 6 / 47%); */
   /* border-right: 10px solid rgb(20, 14, 8); */
   /* background-color: rgb(66 50 4 / 49%);
@@ -992,14 +1000,14 @@ body {
   border-bottom-right-radius: 30px;
 }
 
-#container-my-profile .icona-utente-post {
+.icona-utente-post {
   border-radius: 100px;
   object-fit: cover;
   width: 2em;
   height: 2em;
   border: 1px solid bisque;
 }
-#container-my-profile .icona-utente-post-md {
+.icona-utente-post-md {
   border-radius: 100px;
   object-fit: cover;
   width: 1em;
@@ -1007,21 +1015,21 @@ body {
   border: 1px solid bisque;
 }
 
-#container-my-profile #card-post {
+#card-post {
   background-color: rgb(31, 29, 29);
   backdrop-filter: blur(10px);
   border: 1px solid bisque;
   color: bisque;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.522);
 }
-#container-my-profile #card-post-md {
+#card-post-md {
   background-color: rgb(31, 29, 29);
   backdrop-filter: blur(10px);
   border: 1px solid bisque;
   color: bisque;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.522);
 }
-#container-my-profile #card-post-lg {
+#card-post-lg {
   background-color: rgb(31, 29, 29);
   backdrop-filter: blur(10px);
   border: 1px solid bisque;
@@ -1029,19 +1037,19 @@ body {
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.522);
 }
 
-#container-my-profile .image-post {
+.image-post {
   border-bottom: 1px solid rgb(104, 36, 36);
   box-shadow: 0px -5px 10px 1px rgb(0, 0, 0);
   border-width: 5px;
 }
-#container-my-profile .image-post-md {
+.image-post-md {
   border-bottom: 1px solid rgb(104, 36, 36);
   box-shadow: 0px -5px 10px 1px rgb(0, 0, 0);
   border-width: 5px;
   height: 100%;
   object-fit: cover;
 }
-#container-my-profile .image-post-md {
+.image-post-md {
   border-bottom: 1px solid rgb(104, 36, 36);
   box-shadow: 0px -5px 10px 1px rgb(0, 0, 0);
   border-width: 5px;
@@ -1049,23 +1057,23 @@ body {
   object-fit: cover;
 }
 
-#container-my-profile .icona-commento-post {
+.icona-commento-post {
   width: 2em;
 }
 
-#container-my-profile .icona-myCiak {
+.icona-myCiak {
   width: 3em;
 }
 
-#container-my-profile .icona-commento-post:hover {
+.icona-commento-post:hover {
   cursor: pointer;
 }
 
-#container-my-profile .icona-myCiak:hover {
+.icona-myCiak:hover {
   cursor: pointer;
 }
 
-#container-my-profile .button-icon {
+.button-icon {
   background: none;
   border: none;
   height: 1.5em;
@@ -1073,31 +1081,31 @@ body {
   color: bisque;
 }
 
-#container-my-profile .numero-myCiak {
+.numero-myCiak {
   position: relative;
   right: 1em;
 }
 
-#container-my-profile .numero-commenti {
+.numero-commenti {
   position: relative;
   right: 0.7em;
 }
 
 /* CSS del componente Commento */
 
-#container-my-profile #container-commento {
+#container-commento {
   border-top: 1px solid bisque;
   margin-top: 1em;
   background-color: rgba(0, 0, 0, 0.332);
   box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.455);
 }
 
-#container-my-profile #row-commenti {
+#row-commenti {
   overflow-y: scroll;
   height: 20em;
 }
 
-#container-my-profile .icona-profilo-commento {
+.icona-profilo-commento {
   border-radius: 100px;
   object-fit: cover;
   width: 2.4em;
@@ -1107,7 +1115,7 @@ body {
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.44);
 }
 
-#container-my-profile .descrizione-commento {
+.descrizione-commento {
   border-left: 1px solid bisque;
   padding: 0.5em;
 }
@@ -1189,7 +1197,7 @@ body {
   border-radius: 100px;
 }
 
-#container-my-profile .button-close {
+.button-close {
   background: none;
   border-top: 1px solid bisque;
   border-top-left-radius: 10px;
@@ -1200,13 +1208,13 @@ body {
   height: 2em;
 }
 
-#container-my-profile .button-close:hover {
+.button-close:hover {
   background-color: rgba(255, 228, 196, 0.438);
   color: black;
   transition: all 0.2s linear 0s;
 }
 
-#container-my-profile .input-form-commento {
+.input-form-commento {
   border-radius: 15px;
   border: 1px solid rgb(136, 131, 126);
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.534);
@@ -1222,11 +1230,11 @@ body {
   color: rgba(182, 170, 156, 0.788);
 }
 
-#container-my-profile .form-commento {
+.form-commento {
   border-bottom: 1px solid rgba(255, 228, 196, 0.486);
 }
 
-#container-my-profile #button-form-commento {
+#button-form-commento {
   border: none;
   background: none;
   color: bisque;

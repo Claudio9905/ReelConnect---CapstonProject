@@ -10,7 +10,8 @@ const Footer: React.FC = () => {
         className={`
           ${
             location.pathname === "/myprofile" ||
-            location.pathname === "/cineverse"
+            location.pathname === "/cineverse" ||
+            location.pathname === "/mycatalogo"
               ? "d-none"
               : "d-sm-flex flex-column container-footer"
           }`}
