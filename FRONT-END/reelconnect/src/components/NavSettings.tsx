@@ -130,7 +130,7 @@ const NavSettings: React.FC = () => {
             location.pathname === "/servicelogin" ||
             location.pathname === "/service"
               ? "d-none"
-              : "d-none d-md-flex d-lg-none flex-column container-nav-settings"
+              : "d-none d-md-flex d-lg-none flex-column container-nav-settings-md"
           }`}
       >
         <Row>
@@ -224,14 +224,14 @@ const NavSettings: React.FC = () => {
       </Container>
       {/* Versione desktop */}
       <Container
-        id="container-NavSettings"
+        id="container-NavSettings-lg"
         className={`
           ${
             location.pathname === "/" ||
             location.pathname === "/servicelogin" ||
             location.pathname === "/service"
               ? "d-none"
-              : " d-none d-lg-flex flex-column container-nav-settings"
+              : " d-none d-lg-flex flex-column container-nav-settings-lg"
           }`}
       >
         <Row>
@@ -268,7 +268,7 @@ const NavSettings: React.FC = () => {
               />
             </Button>
             <Button
-              id="button-navigate-myprofile"
+              id="button-navigate-myprofile-lg"
               onClick={() => {
                 navigate("/myprofile");
               }}

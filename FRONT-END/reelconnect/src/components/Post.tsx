@@ -36,9 +36,6 @@ const Post: React.FC = () => {
     <>
       {/* versione mobile */}
       <Container className="d-sm-flex d-md-none d-lg-none container-post  mt-3">
-        <div className="div-title-ciak">
-          <h3 className="title-ciak">Welcome to the Cineverse</h3>
-        </div>
         <Row id="row-post" className=" d-flex flex-column p-4 ">
           {Array.isArray(post) &&
             post.map((post) => {
@@ -134,9 +131,6 @@ const Post: React.FC = () => {
       </Container>
       {/* versione tablet */}
       <Container className="d-none d-md-flex d-lg-none flex-column align-items-center mt-3">
-        <div className="div-title-ciak">
-          <h3 className="title-ciak">Welcome to the Cineverse</h3>
-        </div>
         <Row
           id="row-post-md"
           className=" d-flex flex-column align-items-center"
@@ -241,9 +235,6 @@ const Post: React.FC = () => {
       </Container>
       {/* versione desktop */}
       <Container className="d-none d-lg-flex flex-column align-items-center mt-3">
-        <div className="div-title-ciak">
-          <h3 className="title-ciak">Welcome to the Cineverse</h3>
-        </div>
         <Row id="row-post-md" className=" d-flex flex-row  ">
           {Array.isArray(post) &&
             post.map((post) => {

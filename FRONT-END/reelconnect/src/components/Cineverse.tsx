@@ -80,7 +80,10 @@ const Cineverse: React.FC = () => {
         </Row>
       </Container>
       {/* Versione desktop */}
-      <Container className="d-none d-lg-flex  mt-3">
+      <div className="div-title-ciak-cineverse">
+        <h3 className="title-ciak fs-1">Welcome to the Cineverse</h3>
+      </div>
+      <Container className="d-none d-lg-flex  mt-5">
         <Row className="d-flex flex-column w-50">
           <Col xs={6} id="col-profile-1-sm" className="d-flex flex-column">
             {/* Qui ci sarà la l'immagine di copertina, l'immagine di profilo */}

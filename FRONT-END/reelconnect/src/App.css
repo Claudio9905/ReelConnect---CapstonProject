@@ -1,10 +1,33 @@
 /* CSS del body */
 body {
   background-image: url("./assets/img/sfondoBodyPagina.png");
-  background-position: center;
-  background-size: contain;
+  background-position: left;
+  background-size: auto;
   color: #ffffff;
   font-family: "Segoe UI", sans-serif;
+}
+
+/* CSS del componente Cineverse */
+.row-cineverse {
+  background-image: url("./assets/img/pellicola-sfondo-login.png");
+  background-position: center;
+  background-size: contain;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+  border-left: 1px solid bisque;
+  border-right: 1px solid bisque;
+}
+
+.div-title-ciak-cineverse {
+  border-bottom: 1px solid bisque;
+  width: 40%;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  background-color: rgba(255, 228, 196, 0.11);
+  backdrop-filter: blur(10px);
+  padding: 0.2em;
+  margin-top: 1em;
+  box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.29);
+  text-align: center;
 }
 
 /* CSS del componente MyNavbar */
@@ -57,11 +80,12 @@ body {
   border-top: none;
   box-shadow: 0px 6px 10px 1px #00000087;
   padding: 1em;
-  height: 7em;
+  height: 6em;
   background-image: linear-gradient(2deg, #1d161093, transparent);
   backdrop-filter: blur(10px);
   position: relative;
   bottom: 0.5em;
+  width: 90%;
 }
 .container-nav-md {
   border: 1px solid #706315;
@@ -74,6 +98,7 @@ body {
   backdrop-filter: blur(10px);
   position: relative;
   bottom: 0.5em;
+  width: 60%;
 }
 .container-nav-lg {
   border: 1px solid #706315;
@@ -82,7 +107,7 @@ body {
   border-top: none;
   box-shadow: 0px 6px 10px 1px #00000087;
   padding: 0.3em;
-  width: 50%;
+  width: 30%;
   background-image: linear-gradient(2deg, #1d161093, transparent);
   backdrop-filter: blur(10px);
   position: relative;
@@ -644,6 +669,32 @@ body {
   position: sticky;
   bottom: 0;
 }
+.container-nav-settings-md {
+  background-image: linear-gradient(2deg, #1d161093, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid #e9cc2b;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom: none;
+  box-shadow: 0px 6px 10px 1px #00000087;
+  padding: 0;
+  position: sticky;
+  bottom: 0;
+  width: 80%;
+}
+.container-nav-settings-lg {
+  background-image: linear-gradient(2deg, #1d161093, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid #e9cc2b;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom: none;
+  box-shadow: 0px 6px 10px 1px #00000087;
+  padding: 0;
+  position: sticky;
+  bottom: 0;
+  width: 50%;
+}
 
 #button-search-user {
   background: none;
@@ -676,8 +727,19 @@ body {
   border: none;
   width: 25%;
 }
+#button-navigate-myprofile-lg {
+  background: none;
+  border: none;
+  width: 25%;
+}
 
 #button-navigate-myprofile:hover {
+  border-top: 2px solid bisque;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: all 0.2s linear 0s;
+}
+#button-navigate-myprofile-lg:hover {
   border-top: 2px solid bisque;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
