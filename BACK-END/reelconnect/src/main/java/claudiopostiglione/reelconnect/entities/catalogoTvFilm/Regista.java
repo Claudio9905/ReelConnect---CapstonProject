@@ -32,6 +32,7 @@ public class Regista {
     @Column(name = "immagineProfiloUrl")
     private String immagineProfilo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "regista")
     private List<CatalogoTvFilm> catalogo;
 

@@ -32,16 +32,16 @@ public abstract class CatalogoTvFilm {
     protected LocalDate annoDiUscita;
     @Column(name = "genere")
     protected List<GenereFilmSerieTv> genere;
-    @Column(name = "cover_film/serieTv_url")
+    @Column(name = "coverUrl")
     protected String coverUrl;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "partecipazione",
             joinColumns = @JoinColumn(name = "catalogo"),
             inverseJoinColumns = @JoinColumn(name = "attore"))
     private List<Attore> attore = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "regista")
     private Regista regista;
 
