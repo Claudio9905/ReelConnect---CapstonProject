@@ -24,9 +24,6 @@ const Cineverse: React.FC = () => {
         </Row>
       </Container>
       {/* versione tablet */}
-      <div className="div-title-ciak-cineverse">
-        <h3 className="title-ciak fs-1">Welcome to the Cineverse</h3>
-      </div>
       <Container className="d-none d-md-flex d-lg-none mt-3">
         <Row className="d-flex flex-column w-50 ">
           <Col xs={8} id="col-profile-1-sm" className="d-flex flex-column">
@@ -105,9 +102,7 @@ const Cineverse: React.FC = () => {
         </Row>
       </Container>
       {/* Versione desktop */}
-      <div className="div-title-ciak-cineverse">
-        <h3 className="title-ciak fs-1">Welcome to the Cineverse</h3>
-      </div>
+
       <Container className="d-none d-lg-flex  mt-5">
         <Row className="d-flex flex-column w-50">
           <Col xs={8} id="col-profile-1-sm" className="d-flex flex-column">
