@@ -29,6 +29,9 @@ const MyNavbar: React.FC = () => {
               className={` text-decoration-none d-flex justify-content-around link  ${
                 location.pathname === "/" ? "current-link" : "current-link-off"
               }`}
+              onClick={() => {
+                localStorage.removeItem("token");
+              }}
             >
               Home
             </Link>
@@ -77,6 +80,9 @@ const MyNavbar: React.FC = () => {
               className={` text-decoration-none d-flex justify-content-around link  ${
                 location.pathname === "/" ? "current-link" : "current-link-off"
               }`}
+              onClick={() => {
+                localStorage.removeItem("token");
+              }}
             >
               Home
             </Link>
@@ -125,6 +131,9 @@ const MyNavbar: React.FC = () => {
               className={` text-decoration-none d-flex justify-content-around link  ${
                 location.pathname === "/" ? "current-link" : "current-link-off"
               }`}
+              onClick={() => {
+                localStorage.removeItem("token");
+              }}
             >
               Home
             </Link>
