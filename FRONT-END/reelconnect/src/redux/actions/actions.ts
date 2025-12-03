@@ -745,6 +745,7 @@ export const createNoSuccessPost = () => {
 };
 
 const endpointPost = "http://localhost:3005/post";
+const endpointPostme = "http://localhost:3005/post/me";
 const endpointCommento = "http://localhost:3005/commenti";
 
 export const GET_MY_POST = "GET_MY_POST";
@@ -763,7 +764,7 @@ export const DELETE_MY_COMMENTO = "DELETE_MY_COMMENTO";
 export const getAllMyPost = () => {
   return (dispatch: AppDispatch) => {
     dispatch(loadingCommentoPost());
-    fetch(endpointPost, {
+    fetch(endpointPostme, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
