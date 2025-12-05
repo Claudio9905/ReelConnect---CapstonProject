@@ -85,7 +85,6 @@ const Register: React.FC = () => {
               onSubmit={(e) => {
                 handleSubmit(e);
                 submitRegister(e);
-                setSuccess(true);
               }}
             >
               <FormGroup>
@@ -259,7 +258,6 @@ const Register: React.FC = () => {
               onSubmit={(e) => {
                 handleSubmit(e);
                 submitRegister(e);
-                setSuccess(true);
               }}
             >
               <FormGroup>
@@ -433,7 +431,6 @@ const Register: React.FC = () => {
               onSubmit={(e) => {
                 handleSubmit(e);
                 submitRegister(e);
-                setSuccess(true);
               }}
             >
               <FormGroup>
