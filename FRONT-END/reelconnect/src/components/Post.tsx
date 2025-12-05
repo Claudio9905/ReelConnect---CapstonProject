@@ -9,6 +9,7 @@ import type BodyPostGet from "../types/BodyPostGet";
 import Commento from "./Commento";
 import iconComment from "../assets/img/comment_icon_post.png";
 import myCiakIcon from "../assets/img/MyCiak_icon.png";
+import ModaleEditPost from "./ModaleEditPost";
 
 const Post: React.FC = () => {
   const post = useSelector((state: RootState) => {
@@ -23,6 +24,15 @@ const Post: React.FC = () => {
   };
   const handleNoShowCommenti = () => {
     setShowCommenti(false);
+  };
+
+  const [showEditModale, setShowEditModale] = useState(false);
+
+  const handleShowEditModale = () => {
+    setShowEditModale(true);
+  };
+  const handleNoShowEditModale = () => {
+    setShowEditModale(false);
   };
 
   const dispatch = useDispatch<AppDispatch>();
@@ -106,6 +116,14 @@ const Post: React.FC = () => {
                             >
                               Elimina commento
                             </a>
+                            <a
+                              onClick={() => {
+                                handleShowEditModale();
+                              }}
+                              className="delete-commento"
+                            >
+                              Modifica Post
+                            </a>
                             <Button
                               className="close-settings-button"
                               onClick={() => {
@@ -114,6 +132,12 @@ const Post: React.FC = () => {
                             >
                               X
                             </Button>
+                            {showEditModale && (
+                              <ModaleEditPost
+                                onShow={showEditModale}
+                                onClose={handleNoShowEditModale}
+                              />
+                            )}
                           </div>
                         )}
                       </div>
@@ -209,6 +233,14 @@ const Post: React.FC = () => {
                             >
                               Elimina commento
                             </a>
+                            <a
+                              onClick={() => {
+                                handleShowEditModale();
+                              }}
+                              className="delete-commento"
+                            >
+                              Modifica Post
+                            </a>
                             <Button
                               className="close-settings-button"
                               onClick={() => {
@@ -217,6 +249,12 @@ const Post: React.FC = () => {
                             >
                               X
                             </Button>
+                            {showEditModale && (
+                              <ModaleEditPost
+                                onShow={showEditModale}
+                                onClose={handleNoShowEditModale}
+                              />
+                            )}
                           </div>
                         )}
                       </div>
@@ -310,6 +348,14 @@ const Post: React.FC = () => {
                             >
                               Elimina commento
                             </a>
+                            <a
+                              onClick={() => {
+                                handleShowEditModale();
+                              }}
+                              className="delete-commento"
+                            >
+                              Modifica Post
+                            </a>
                             <Button
                               className="close-settings-button"
                               onClick={() => {
@@ -318,6 +364,12 @@ const Post: React.FC = () => {
                             >
                               X
                             </Button>
+                            {showEditModale && (
+                              <ModaleEditPost
+                                onShow={showEditModale}
+                                onClose={handleNoShowEditModale}
+                              />
+                            )}
                           </div>
                         )}
                       </div>

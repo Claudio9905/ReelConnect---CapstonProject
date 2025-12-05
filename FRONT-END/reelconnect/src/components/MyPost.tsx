@@ -9,6 +9,7 @@ import Commento from "./Commento";
 // import imagePost from "../assets/img/how-to-watch-the-lord-of-the-rings-in-chronological-order_3kwh.jpg";
 import iconComment from "../assets/img/comment_icon_post.png";
 import myCiakIcon from "../assets/img/MyCiak_icon.png";
+import ModaleEditPost from "./ModaleEditPost";
 
 const MyPost: React.FC = () => {
   const post = useSelector((state: RootState) => {
@@ -30,6 +31,17 @@ const MyPost: React.FC = () => {
   };
   const handleNoShowCommenti = () => {
     setShowCommenti(false);
+  };
+
+  const [showEditModale, setShowEditModale] = useState(false);
+  const [selectedPost, setSelectedPost] = useState<BodyPostGet | null>(null);
+
+  const handleClickPost = (post: BodyPostGet) => {
+    setSelectedPost(post);
+  };
+
+  const handleNoShowEditModale = () => {
+    setShowEditModale(false);
   };
 
   const dispatch = useDispatch<AppDispatch>();
@@ -86,7 +98,6 @@ const MyPost: React.FC = () => {
                           className="img-fluid icona-commento-post"
                           onClick={() => {
                             setActualPostId(post.id);
-
                             handleShowCommenti();
                           }}
                         />
@@ -94,6 +105,7 @@ const MyPost: React.FC = () => {
                         <Button
                           className="button-icon"
                           onClick={() => {
+                            setActualPostId(post.id);
                             setShowSettingsPost(true);
                           }}
                         >
@@ -108,7 +120,7 @@ const MyPost: React.FC = () => {
                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                           </svg>
                         </Button>
-                        {showSettingsPost && (
+                        {showSettingsPost && actualPostId === post.id && (
                           <div className=" d-flex flex-column">
                             <a
                               onClick={() => {
@@ -118,6 +130,14 @@ const MyPost: React.FC = () => {
                             >
                               Elimina Post
                             </a>
+                            <a
+                              onClick={() => {
+                                handleClickPost(post);
+                              }}
+                              className="edit-commento"
+                            >
+                              Modifica Post
+                            </a>
                             <Button
                               className="close-settings-button"
                               onClick={() => {
@@ -126,6 +146,13 @@ const MyPost: React.FC = () => {
                             >
                               X
                             </Button>
+                            {showEditModale && selectedPost && (
+                              <ModaleEditPost
+                                onShow={showEditModale}
+                                onClose={handleNoShowEditModale}
+                                descrizione={selectedPost.descrizione}
+                              />
+                            )}
                           </div>
                         )}
                       </div>
@@ -189,7 +216,6 @@ const MyPost: React.FC = () => {
                           className="img-fluid icona-commento-post"
                           onClick={() => {
                             setActualPostId(post.id);
-
                             handleShowCommenti();
                           }}
                         />
@@ -219,7 +245,15 @@ const MyPost: React.FC = () => {
                               }}
                               className="delete-commento"
                             >
-                              Elimina commento
+                              Elimina Post
+                            </a>
+                            <a
+                              onClick={() => {
+                                handleClickPost(post);
+                              }}
+                              className="edit-commento"
+                            >
+                              Modifica Post
                             </a>
                             <Button
                               className="close-settings-button"
@@ -229,6 +263,13 @@ const MyPost: React.FC = () => {
                             >
                               X
                             </Button>
+                            {showEditModale && selectedPost && (
+                              <ModaleEditPost
+                                onShow={showEditModale}
+                                onClose={handleNoShowEditModale}
+                                descrizione={selectedPost.descrizione}
+                              />
+                            )}
                           </div>
                         )}
                       </div>
@@ -324,7 +365,15 @@ const MyPost: React.FC = () => {
                               }}
                               className="delete-commento"
                             >
-                              Elimina commento
+                              Elimina Post
+                            </a>
+                            <a
+                              onClick={() => {
+                                handleClickPost(post);
+                              }}
+                              className="edit-commento"
+                            >
+                              Modifica Post
                             </a>
                             <Button
                               className="close-settings-button"
@@ -334,6 +383,13 @@ const MyPost: React.FC = () => {
                             >
                               X
                             </Button>
+                            {showEditModale && selectedPost && (
+                              <ModaleEditPost
+                                onShow={showEditModale}
+                                onClose={handleNoShowEditModale}
+                                descrizione={selectedPost.descrizione}
+                              />
+                            )}
                           </div>
                         )}
                       </div>

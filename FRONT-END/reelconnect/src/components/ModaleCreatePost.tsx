@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../redux/store";
 import { useEffect, useState } from "react";
-import { createAPost, createSuccessPost } from "../redux/actions/actions";
+import { createAPost } from "../redux/actions/actions";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import type BodyUser from "../types/bodyUser";
