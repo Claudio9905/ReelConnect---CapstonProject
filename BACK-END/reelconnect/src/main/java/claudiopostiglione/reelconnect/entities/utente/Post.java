@@ -35,7 +35,7 @@ public class Post {
     @JoinColumn(name = "utente")
     private Utente utente;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Commento> listaCommenti = new ArrayList<>();
 

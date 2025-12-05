@@ -1,7 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../redux/store";
 import { useEffect, useState } from "react";
-import { createNoSuccessPost, getAllMyPost } from "../redux/actions/actions";
+import {
+  createNoSuccessPost,
+  deleteMyPost,
+  getAllMyPost,
+} from "../redux/actions/actions";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import type BodyPostGet from "../types/BodyPostGet";
@@ -9,6 +13,7 @@ import Commento from "./Commento";
 // import imagePost from "../assets/img/how-to-watch-the-lord-of-the-rings-in-chronological-order_3kwh.jpg";
 import iconComment from "../assets/img/comment_icon_post.png";
 import myCiakIcon from "../assets/img/MyCiak_icon.png";
+import type BodyUser from "../types/bodyUser";
 
 const MyPost: React.FC = () => {
   const post = useSelector((state: RootState) => {
@@ -16,7 +21,7 @@ const MyPost: React.FC = () => {
   });
   const [showCommenti, setShowCommenti] = useState(false);
   const [actualPostId, setActualPostId] = useState<string | null>(null);
-  // const [showSettingsPost, setShowSettingsPost] = useState(false);
+  const [showSettingsPost, setShowSettingsPost] = useState(false);
   // const myProfile = useSelector((state: RootState) => {
   //   return state.myProfile.myProfile as BodyUser;
   // });
@@ -91,9 +96,9 @@ const MyPost: React.FC = () => {
                         <span className="numero-commenti">N</span>
                         <Button
                           className="button-icon"
-                          // onClick={() => {
-                          //   setShowSettingsPost(true);
-                          // }}
+                          onClick={() => {
+                            setShowSettingsPost(true);
+                          }}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -106,8 +111,7 @@ const MyPost: React.FC = () => {
                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                           </svg>
                         </Button>
-                        {/* {showSettingsPost && (
-                      
+                        {showSettingsPost && (
                           <div className=" d-flex flex-column">
                             <a
                               onClick={() => {
@@ -115,7 +119,7 @@ const MyPost: React.FC = () => {
                               }}
                               className="delete-commento"
                             >
-                              Elimina commento
+                              Elimina Post
                             </a>
                             <Button
                               className="close-settings-button"
@@ -126,7 +130,7 @@ const MyPost: React.FC = () => {
                               X
                             </Button>
                           </div>
-                        )} */}
+                        )}
                       </div>
                       {showCommenti && actualPostId === post.id && (
                         <Commento
@@ -195,9 +199,9 @@ const MyPost: React.FC = () => {
                         <span className="numero-commenti">N</span>
                         <Button
                           className="button-icon"
-                          // onClick={() => {
-                          //   setShowSettingsPost(true);
-                          // }}
+                          onClick={() => {
+                            setShowSettingsPost(true);
+                          }}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -210,8 +214,7 @@ const MyPost: React.FC = () => {
                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                           </svg>
                         </Button>
-                        {/* {showSettingsPost && (
-                      
+                        {showSettingsPost && (
                           <div className=" d-flex flex-column">
                             <a
                               onClick={() => {
@@ -230,7 +233,7 @@ const MyPost: React.FC = () => {
                               X
                             </Button>
                           </div>
-                        )} */}
+                        )}
                       </div>
                       {showCommenti && actualPostId === post.id && (
                         <Commento
@@ -301,9 +304,9 @@ const MyPost: React.FC = () => {
                         <span className="numero-commenti">N</span>
                         <Button
                           className="button-icon"
-                          // onClick={() => {
-                          //   setShowSettingsPost(true);
-                          // }}
+                          onClick={() => {
+                            setShowSettingsPost(true);
+                          }}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -316,8 +319,7 @@ const MyPost: React.FC = () => {
                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                           </svg>
                         </Button>
-                        {/* {showSettingsPost && (
-                      
+                        {showSettingsPost && (
                           <div className=" d-flex flex-column">
                             <a
                               onClick={() => {
@@ -336,7 +338,7 @@ const MyPost: React.FC = () => {
                               X
                             </Button>
                           </div>
-                        )} */}
+                        )}
                       </div>
                       {showCommenti && actualPostId === post.id && (
                         <Commento

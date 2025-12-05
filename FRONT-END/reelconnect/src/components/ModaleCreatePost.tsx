@@ -41,7 +41,6 @@ const ModaleCreatePost: React.FC<ModalCreatePostProps> = ({
       formData.append("imageFile", selectedFile);
     }
     dispatch(createAPost(formData));
-    dispatch(createSuccessPost());
   };
 
   useEffect(() => {});
@@ -64,6 +63,7 @@ const ModaleCreatePost: React.FC<ModalCreatePostProps> = ({
               <FormControl
                 as="textarea"
                 className="input-form"
+                required
                 value={createForm.descrizione}
                 onChange={(e) => {
                   setCreateform({ ...createForm, descrizione: e.target.value });

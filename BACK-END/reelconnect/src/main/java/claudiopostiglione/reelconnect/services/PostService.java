@@ -113,8 +113,10 @@ public class PostService {
 
     private Post verifyPost(UUID utenteId, UUID postId) {
         Post post = this.findPostById(postId);
-        if (!post.getUtente().getId().equals(postId))
+        Utente utenteFound = this.utenteService.getUtenteById(utenteId);
+        if (!post.getUtente().getId().equals(utenteFound.getId())) {
             throw new AccessDeniedException("Non hai i permessi per modificare questo post");
+        }
         return post;
     }
 

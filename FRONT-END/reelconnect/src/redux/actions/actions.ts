@@ -791,7 +791,7 @@ export const getAllMyPost = () => {
 
 export const editMyPost = (id: string, post: BodyPost) => {
   return (dispatch: AppDispatch) => {
-    fetch(endpointPost + `/me/${id}`, {
+    fetch(endpointPostme + `/${id}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -821,7 +821,7 @@ export const editMyPost = (id: string, post: BodyPost) => {
 
 export const editImagePost = (id: string, file: FormData) => {
   return (dispatch: AppDispatch) => {
-    fetch(endpointPost + `/me/${id}/imageUrl`, {
+    fetch(endpointPostme + `/${id}/imageUrl`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -851,7 +851,8 @@ export const editImagePost = (id: string, file: FormData) => {
 
 export const deleteMyPost = (id: string) => {
   return (dispatch: AppDispatch) => {
-    fetch(endpointPost + `/me/${id}`, {
+    dispatch(createSuccessPost());
+    fetch(endpointPostme + `/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -927,6 +928,7 @@ export const createAPost = (post: FormData) => {
           type: CREATE_POST,
           payload: resData,
         });
+        dispatch(createSuccessPost());
       })
       .catch((err) => {
         console.log("Error: ", err);
