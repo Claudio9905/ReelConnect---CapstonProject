@@ -7,7 +7,11 @@ import ModaleEditProfile from "./ModaleEditProfile";
 import MyPost from "./MyPost";
 import ModaleEditAvatarProfile from "./ModaleEditAvatarProfile";
 import ModaleEditBannerProfile from "./ModaleEditBannerProfile";
-import { getMyProfile } from "../redux/actions/actions";
+import {
+  createNoSuccessPost,
+  getAllMyPost,
+  getMyProfile,
+} from "../redux/actions/actions";
 
 const MyProfile: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -26,9 +30,15 @@ const MyProfile: React.FC = () => {
   const handleCloseModalBanner = () => setShowModalBanner(false);
   const handleShowModalBanner = () => setShowModalBanner(true);
 
+  const postSuccess = useSelector((state: RootState) => {
+    return state.postSettings.status;
+  });
+
   useEffect(() => {
     dispatch(getMyProfile());
-  }, []);
+    dispatch(getAllMyPost());
+    dispatch(createNoSuccessPost());
+  }, [postSuccess]);
 
   console.log("Profile: ", profile);
   return (

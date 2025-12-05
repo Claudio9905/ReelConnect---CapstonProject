@@ -1,11 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../redux/store";
-import { useEffect, useState } from "react";
-import {
-  createNoSuccessPost,
-  deleteMyPost,
-  getAllMyPost,
-} from "../redux/actions/actions";
+import { useState } from "react";
+import { deleteMyPost } from "../redux/actions/actions";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import type BodyPostGet from "../types/BodyPostGet";
@@ -13,7 +9,6 @@ import Commento from "./Commento";
 // import imagePost from "../assets/img/how-to-watch-the-lord-of-the-rings-in-chronological-order_3kwh.jpg";
 import iconComment from "../assets/img/comment_icon_post.png";
 import myCiakIcon from "../assets/img/MyCiak_icon.png";
-import type BodyUser from "../types/bodyUser";
 
 const MyPost: React.FC = () => {
   const post = useSelector((state: RootState) => {
@@ -26,9 +21,9 @@ const MyPost: React.FC = () => {
   //   return state.myProfile.myProfile as BodyUser;
   // });
 
-  const postSuccess = useSelector((state: RootState) => {
-    return state.postSettings.status;
-  });
+  // const postSuccess = useSelector((state: RootState) => {
+  //   return state.postSettings.status;
+  // });
 
   const handleShowCommenti = () => {
     setShowCommenti(true);
@@ -40,10 +35,12 @@ const MyPost: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   console.log(post);
 
-  useEffect(() => {
-    dispatch(getAllMyPost());
-    dispatch(createNoSuccessPost());
-  }, [postSuccess]);
+  // useEffect(() => {
+  //   console.log("useEffect triggered");
+
+  //   dispatch(getAllMyPost());
+  //   dispatch(createNoSuccessPost());
+  // }, [postSuccess]);
 
   return (
     <>

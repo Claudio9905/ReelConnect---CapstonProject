@@ -1,14 +1,23 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 
 import Post from "./Post";
-import { useSelector } from "react-redux";
-import type { RootState } from "../redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../redux/store";
 import type BodyUser from "../types/bodyUser";
+import { useEffect } from "react";
+import { getAllPost, getMyProfile } from "../redux/actions/actions";
 
 const Cineverse: React.FC = () => {
   const profile = useSelector((state: RootState) => {
     return state.myProfile.myProfile as BodyUser;
   });
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(getMyProfile());
+    dispatch(getAllPost());
+  }, []);
 
   return (
     <>

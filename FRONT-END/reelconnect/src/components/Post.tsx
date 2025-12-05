@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../redux/store";
-import { useEffect, useState } from "react";
-import { getAllPost, getMyProfile } from "../redux/actions/actions";
+import { useState } from "react";
+import { deleteMyPost } from "../redux/actions/actions";
 import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -17,7 +17,7 @@ const Post: React.FC = () => {
 
   const [showCommenti, setShowCommenti] = useState(false);
   const [actualPostId, setActualPostId] = useState<string | null>(null);
-
+  const [showSettingsPost, setShowSettingsPost] = useState(false);
   const handleShowCommenti = () => {
     setShowCommenti(true);
   };
@@ -27,10 +27,12 @@ const Post: React.FC = () => {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  useEffect(() => {
-    dispatch(getMyProfile());
-    dispatch(getAllPost());
-  }, []);
+  // const dispatch = useDispatch<AppDispatch>();
+
+  // useEffect(() => {
+  //   dispatch(getMyProfile());
+  //   dispatch(getAllPost());
+  // }, []);
 
   return (
     <>
@@ -79,9 +81,9 @@ const Post: React.FC = () => {
                         <span className="numero-commenti">N</span>
                         <Button
                           className="button-icon"
-                          // onClick={() => {
-                          //   setShowSettingsPost(true);
-                          // }}
+                          onClick={() => {
+                            setShowSettingsPost(true);
+                          }}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -94,8 +96,7 @@ const Post: React.FC = () => {
                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                           </svg>
                         </Button>
-                        {/* {showSettingsPost && (
-                      
+                        {showSettingsPost && (
                           <div className=" d-flex flex-column">
                             <a
                               onClick={() => {
@@ -114,7 +115,7 @@ const Post: React.FC = () => {
                               X
                             </Button>
                           </div>
-                        )} */}
+                        )}
                       </div>
                       {showCommenti && actualPostId === post.id && (
                         <Commento
@@ -183,9 +184,9 @@ const Post: React.FC = () => {
                         <span className="numero-commenti">N</span>
                         <Button
                           className="button-icon"
-                          // onClick={() => {
-                          //   setShowSettingsPost(true);
-                          // }}
+                          onClick={() => {
+                            setShowSettingsPost(true);
+                          }}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -198,8 +199,7 @@ const Post: React.FC = () => {
                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                           </svg>
                         </Button>
-                        {/* {showSettingsPost && (
-                      
+                        {showSettingsPost && (
                           <div className=" d-flex flex-column">
                             <a
                               onClick={() => {
@@ -218,7 +218,7 @@ const Post: React.FC = () => {
                               X
                             </Button>
                           </div>
-                        )} */}
+                        )}
                       </div>
                       {showCommenti && actualPostId === post.id && (
                         <Commento
@@ -285,9 +285,9 @@ const Post: React.FC = () => {
                         <span className="numero-commenti">N</span>
                         <Button
                           className="button-icon"
-                          // onClick={() => {
-                          //   setShowSettingsPost(true);
-                          // }}
+                          onClick={() => {
+                            setShowSettingsPost(true);
+                          }}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -300,8 +300,7 @@ const Post: React.FC = () => {
                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                           </svg>
                         </Button>
-                        {/* {showSettingsPost && (
-                      
+                        {showSettingsPost && (
                           <div className=" d-flex flex-column">
                             <a
                               onClick={() => {
@@ -320,7 +319,7 @@ const Post: React.FC = () => {
                               X
                             </Button>
                           </div>
-                        )} */}
+                        )}
                       </div>
                       {showCommenti && actualPostId === post.id && (
                         <Commento
