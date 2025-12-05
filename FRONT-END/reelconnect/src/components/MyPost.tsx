@@ -38,6 +38,7 @@ const MyPost: React.FC = () => {
 
   const handleClickPost = (post: BodyPostGet) => {
     setSelectedPost(post);
+    setShowEditModale(true);
   };
 
   const handleNoShowEditModale = () => {
@@ -237,7 +238,7 @@ const MyPost: React.FC = () => {
                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                           </svg>
                         </Button>
-                        {showSettingsPost && (
+                        {showSettingsPost && actualPostId === post.id && (
                           <div className=" d-flex flex-column">
                             <a
                               onClick={() => {
@@ -357,7 +358,7 @@ const MyPost: React.FC = () => {
                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                           </svg>
                         </Button>
-                        {showSettingsPost && (
+                        {showSettingsPost && actualPostId === post.id && (
                           <div className=" d-flex flex-column">
                             <a
                               onClick={() => {

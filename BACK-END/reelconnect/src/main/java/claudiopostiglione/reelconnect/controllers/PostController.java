@@ -44,10 +44,7 @@ public class PostController {
 
     //    3. PATCH per l'aggiunta di un immagine
     @PatchMapping("/me/{postId}/imageUrl")
-    public Post getMyPostAndUploadImage(@AuthenticationPrincipal Utente currentUtente, @RequestParam("imageURl") MultipartFile file, @PathVariable UUID postId, BindingResult validationResult) {
-        if (validationResult.hasErrors()) {
-            throw new ValidationException(validationResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
-        }
+    public Post getMyPostAndUploadImage(@AuthenticationPrincipal Utente currentUtente, @RequestParam("imageUrl") MultipartFile file, @PathVariable UUID postId, BindingResult validationResult) {
         return this.postService.uploadImagePost(file, currentUtente.getId(), postId);
     }
 
