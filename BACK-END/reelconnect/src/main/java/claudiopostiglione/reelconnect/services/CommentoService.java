@@ -43,6 +43,7 @@ public class CommentoService {
 
         Commento commentoSaved = this.commentoRepository.save(newCommento);
         postFound.getListaCommenti().add(commentoSaved);
+//        postFound.setNumCommenti(postFound.getListaCommenti().size());
 
         log.info("Il commento con id " + commentoSaved.getId() + " è stato salvato correttamente");
         return commentoSaved;

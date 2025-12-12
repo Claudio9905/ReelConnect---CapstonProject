@@ -102,7 +102,9 @@ const MyPost: React.FC = () => {
                             handleShowCommenti();
                           }}
                         />
-                        <span className="numero-commenti">N</span>
+                        <span className="numero-commenti">
+                          {post.numCommenti}
+                        </span>
                         <Button
                           className="button-icon"
                           onClick={() => {
@@ -220,7 +222,9 @@ const MyPost: React.FC = () => {
                             handleShowCommenti();
                           }}
                         />
-                        <span className="numero-commenti">N</span>
+                        <span className="numero-commenti">
+                          {post.numCommenti}
+                        </span>
                         <Button
                           className="button-icon"
                           onClick={() => {
@@ -340,7 +344,9 @@ const MyPost: React.FC = () => {
                             handleShowCommenti();
                           }}
                         />
-                        <span className="numero-commenti">N</span>
+                        <span className="numero-commenti">
+                          {post.numCommenti}
+                        </span>
                         <Button
                           className="button-icon"
                           onClick={() => {

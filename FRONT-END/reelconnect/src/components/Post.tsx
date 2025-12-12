@@ -97,7 +97,9 @@ const Post: React.FC = () => {
                               handleShowCommenti();
                             }}
                           />
-                          <span className="numero-commenti">N</span>
+                          <span className="numero-commenti">
+                            {post.numCommenti}
+                          </span>
                         </div>
                         {showCommenti && actualPostId === post.id && (
                           <Commento
@@ -165,7 +167,9 @@ const Post: React.FC = () => {
                               handleShowCommenti();
                             }}
                           />
-                          <span className="numero-commenti">N</span>
+                          <span className="numero-commenti">
+                            {post.numCommenti}
+                          </span>
                         </div>
                         {showCommenti && actualPostId === post.id && (
                           <Commento
@@ -231,7 +235,9 @@ const Post: React.FC = () => {
                               handleShowCommenti();
                             }}
                           />
-                          <span className="numero-commenti">N</span>
+                          <span className="numero-commenti">
+                            {post.numCommenti}
+                          </span>
                         </div>
                         {showCommenti && actualPostId === post.id && (
                           <Commento

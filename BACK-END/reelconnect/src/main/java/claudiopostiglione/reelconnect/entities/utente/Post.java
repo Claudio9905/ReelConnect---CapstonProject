@@ -13,7 +13,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "post")
 @NoArgsConstructor
-@Getter
 @Setter
 @ToString
 public class Post {
@@ -30,6 +29,8 @@ public class Post {
     private LocalDateTime dataCreazionePost;
     @Column(name = "num_ciak")
     private long numCiak;
+    @Column(name = "num_commenti")
+    private long numCommenti;
 
     @ManyToOne
     @JoinColumn(name = "utente")
@@ -45,5 +46,39 @@ public class Post {
         this.dataCreazionePost = LocalDateTime.now();
         this.utente = utente;
         this.imageUrl = imageUrl;
+        this.numCiak = 0;
+        this.numCommenti = getNumCommenti();
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public LocalDateTime getDataCreazionePost() {
+        return dataCreazionePost;
+    }
+
+    public long getNumCiak() {
+        return numCiak;
+    }
+
+    public long getNumCommenti() {
+        return listaCommenti != null ? listaCommenti.size() : 0;
+    }
+
+    public Utente getUtente() {
+        return utente;
+    }
+
+    public List<Commento> getListaCommenti() {
+        return listaCommenti;
     }
 }

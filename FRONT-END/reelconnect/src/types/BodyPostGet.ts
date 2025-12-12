@@ -8,5 +8,6 @@ export default interface BodyPostGet {
   imageUrl: string;
   dataCreazionePost: string;
   numCiak: number;
+  numCommenti: number;
   listaCommenti: BodyCommentoGet[];
 }

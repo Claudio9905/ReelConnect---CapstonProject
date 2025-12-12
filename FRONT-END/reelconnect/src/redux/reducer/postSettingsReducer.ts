@@ -37,6 +37,7 @@ const initialState: stateType = {
     imageUrl: "",
     dataCreazionePost: "",
     numCiak: 0,
+    numCommenti: 0,
     listaCommenti: [],
   },
   isLoading: false,
